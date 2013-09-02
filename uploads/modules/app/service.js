@@ -1,11 +1,19 @@
-var mongoose = require('../../../dao/mongoose');
+var mongoose = require('../../../framework/mongoose');
+var http = require('http');
+var url = require('url');
+
 var App = require('./model').app;
 var AppModel = mongoose.model('App', App);
 
 exports.findAll = function (req, res) {
     return AppModel.find(function (err, apps) {
         if (!err) {
-            return res.send(apps);
+            var data = JSON.stringify(apps);
+            var params = url.parse(req.url, true);
+            if (params.query && params.query.callback) {
+                data =  params.query.callback + '(' + data + ')';
+            }
+            return res.send(data);
         } else {
             return console.log(err);
         }
@@ -14,7 +22,13 @@ exports.findAll = function (req, res) {
 exports.findById = function(req, res){
     return AppModel.findById(req.params.id, function(err, app){
         if(!err){
-            return res.send(app);
+            var data = JSON.stringify(app);
+            var params = url.parse(req.url, true);
+
+            if (params.query && params.query.callback) {
+                data =  params.query.callback + '(' + data + ')';
+            }
+            return res.send(data);
         } else {
             return console.log(err);
         }
@@ -22,6 +36,8 @@ exports.findById = function(req, res){
 };
 
 exports.save = function (req, res) {
+    console.log(1111);
+
     var app = new AppModel({
         title:req.body.title,
         author:req.body.author,
@@ -30,7 +46,14 @@ exports.save = function (req, res) {
     });
     app.save(function (err) {
         if (!err) {
-            return console.log('created');
+            var data = JSON.stringify({success: true});
+            var params = url.parse(req.url, true);
+
+            if (params.query && params.query.callback) {
+                data =  params.query.callback + '(' + data + ')';
+            }
+
+            return res.send(data);
         } else {
             return console.log(err);
         }

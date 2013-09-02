@@ -1,4 +1,4 @@
-var mongoose = require('../../../dao/mongoose');
+var mongoose = require('../../../framework/mongoose');
 
 var Keywords = new mongoose.Schema({
     keyword: String

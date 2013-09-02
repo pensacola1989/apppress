@@ -1,14 +1,14 @@
 var service = require('./service');
 
 //Rest Interface
-exports.findAll = function (req, res) {
+exports.findAll = function (req, res) {         console.log("findAll");
     return service.findAll(req, res);
 };
 exports.findById = function(req, res){
     return service.findById(req, res);
 };
 
-exports.save = function (req, res) {
+exports.save = function (req, res) {      console.log("save");
     return service.save(req, res);
 };
 
