@@ -20,7 +20,7 @@ server.configure(function () {
 });
 
 //Start server
-server.listen(9090, function () {
+server.listen(9000, function () {
     console.log("Express server listening on port %d in %s mode", server.port, server.settings.env);
 });
 server.get('/api', function(req, res){
