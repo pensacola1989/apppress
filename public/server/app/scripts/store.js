@@ -1,3 +1,3 @@
-Client.Store = DS.Store.extend({
+Server.Store = DS.Store.extend({
     adapter: DS.FixtureAdapter.create()
 });

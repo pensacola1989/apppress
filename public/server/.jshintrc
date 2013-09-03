@@ -15,7 +15,7 @@
     "trailing": false,
     "smarttabs": true,
     "globals": {
-        "Client": true,
+        "Server": true,
         "jQuery": true,
         "Ember": true,
         "Handlebars": true,

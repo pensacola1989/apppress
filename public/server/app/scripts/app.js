@@ -1,4 +1,4 @@
-var Client = window.Client = Ember.Application.create();
+var Server = window.Server = Ember.Application.create();
 
 /* Order and include as you please. */
 require('scripts/controllers/*');

@@ -1,3 +1,3 @@
-ApppressClient.Router.map(function () {
+Client.Router.map(function () {
   
 });
