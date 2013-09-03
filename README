@@ -2,3 +2,6 @@ npm uninstall -g yeoman
 npm install -g yo
 npm cache clean
 npm update -g yo
+
+
+http://codebyexample.info/2012/04/29/backbone-in-baby-steps-part-2-5/

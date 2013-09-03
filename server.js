@@ -20,7 +20,7 @@ server.configure(function () {
 });
 
 //Start server
-server.listen(9000, function () {
+server.listen(9090, function () {
     console.log("Express server listening on port %d in %s mode", server.port, server.settings.env);
 });
 server.get('/api', function(req, res){
@@ -30,6 +30,6 @@ server.get('/api', function(req, res){
 var modules = config.modules || [];
 for (var i = 0, l = modules.length; i < l; i++) {
     var module = modules[i];
-    require('./uploads/modules/' + module[0] + '/route')(server)
+    require('./uploads/modules/' + module[0] + '/route')(server);
     //server.use(require('./plugins/' + p[0])(p[1]));
 }
