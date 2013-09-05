@@ -11,7 +11,7 @@ var App = new mongoose.Schema({
     releaseDate:Date,
     keywords: [Keywords]
 });
-exports.app = App;
+exports.App = App;
 
 
 

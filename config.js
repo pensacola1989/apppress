@@ -32,7 +32,7 @@ var config = {
 
 	admins: { admin: true },
 
-    modules: [['app']],
+    modules: [['app','user']],
     components: [],
 	plugins: []
 };
