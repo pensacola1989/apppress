@@ -1,4 +1,6 @@
-Custant = {};
+Custant = {
+    ApiVer: 'v1'
+};
 if (location.href.indexOf("192.168") > -1) {
     Custant.Site = "http://192.168.1.228:9000/";
     Custant.ApiRoot = Custant.Site + "api/v1/";
@@ -12,7 +14,8 @@ if (location.href.indexOf("192.168") > -1) {
 }
 
 Vari = {
-	ApiRestV1: Custant.WebRoot + "api/1/rest/",
+
+    ApiRest: Custant.WebRoot + "api/" + Custant.ApiVer + "/rest/",
 	
 	TokenName: "apppress.token",
 	UserEmail: null,

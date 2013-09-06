@@ -2,6 +2,7 @@ var config = {
 	name: 'AppPress',
 	description: '',
 	version: '0.1.0',
+    api_version: '/api/1/',
 
 	site_headers: [
 		'<meta name="author" content="aaronchen2k@gmail.com" />',
