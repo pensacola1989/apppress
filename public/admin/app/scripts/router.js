@@ -9,4 +9,10 @@ Admin.Router.map(function () {
     this.resource('dashboard', { path: '/dashboard' }, function() {
         this.route('index', { path: '/index' });
     });
+
+    this.resource('app', { path: '/app' }, function() {
+        this.route('list', { path: '/list' });
+        this.route('new', { path: '/new' });
+    });
+
 });

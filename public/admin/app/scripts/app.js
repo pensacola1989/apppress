@@ -5,9 +5,16 @@ require('scripts/controllers/*');
 require('scripts/store');
 require('scripts/models/*');
 require('scripts/views/*');
-
 require('scripts/router');
 require('scripts/routes/*');
+
+Admin.ApplicationAdapter = DS.RESTAdapter.extend({
+    namespace: 'api/v1',
+    host: 'http://localhost:9000'
+});
+
+
+Admin.Store = DS.Store.extend();
 
 $.ajaxSetup({
     error: function(qXHR, textStatus) {
@@ -19,4 +26,4 @@ $.ajaxSetup({
     }
 });
 
-//$.cookie.defaults = { expires: 7, path: '/', domain: "localhost" };
+$.cookie.defaults = { expires: 7, path: '/', domain: "localhost" };

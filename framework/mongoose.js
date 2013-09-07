@@ -23,8 +23,8 @@ exports.findAll = function (model, req, res) {
         } else {
             console.log(err);
         }
-        var data = jsonpMethod(req, {success: success, data: objs});
-        return res.send(data);
+        var data = jsonpMethod(req, objs);
+        return res.send({app: objs});
     });
 };
 
