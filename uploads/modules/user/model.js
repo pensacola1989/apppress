@@ -1,11 +1,14 @@
 var mongoose = require('../../../framework/mongoose');
 
 var User = new mongoose.Schema({
-    title:String,
-    author:String,
-    releaseDate:Date
+    email:String,
+    passwd:String,
+    token:String,
+    phone:String,
+    im:String,
+    status:String,
+
+    updateTime:Date
+
 });
 exports.User = User;
-
-
-

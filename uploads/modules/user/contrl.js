@@ -7,15 +7,42 @@ var UserModel = mongoose.model('User', require('./model').App);
 exports.signonWithToken = function (req, res) {
     var success = false;
 
-    console.log(req.body.token);
-//    return UserModel.findById(req.params.id, function(err, obj){
-//        if(!err){
-//            success = true;
-//            console.log('findById success');
-//        } else {
-//            console.log(err);
-//        }
-//        var data = jsonpMethod(req, {success: success, data: model});
-//        return res.send(data);
-//    });
+    return UserModel.findOne({token: req.body.token}, function(err, obj){
+        if(!err && obj != null){
+            success = true;
+        } else {
+            console.log(err);
+        }
+        console.log(obj);
+        var data = {success: success, data: obj};
+        return res.send(data);
+    });
+};
+
+exports.signup = function (req, res) {
+    var success = false;
+    var code = '';
+
+    return UserModel.findOne({email: req.body.email}, function(err, obj){
+        if(!err && obj == null){   // not exist
+            var user = new UserModel({
+                email:  req.body.email,
+                passwd: req.body.password,
+                token: '',
+//                phone: req.body.phone,
+//                im: req.body.im,
+                status: 1,
+
+                updateTime: new Date()
+            });
+            mongoose.save(user, req, res);
+
+            success = true;
+        } else {
+            success = false;
+            code = 'Email already exists.';
+        }
+        var data = {success: success, code:code, data: obj};
+        return res.send(data);
+    });
 };

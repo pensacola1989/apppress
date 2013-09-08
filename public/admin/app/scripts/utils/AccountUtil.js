@@ -5,7 +5,7 @@ AccountUtil = {
         if (Util.isEmpty(token)) {
             //route.transitionTo("user.signon");
             location.href="#/user/signon";
-        } else {     console.log(Vari.ApiPath + 'user/signonWithToken');
+        } else {
             $.ajax({
                 type : 'POST',
                 dataType : 'json',
@@ -16,7 +16,6 @@ AccountUtil = {
                     token: token
                 },
                 success : function(json) {
-
                     if (json.success) {
                         console.log("success to signonWithToken");
 

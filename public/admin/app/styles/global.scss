@@ -40,3 +40,8 @@ span.required {
     margin: 0;
     padding: 0;
 }
+
+form label.error {
+  display: inline !important;
+  margin-left: 6px !important;
+}
