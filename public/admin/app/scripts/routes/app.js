@@ -1,7 +1,6 @@
 Admin.AppListRoute = Ember.Route.extend({
     model: function(params) {
         var list = this.store.findAll('app');
-        console.log(list);
         return list;
     },
 //	setupController : function(controller, model) {
@@ -26,10 +25,7 @@ Admin.AppListRoute = Ember.Route.extend({
 //			}
 //
 //		});
-//	},
-	events : {
-
-	}
+//	}
 });
 
 Admin.AppsNewRoute = Ember.Route.extend({

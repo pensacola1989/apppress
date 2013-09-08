@@ -2,20 +2,14 @@ Custant = {
     ApiVer: 'v1'
 };
 if (location.href.indexOf("192.168") > -1) {
-    Custant.Site = "http://192.168.1.228:9000/";
-    Custant.ApiRoot = Custant.Site + "api/v1/";
-	Custant.AdminRoot = Custant.Site + "admin/app/";
-    Custant.ClientRoot = Custant.Site + "client/app/";
+    Custant.WebRoot = "http://192.168.1.228:9000/";
 } else {
-    Custant.Site = "http://121.199.18.199/";
-    Custant.ApiRoot = Custant.Site + "api/v1/";
-	Custant.AdminRoot = Custant.Site + "a/";
-    Custant.ClientRoot = Custant.Site + "c/";
+    Custant.WebRoot = "http://121.199.18.199/";
 }
 
 Vari = {
 
-    ApiRest: Custant.WebRoot + "api/" + Custant.ApiVer + "/rest/",
+    ApiPath: Custant.WebRoot + "api/" + Custant.ApiVer + "/",
 	
 	TokenName: "apppress.token",
 	UserEmail: null,

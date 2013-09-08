@@ -3,7 +3,7 @@ Admin.IndexRoute = Ember.Route.extend({
     	var me = this;
 
         //location.href="#/apps";
-        me.transitionTo("app.list");
-        //AccountUtil.signonWithToken();
+        //me.transitionTo("app.list");
+        AccountUtil.signonWithToken();
     }
 });
