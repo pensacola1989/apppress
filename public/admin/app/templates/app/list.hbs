@@ -1,0 +1,26 @@
+{{view Admin.HeaderView}}
+<div id="app_list" class="formContaner row-fluid">
+    <div class="new">
+        {{#linkTo "app.new"}}Create{{/linkTo}}
+    </div>
+    <table class="table table-bordered">
+        <tr class="header">
+            <th>Name</td>
+            <th>Description</td>
+            <th>Action</td>
+        </tr>
+        {{#each app in content}}
+            <tr>
+                <td>{{app.title}}</td>
+                <td>{{app.descr}}</td>
+                <td>
+                    <a href="#" {{action viewApp app}}>View<a/> &nbsp;&nbsp;
+                    <a href="#" {{action editApp app}}>Edit<a/> &nbsp;&nbsp;
+                    <a href="#" {{action deleteApp app}}>Delete<a/> &nbsp;&nbsp;
+                    <a href="#app/{{unbound app.id}}/run" target="_blank">Run</a>
+                </td>
+            </tr>
+        {{/each}}
+    </table>
+</div>
+{{view Admin.FooterView}}

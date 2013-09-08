@@ -1,5 +1,88 @@
 @import "bootstrap-sass/lib/bootstrap";
+@import "compass";
 
-html, body {
-    margin: 30px 0;
+.ap-navbar-bg.navbar-inner {
+  background-color: #E86224;
+  background-image: url(about:blank);
+
+  height: 40px;
+  margin-bottom: 0;
+
+  a, a:hover {
+    color: white;
+    text-decoration: none;
+  }
+
+  .back {
+    img {
+      float: right;
+      margin: 10px 10px 0 0;
+      width: 20px;
+      height: 20px;
+    }
+  }
+  .container {
+    margin-right: auto;
+    margin-left: auto;
+    width: 90%;
+    .row {
+      min-width: 720px;
+      .span2 {
+        float: left;
+        margin-left: 20px;
+
+          margin: -2px 0 0;
+          .brand {
+            display: block;
+            width: 200px;
+            img {
+              height: 28px;
+              width: 100px;
+            }
+            .beta {
+              padding-left: 3px;
+              margin-top: -3px;
+              font-size: 10px;
+              font-weight: normal;
+              color: white;
+            }
+          }
+      }
+      .span14.top-bar {
+        width: 80%;
+        float: right;
+        margin-left: 20px;
+
+        .top-panel.pull-right {
+          font-size: 14px;
+          .avatar {
+            width: 20px;
+            height: 20px;
+            margin-top: -3px;
+          }
+          a {
+            height: 40px;
+            line-height: 38px;
+            padding: 0 7px;
+            font-style: normal;
+          }
+          #userEmail {
+            color: white;
+          }
+        }
+        ul.top-nav {
+          font-size: 16px;
+          list-style: none;
+          li {
+            float: left;
+            a {
+              height: 40px;
+              line-height: 38px;
+              padding: 0 10px;
+            }
+          }
+        }
+      }
+    }
+  }
 }
