@@ -29,6 +29,7 @@ Admin.UserSignupController = Em.ObjectController.extend({
 
                     alertify.alert('<span class="my-error">' + json.code + '</span>');
                 }
+
             });
             return false;
         }

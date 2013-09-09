@@ -18,8 +18,8 @@ Admin.Store = DS.Store.extend();
 
 $.ajaxSetup({
     error: function(qXHR, textStatus) {
-        if (textStatus == "error") {
-            if (Code.NotSignon == $.parseJSON(qXHR.responseText).code) {
+        if (textStatus === "error") {
+            if (Code.NotSignon === $.parseJSON(qXHR.responseText).code) {
                 AccountUtil.signonWithToken();
             }
         }
