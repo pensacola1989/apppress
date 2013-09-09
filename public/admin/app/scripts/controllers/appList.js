@@ -8,6 +8,7 @@ Admin.AppListController = Em.Controller.extend({
 		this.transitionToRoute("app.edit", app);
 	},
 	deleteApp: function(app) {
+
 		var me = this;
     	var json = $.toJSON(app);
 

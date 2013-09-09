@@ -24,7 +24,8 @@ Admin.UserSignupController = Em.ObjectController.extend({
                     $.removeCookie(Vari.TokenName);
                     console.log(json);
 
-                    bootbox.alert(json.code);
+                    alertify.set({ delay: 10000 });
+                    alertify.alert(json.code);
                 }
             });
             return false;
