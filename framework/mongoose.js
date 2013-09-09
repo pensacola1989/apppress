@@ -42,18 +42,15 @@ exports.findById = function(model, req, res){
     });
 };
 
-exports.save = function (obj, req, res) {
-    var success = false;
+exports.save = function (obj, success) {
     obj.save(function (err) {
         if (!err) {
-            success = true;
             console.log('obj saved');
+            success();
         } else {
             console.log(err);
         }
     });
-    var data = jsonpMethod(req, {success: success, data: obj});
-    return res.send(data);
 };
 
 exports.update = function(obj, req, res){

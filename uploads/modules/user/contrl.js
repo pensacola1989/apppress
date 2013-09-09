@@ -20,9 +20,6 @@ exports.signonWithToken = function (req, res) {
 };
 
 exports.signup = function (req, res) {
-    var success = false;
-    var code = '';
-
     return UserModel.findOne({email: req.body.email}, function(err, obj){
         if(!err && obj == null){   // not exist
             var user = new UserModel({
@@ -35,14 +32,15 @@ exports.signup = function (req, res) {
 
                 updateTime: new Date()
             });
-            mongoose.save(user, req, res);
-
-            success = true;
+            mongoose.save(user, function(){
+                var data = {success: true, code:"", data: obj};
+                return res.send(data);
+            });
         } else {
-            success = false;
-            code = 'Email already exists.';
+            var code = 'Email already exists.';
+            var data = {success: false, code:code, data: null};
+            return res.send(data);
         }
-        var data = {success: success, code:code, data: obj};
-        return res.send(data);
+
     });
 };

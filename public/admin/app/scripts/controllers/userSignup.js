@@ -1,6 +1,6 @@
 Admin.UserSignupController = Em.ObjectController.extend({
     actions: {
-        signup: function(form) {
+        signup: function(form) {   console.log(1);
             var me = this;
             var p = $('#signupForm').validate({
                 rules: {
@@ -11,6 +11,8 @@ Admin.UserSignupController = Em.ObjectController.extend({
             }).form();
             if (!p) return;
 
+            $(".error").html('');
+            $(".error").removeClass("error");
             $("#signupForm").ajaxSubmit(function(json) {
                 if (json.success) {
                     if (Util.isNotEmpty(json.token)) {
@@ -19,12 +21,12 @@ Admin.UserSignupController = Em.ObjectController.extend({
                         $.removeCookie(Vari.TokenName);
                     }
                     Vari.UserEmail = json.email;
-                    me.transitionToRoute("apps");
+                    //alertify.log("Success to signup!", "", 2000);
+                    alertify.alert('<span class="my-success">' + 'Success to signup!' + '</span>');
+                    //me.transitionToRoute("apps");
                 } else {
                     $.removeCookie(Vari.TokenName);
-                    console.log(json);
 
-                    //alertify.set({ delay: 5000 });
                     alertify.alert('<span class="my-error">' + json.code + '</span>');
                 }
             });

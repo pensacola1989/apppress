@@ -4,7 +4,7 @@ require('scripts/utils/*');
 require('scripts/controllers/*');
 require('scripts/store');
 require('scripts/models/*');
-require('scripts/views/*');
+require('scripts/views/**/*');
 require('scripts/router');
 require('scripts/routes/*');
 
