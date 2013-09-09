@@ -24,8 +24,8 @@ Admin.UserSignupController = Em.ObjectController.extend({
                     $.removeCookie(Vari.TokenName);
                     console.log(json);
 
-                    alertify.set({ delay: 10000 });
-                    alertify.alert(json.code);
+                    //alertify.set({ delay: 5000 });
+                    alertify.alert('<span class="my-error">' + json.code + '</span>');
                 }
             });
             return false;
