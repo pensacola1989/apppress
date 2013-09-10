@@ -12,5 +12,5 @@ Admin.UserSignoutRoute = Ember.Route.extend({
         $.removeCookie(Vari.TokenName);
         Vari.UserEmail = null;
         me.transitionTo("user.signon");
-	}
+    }
 });
