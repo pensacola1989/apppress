@@ -8,9 +8,9 @@ Admin.UserSignupRoute = Ember.Route.extend({
 
 Admin.UserSignoutRoute = Ember.Route.extend({
 	setupController : function(controller, model) {
-		var me = this;
+        var me = this;
         $.removeCookie(Vari.TokenName);
         Vari.UserEmail = null;
-		me.transitionTo("user.signon");
+        me.transitionTo("user.signon");
 	}
 });
