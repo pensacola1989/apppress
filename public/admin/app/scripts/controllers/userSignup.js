@@ -1,6 +1,6 @@
 Admin.UserSignupController = Em.ObjectController.extend({
     actions: {
-        signup: function(form) {   console.log(1);
+        signup: function(form) {
             var me = this;
             var p = $('#signupForm').validate({
                 rules: {
@@ -22,14 +22,12 @@ Admin.UserSignupController = Em.ObjectController.extend({
                     }
                     Vari.UserEmail = json.email;
                     //alertify.log("Success to signup!", "", 2000);
-                    alertify.alert('<span class="my-success">' + 'Success to signup!' + '</span>');
-                    //me.transitionToRoute("apps");
+                    //alertify.alert('<span class="my-success">' + 'Success to signup!' + '</span>');
+                    me.transitionToRoute("app.list");
                 } else {
                     $.removeCookie(Vari.TokenName);
-
                     alertify.alert('<span class="my-error">' + json.code + '</span>');
                 }
-
             });
             return false;
         }

@@ -1,6 +1,5 @@
 AccountUtil = {
     signonWithToken: function() {
-        $.cookie(Vari.TokenName, '123456');
         var token = $.cookie(Vari.TokenName);
         if (Util.isEmpty(token)) {
             //route.transitionTo("user.signon");
@@ -19,22 +18,20 @@ AccountUtil = {
                     if (json.success) {
                         console.log("success to signonWithToken");
 
-                        $.cookie(Vari.TokenName, json.token);
-                        Vari.UserEmail = json.email;
-                        //route.transitionTo('apps');
-                        if (location.href.indexOf("apps") > -1) {
+                        $.cookie(Vari.TokenName, json.data.token);
+                        Vari.UserEmail = json.data.email;
+
+                        if (location.href.indexOf("app/list") > -1) {
                             location.reload();
                         } else {
-                            //location.href="#/apps";
+                            location.href="#/app/list";
                         }
                     } else {
                         $.removeCookie(Vari.TokenName);
-                        //route.transitionTo("user.signon");
                         location.href="#/user/signon";
                     }
                 }
             });
         }
-        //location.href="#/apps";
     }
 };

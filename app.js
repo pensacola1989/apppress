@@ -14,10 +14,9 @@ server.configure(function () {
     server.use(express.session({
         secret: config.session_secret
     }));
-//    server.use(require('./controllers/sign').auth_user);
-//    server.use(require('./controllers/site').sidebar);
 
 });
+express.static.mime.define({'application/font-woff': ['woff']});
 
 //Start server
 server.listen(9000, function () {
@@ -31,5 +30,4 @@ var modules = config.modules || [];
 for (var i = 0, l = modules.length; i < l; i++) {
     var module = modules[i];
     require('./system/modules/' + module + '/route')(server);
-    //server.use(require('./plugins/' + p[0])(p[1]));
 }

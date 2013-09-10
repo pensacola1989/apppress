@@ -23,7 +23,7 @@
   .container {
     margin-right: auto;
     margin-left: auto;
-    width: 90%;
+    width: 96%;
     .row {
       min-width: 720px;
       .span2 {
@@ -53,34 +53,24 @@
         margin-left: 20px;
 
         .top-panel.pull-right {
+          margin-left: 20px;
           font-size: 14px;
           .avatar {
             width: 20px;
             height: 20px;
             margin-top: -3px;
           }
-          a {
+          span {
             height: 40px;
             line-height: 38px;
-            padding: 0 7px;
+            padding: 0 4px;
             font-style: normal;
           }
           #userEmail {
             color: white;
           }
         }
-        ul.top-nav {
-          font-size: 16px;
-          list-style: none;
-          li {
-            float: left;
-            a {
-              height: 40px;
-              line-height: 38px;
-              padding: 0 10px;
-            }
-          }
-        }
+
       }
     }
   }

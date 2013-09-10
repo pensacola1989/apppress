@@ -13,9 +13,27 @@ exports.signonWithToken = function (req, res) {
         } else {
             console.log(err);
         }
-        console.log(obj);
         var data = {success: success, data: obj};
         return res.send(data);
+    });
+};
+
+exports.signon = function (req, res) {
+    return UserModel.findOne({email: req.body.email, passwd: req.body.password}, function(err, obj){
+        if(!err && obj != null){   // found
+            var uuid = require('node-uuid');
+            obj.token = uuid.v4();
+            obj.updateTime = new Date();
+            mongoose.save(obj, function(){
+                var data = {success: true, code:"", data: obj};
+                return res.send(data);
+            });
+        } else {
+            var code = 'Not found.';
+            var data = {success: false, code:code, data: null};
+            return res.send(data);
+        }
+
     });
 };
 

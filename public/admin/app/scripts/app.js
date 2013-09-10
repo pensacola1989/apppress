@@ -10,7 +10,7 @@ require('scripts/routes/*');
 
 Admin.ApplicationAdapter = DS.RESTAdapter.extend({
     namespace: 'api/v1',
-    host: 'http://localhost:9000'
+    host: 'http://192.168.1.228:9000'
 });
 
 

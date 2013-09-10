@@ -2,6 +2,8 @@
   <dictionary name="root">
     <words>
       <w>passwd</w>
+      <w>signon</w>
+      <w>signout</w>
       <w>signup</w>
     </words>
   </dictionary>
