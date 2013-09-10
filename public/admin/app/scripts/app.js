@@ -8,7 +8,6 @@ require('scripts/views/**/*');
 require('scripts/router');
 require('scripts/routes/*');
 
-
 Admin.ApplicationAdapter = DS.RESTAdapter.extend({
     namespace: 'api/v1',
     host: 'http://localhost:9000'

@@ -30,6 +30,6 @@ server.get('/api', function(req, res){
 var modules = config.modules || [];
 for (var i = 0, l = modules.length; i < l; i++) {
     var module = modules[i];
-    require('./uploads/modules/' + module + '/route')(server);
+    require('./system/modules/' + module + '/route')(server);
     //server.use(require('./plugins/' + p[0])(p[1]));
 }
