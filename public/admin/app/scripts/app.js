@@ -13,7 +13,6 @@ Admin.ApplicationAdapter = DS.RESTAdapter.extend({
     host: 'http://192.168.1.228:9000'
 });
 
-
 Admin.Store = DS.Store.extend();
 
 $.ajaxSetup({
