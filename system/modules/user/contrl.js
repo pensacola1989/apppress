@@ -33,7 +33,6 @@ exports.signon = function (req, res) {
             var data = {success: false, code:code, data: null};
             return res.send(data);
         }
-
     });
 };
 
@@ -44,11 +43,10 @@ exports.signup = function (req, res) {
                 email:  req.body.email,
                 passwd: req.body.password,
                 token: '',
-//                phone: req.body.phone,
-//                im: req.body.im,
+                phone: '',
+                im: '',
                 status: 1,
-
-                updateTime: new Date()
+                createTime: new Date()
             });
             mongoose.save(user, function(){
                 var data = {success: true, code:"", data: obj};

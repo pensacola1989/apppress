@@ -3,7 +3,8 @@ var attr = DS.attr,
     belongsTo = DS.belongsTo;
 
 Admin.App = DS.Model.extend({
-    title: attr(),
-    author: attr(),
-    releaseDate: attr()
+    name: attr(),
+    descr: attr(),
+    createTime: attr(),
+    updateTime: attr()
 });

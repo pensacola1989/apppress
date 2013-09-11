@@ -23,7 +23,10 @@ exports.findAll = function (model, req, res) {
         } else {
             console.log(err);
         }
-        var data = jsonpMethod(req, objs);
+
+        for (var i = 0; i < objs.length; i++) {
+            objs[i].set('id', objs[i].get('_id'));
+        }
         return res.send({app: objs});
     });
 };
@@ -37,34 +40,30 @@ exports.findById = function(model, req, res){
         } else {
             console.log(err);
         }
-        var data = jsonpMethod(req, {success: success, data: model});
-        return res.send(data);
+        obj.set('id', obj.get('_id'));
+        return res.send({app: obj});
     });
 };
 
-exports.save = function (obj, success) {
+exports.save = function (obj, callback) {
     obj.save(function (err) {
         if (!err) {
             console.log('obj saved');
-            success();
         } else {
             console.log(err);
         }
+        callback();
     });
 };
 
-exports.update = function(obj, req, res){
-    var success = false;
-
-    return obj.save(function(err){
+exports.update = function(obj, callback){
+    return obj.update(function(err){
         if(!err){
-            success = true;
             console.log('obj updated');
         } else {
             console.log(err);
         }
-        var data = jsonpMethod(req, {success: success, data: obj});
-        return res.send(data);
+        callback();
     });
 };
 

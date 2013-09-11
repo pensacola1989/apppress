@@ -1,3 +1,14 @@
+Admin.UserRoute = Ember.Route.extend({
+    actions: {
+        signon: function() {
+            this.controller.signon();
+        },
+        signup: function() {
+            this.controller.signup();
+        }
+    }
+});
+
 Admin.UserSignonRoute = Ember.Route.extend({
 
 });

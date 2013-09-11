@@ -20,7 +20,7 @@ express.static.mime.define({'application/font-woff': ['woff']});
 
 //Start server
 server.listen(9000, function () {
-    console.log("Express server listening on port %d in %s mode", server.port, server.settings.env);
+    console.log("Express server listening on port %d in %s mode", config.port, server.settings.env);
 });
 server.get('/api', function(req, res){
     res.send('Library API is running');

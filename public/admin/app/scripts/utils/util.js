@@ -13,9 +13,11 @@ Vari = {
 	
 	TokenName: "apppress.token",
 	UserEmail: null,
-	
 	UserId: null,
+
 	CurrAppId: null,
+    CurrApp: null,
+
 	CurrAction: null,
 	DragType: null,
 	srcId: null

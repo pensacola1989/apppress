@@ -6,10 +6,13 @@ var Keywords = new mongoose.Schema({
 exports.Keywords = Keywords;
 
 var App = new mongoose.Schema({
-    title:String,
-    author:String,
-    releaseDate:Date,
-    keywords: [Keywords]
+    id: String,
+    name:String,
+    descr:String,
+    status:Number,
+
+    createTime:Date,
+    updateTime:Date
 });
 exports.App = App;
 

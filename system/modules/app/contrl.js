@@ -12,22 +12,34 @@ exports.findById = function(req, res){
 };
 
 exports.save = function (req, res) {
+    console.log(req.body.app);
+
     var app = new AppModel({
-        title:req.body.title,
-        author:req.body.author,
-        releaseDate:req.body.releaseDate,
-        keywords: req.body.keywords
+        name: req.body.app.name,
+        descr: req.body.app.descr,
+        createDate: new Date()
     });
-    return mongoose.save(app, req, res);
+    return mongoose.save(app, function(){
+        app.set('id', app.get('_id'));
+        var data = {app: app};
+        return res.send(data);
+    });
 };
 
 exports.update = function(req, res){
     return AppModel.findById(req.params.id, function(err, app){
-        app.title = req.body.title;
-        app.author = req.body.author;
-        app.releaseDate = req.body.releaseDate;
-        app.keywords = req.body.keywords;
-        return mongoose.update(app, req, res);
+        console.log('===');
+        console.log(app);
+        console.log(req.body.app);
+        console.log('---');
+        app.name = req.body.app.name;
+        app.descr = req.body.app.descr;
+        app.updateDate = new Date();
+        return mongoose.update(app, function(){
+            app.set('id', app.get('_id'));
+            var data = {app: app};
+            return res.send(data);
+        });
     });
 };
 
