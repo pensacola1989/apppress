@@ -12,8 +12,6 @@ exports.findById = function(req, res){
 };
 
 exports.save = function (req, res) {
-    console.log(req.body.app);
-
     var app = new AppModel({
         name: req.body.app.name,
         descr: req.body.app.descr,
