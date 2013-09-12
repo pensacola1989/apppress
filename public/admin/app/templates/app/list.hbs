@@ -16,10 +16,9 @@
                 <td>{{app.name}}</td>
                 <td>{{app.descr}}</td>
                 <td>
-                    <a href="#" {{action viewApp app}}>View<a/> &nbsp;&nbsp;
                     <a href="#" {{action editApp app}}>Edit<a/> &nbsp;&nbsp;
                     <a href="#" {{action deleteApp app}}>Delete<a/> &nbsp;&nbsp;
-                    <a href="#app/{{unbound app.id}}/run" target="_blank">Run</a>
+                    <a href="#" {{action modifyApp app}}>Modify<a/> &nbsp;&nbsp;
                 </td>
             </tr>
         {{/each}}

@@ -27,22 +27,21 @@ exports.save = function (req, res) {
 };
 
 exports.update = function(req, res){
-    return AppModel.findById(req.params.id, function(err, app){
-        console.log('===');
-        console.log(app);
-        console.log(req.body.app);
-        console.log('---');
-        app.name = req.body.app.name;
-        app.descr = req.body.app.descr;
-        app.updateDate = new Date();
-        return mongoose.update(app, function(){
-            app.set('id', app.get('_id'));
-            var data = {app: app};
+    AppModel.findByIdAndUpdate(
+        req.params.id,
+        {
+            name: req.body.app.name,
+            descr: req.body.app.descr,
+            updateDate: new Date()
+        }, function(){
+            var data = {};
             return res.send(data);
-        });
-    });
+        }
+    )
 };
 
 exports.delete = function(req, res){
-    return mongoose.delete(AppModel, req, res);
+    AppModel.findByIdAndRemove(req.params.id, function(){
+        return res.send({});
+    })
 };

@@ -9,6 +9,5 @@ Admin.Router.map(function () {
     this.resource('app', { path: '/app' }, function() {
         this.route('list', { path: '/list' });
         this.route('edit', { path: '/edit/:app_id' });
-        this.route('create', { path: '/create' });
     });
 });

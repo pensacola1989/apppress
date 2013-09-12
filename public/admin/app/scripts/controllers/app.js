@@ -1,20 +1,34 @@
-Admin.AppController = Em.Controller.extend({
-    createApp: function(app) {
-        var app = this.store.createRecord('app', {
-            name: '1',
-            descr: '1'
-        });
-        this.transitionToRoute("app.edit", app);
-    },
-    editApp: function(app) {
-        this.transitionToRoute("app.edit", app);
-    },
-    saveApp: function(app) {
-        var me = this;
-        app.save();
-        me.transitionToRoute("app.list");
-    },
-    deleteApp: function(app) {
-        var me = this;
+Admin.AppListController = Em.Controller.extend({
+    actions: {
+        createApp: function() {
+            var newApp = this.store.createRecord('app', {
+                name: 'n',
+                descr: 'd'
+            });
+            this.transitionToRoute("app.edit", newApp);
+        },
+        editApp: function(app) {
+            this.transitionToRoute("app.edit", app);
+        },
+        deleteApp: function(app) {
+            app.one("didDelete", this, function() {
+                //this.transitionTo("app.list");
+            });
+            app.deleteRecord();
+            app.save();
+        },
+        modifyApp: function(app) {
+            var me = this;
+        }
+    }
+});
+
+Admin.AppEditController = Em.Controller.extend({
+    actions: {
+        saveApp: function(app) {
+            var me = this;
+            app.save();
+            me.transitionToRoute("app.list");
+        }
     }
 });
