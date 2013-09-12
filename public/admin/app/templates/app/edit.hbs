@@ -4,7 +4,7 @@
 <form action="#">
     <div id="content">
         <div class="control-group">
-            <label class="control-label" for="headline">Name</label>
+            <label class="control-label" for="name">Name</label>
             <div class="controls">
                 {{view Ember.TextField id="name" valueBinding="content.name"}}
             </div>
@@ -21,7 +21,7 @@
         <div class="control-group">
             <div class="controls">
                 <button type="submit" class="btn btn-primary" {{action saveApp content}}>Save</button>&nbsp;&nbsp;
-                <button type="submit" class="btn">Reset</button>
+                <button type="reset" class="btn">Reset</button>
             </div>
         </div>
     </div>
