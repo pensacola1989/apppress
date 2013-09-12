@@ -323,7 +323,7 @@ module.exports = function (grunt) {
                         return 'app/' + filepath;
                     }
                 },
-                src: '<%= yeoman.app %>/scripts/app.js',
+                src: '<%= yeoman.app %>/scripts/index.js',
                 dest: '.tmp/scripts/combined-scripts.js'
             }
         }

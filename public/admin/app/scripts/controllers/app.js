@@ -17,7 +17,7 @@ Admin.AppListController = Em.Controller.extend({
             app.deleteRecord();
             app.save();
         },
-        modifyApp: function(app) {
+        addContents: function(app) {
             var me = this;
         }
     }

@@ -1,3 +1,4 @@
+
 window.Admin = Ember.Application.create();
 
 require('scripts/utils/*');

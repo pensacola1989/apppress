@@ -19,12 +19,10 @@ body.formView {
     background-image: url("../img/bg.png" );
 
 }
-tr.header {
+thead {
     font-weight: bold;
-    background-color: #EEE;
-}
-tr.header td {
-    text-align: center;
+    background-color: #fcf8e3;
+
 }
 
 a {

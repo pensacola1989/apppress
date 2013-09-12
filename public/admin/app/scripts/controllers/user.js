@@ -59,9 +59,9 @@ Admin.UserController = Em.ObjectController.extend({
         if (!p) return;
 
         $(".error").html('');
-        $(".error").removeClass("error");        console.log(1111);
+        $(".error").removeClass("error");
         $("#signupForm").ajaxSubmit(function(json) {
-            console.log(json);
+
             if (json.success) {
                 if (Util.isNotEmpty(json.token)) {
                     $.cookie(Vari.TokenName, json.token);

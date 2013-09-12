@@ -1,27 +1,29 @@
-{{view Admin.HeaderView}}
 <div id="app_list" class="formContaner row-fluid">
     <div class="new">
         <a href="#" {{action createApp}}>Create<a/>
     </div>
-    <table class="table table-bordered">
-        <tr class="header">
-            <th>ID</td>
-            <th>Name</td>
-            <th>Description</td>
-            <th>Action</td>
-        </tr>
-        {{#each app in content}}
-            <tr>
-                <td>{{app.id}}</td>
-                <td>{{app.name}}</td>
-                <td>{{app.descr}}</td>
-                <td>
-                    <a href="#" {{action editApp app}}>Edit<a/> &nbsp;&nbsp;
-                    <a href="#" {{action deleteApp app}}>Delete<a/> &nbsp;&nbsp;
-                    <a href="#" {{action modifyApp app}}>Modify<a/> &nbsp;&nbsp;
-                </td>
+    <table class="table table-bordered table-hover">
+        <thead>
+            <tr class="header">
+                <th>ID</td>
+                <th>Name</td>
+                <th>Description</td>
+                <th>Action</td>
             </tr>
-        {{/each}}
+        <thead>
+        <tbody>
+            {{#each app in content}}
+                <tr>
+                    <td>{{app.id}}</td>
+                    <td>{{app.name}}</td>
+                    <td>{{app.descr}}</td>
+                    <td>
+                        <a href="#" {{action addContents app}}>Add Contents<a/> &nbsp;&nbsp;
+                        <a href="#" {{action editApp app}}>Edit<a/> &nbsp;&nbsp;
+                        <a href="#" {{action deleteApp app}}>Delete<a/> &nbsp;&nbsp;
+                    </td>
+                </tr>
+            {{/each}}
+        </tbody>
     </table>
 </div>
-{{view Admin.FooterView}}
