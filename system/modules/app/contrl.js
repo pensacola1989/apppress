@@ -34,8 +34,7 @@ exports.update = function(req, res){
             descr: req.body.app.descr,
             updateDate: new Date()
         }, function(){
-            var data = {};
-            return res.send(data);
+            return res.send({});
         }
     )
 };

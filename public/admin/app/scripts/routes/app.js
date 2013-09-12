@@ -22,19 +22,13 @@ Admin.AppListRoute = Ember.Route.extend({
     }
 });
 
-//Admin.AppEditRoute = Ember.Route.extend({
-//    model: function(params) {
-//    },
-//    setupController: function(controller, app) {
-//        controller.set('model', app);
-//    }
-//});
-//
-//Admin.AppCreateRoute = Ember.Route.extend({
-//	model: function(params) {
-//
-//	},
-//    setupController: function(controller, app) {
-//
-//    }
-//});
+Admin.AppEditRoute = Ember.Route.extend({
+    model: function(params) {
+    },
+    setupController: function(controller, app) {
+        console.log(app);
+        controller.set('model', app);
+    }
+});
+
+
