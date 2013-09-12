@@ -15,7 +15,7 @@ var jsonpMethod = function (req, data) {
 };
 
 exports.findAll = function (model, req, res) {
-    return model.find(function (err, objs) {
+    return model.find().exec(function (err, objs) {
         if (!err) {
             console.log('findAll success');
         } else {
@@ -26,13 +26,13 @@ exports.findAll = function (model, req, res) {
         for (var i = 0; i < objs.length; i++) {
             objs[i].set('id', objs[i].get('_id'));
         }
-        return res.send({app: objs});
+        res.send({app: objs});
     });
 };
 
 exports.findById = function(model, req, res){
     var success = false;
-    return model.findById(req.params.id, function(err, obj){
+    var query = model.findById(req.params.id).exec(function(err, obj){
         if(!err){
             success = true;
             console.log('findById success');
@@ -41,6 +41,6 @@ exports.findById = function(model, req, res){
             console.log(err);
         }
         obj.set('id', obj.get('_id'));
-        return res.send({app: obj});
+        res.send({app: obj});
     });
 };
