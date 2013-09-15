@@ -34,7 +34,7 @@ Admin.AppContentsRoute = Ember.Route.extend({
 //        }
     },
     setupController: function(controller, app) {
-//        console.log(app);
+        console.log(controller.get('controllers.app').get('content').get('name'));
 //        controller.set('model', app);
     }
 });

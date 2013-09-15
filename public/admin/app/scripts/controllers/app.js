@@ -28,7 +28,7 @@ Admin.AppsController = Em.Controller.extend({
     }
 });
 
-Admin.AppController = Em.Controller.extend({
+Admin.AppController = Em.ObjectController.extend({
 
 });
 
@@ -44,12 +44,12 @@ Admin.AppEditController = Em.Controller.extend({
     }
 });
 
-Admin.AppContentsController = Em.Controller.extend({
+Admin.AppContentsController = Em.ArrayController.extend({
+    needs: "app",
+    app: Ember.computed.alias("controllers.app"),
     actions: {
-//        saveApp: function(app) {
-//            var me = this;
-//            app.save();
-//            me.transitionToRoute("apps");
-//        }
+        save: function(app) {
+            console.log(this.get('controllers.app').get('content').get('name'));
+        }
     }
 });
