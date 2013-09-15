@@ -21,10 +21,10 @@ AccountUtil = {
                         $.cookie(Vari.TokenName, json.data.token);
                         Vari.UserEmail = json.data.email;
 
-                        if (location.href.indexOf("app/list") > -1) {
+                        if (location.href.indexOf("apps") > -1) {
                             location.reload();
                         } else {
-                            location.href="#/app/list";
+                            location.href="#/apps";
                         }
                     } else {
                         $.removeCookie(Vari.TokenName);

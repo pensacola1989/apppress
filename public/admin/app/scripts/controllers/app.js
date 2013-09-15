@@ -1,4 +1,4 @@
-Admin.AppListController = Em.Controller.extend({
+Admin.AppsController = Em.Controller.extend({
     actions: {
         createApp: function() {
             var newApp = this.store.createRecord('app', {
@@ -8,11 +8,16 @@ Admin.AppListController = Em.Controller.extend({
             this.transitionToRoute("app.edit", newApp);
         },
         editApp: function(app) {
+            console.log(app)
             this.transitionToRoute("app.edit", app);
+        },
+        modifyApp: function(app) {
+            console.log(app);
+            this.transitionToRoute("app.contents", app);
         },
         deleteApp: function(app) {
             app.one("didDelete", this, function() {
-                //this.transitionTo("app.list");
+                //this.transitionTo("apps");
             });
             app.deleteRecord();
             app.save();
@@ -23,12 +28,28 @@ Admin.AppListController = Em.Controller.extend({
     }
 });
 
+Admin.AppController = Em.Controller.extend({
+
+});
+
 Admin.AppEditController = Em.Controller.extend({
+    needs: "app",
+    app: Ember.computed.alias("controllers.app"),
     actions: {
         saveApp: function(app) {
             var me = this;
             app.save();
-            me.transitionToRoute("app.list");
+            me.transitionToRoute("apps");
         }
+    }
+});
+
+Admin.AppContentsController = Em.Controller.extend({
+    actions: {
+//        saveApp: function(app) {
+//            var me = this;
+//            app.save();
+//            me.transitionToRoute("apps");
+//        }
     }
 });

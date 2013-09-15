@@ -6,8 +6,10 @@ Admin.Router.map(function () {
         this.route('signout', { path: '/signout' });
     });
 
-    this.resource('app', { path: '/app' }, function() {
-        this.route('list', { path: '/list' });
-        this.route('edit', { path: '/edit/:app_id' });
+    this.resource('apps', { path: '/apps' }, function() {
+    });
+    this.resource('app', { path: '/app/:app_id' }, function() {
+        this.route('edit', { path: 'edit' });
+        this.route('contents', { path: 'contents' });
     });
 });

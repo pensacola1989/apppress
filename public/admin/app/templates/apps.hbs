@@ -1,3 +1,4 @@
+{{view Admin.HeaderView}}
 <div id="app_list" class="formContaner row-fluid">
     <div class="new">
         <a href="#" {{action createApp}}>Create<a/>
@@ -18,7 +19,7 @@
                     <td>{{app.name}}</td>
                     <td>{{app.descr}}</td>
                     <td>
-                        <a href="#" {{action addContents app}}>Add Contents<a/> &nbsp;&nbsp;
+                        <a href="#" {{action modifyApp app}}>Add Contents<a/> &nbsp;&nbsp;
                         <a href="#" {{action editApp app}}>Edit<a/> &nbsp;&nbsp;
                         <a href="#" {{action deleteApp app}}>Delete<a/> &nbsp;&nbsp;
                     </td>
@@ -27,3 +28,4 @@
         </tbody>
     </table>
 </div>
+{{view Admin.FooterView}}

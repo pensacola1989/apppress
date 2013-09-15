@@ -1,5 +1,5 @@
-Admin.AppListView = Em.View.extend({
-    templateName: 'app/list',
+Admin.AppsView = Em.View.extend({
+    templateName: 'apps',
     didInsertElement: function() {
 
     },

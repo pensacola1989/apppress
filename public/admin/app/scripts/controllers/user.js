@@ -13,7 +13,7 @@ Admin.UserController = Em.ObjectController.extend({
                 }
 
                 Vari.UserEmail = json.data.email;
-                me.transitionToRoute("app.list");
+                me.transitionToRoute("apps");
             } else {
                 $.removeCookie(Vari.TokenName);
             }
@@ -71,7 +71,7 @@ Admin.UserController = Em.ObjectController.extend({
                 Vari.UserEmail = json.email;
                 //alertify.log("Success to signup!", "", 2000);
                 //alertify.alert('<span class="my-success">' + 'Success to signup!' + '</span>');
-                me.transitionToRoute("app.list");
+                me.transitionToRoute("apps");
             } else {
                 $.removeCookie(Vari.TokenName);
                 alertify.alert('<span class="my-error">' + json.code + '</span>');
