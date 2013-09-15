@@ -26,17 +26,4 @@ Admin.AppEditRoute = Ember.Route.extend({
     }
 });
 
-Admin.AppContentsRoute = Ember.Route.extend({
-    model: function(params) {
-//        if (Util.isNotEmpty(params.app_id)) {
-//            var app = this.store.find('app', params.app_id);
-//            return app;
-//        }
-    },
-    setupController: function(controller, app) {
-        console.log(controller.get('controllers.app').get('content').get('name'));
-//        controller.set('model', app);
-    }
-});
-
 

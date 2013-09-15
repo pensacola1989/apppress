@@ -10,6 +10,9 @@ Admin.Router.map(function () {
     });
     this.resource('app', { path: '/app/:app_id' }, function() {
         this.route('edit', { path: 'edit' });
-        this.route('contents', { path: 'contents' });
+    });
+
+    this.resource('cms', { path: '/cms' }, function() {
+
     });
 });
