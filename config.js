@@ -33,7 +33,7 @@ var config = {
 
 	admins: { admin: true },
 
-    modules: ['app','user'],
+    modules: ['app','user', 'module', 'cms/album', 'cms/coupon', 'cms/event', 'cms/store', 'cms/video'],
     components: [],
 	plugins: []
 };

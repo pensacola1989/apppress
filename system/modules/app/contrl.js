@@ -12,11 +12,7 @@ exports.findById = function(req, res){
 };
 
 exports.save = function (req, res) {
-    var app = new AppModel({
-        name: req.body.app.name,
-        descr: req.body.app.descr,
-        createDate: new Date()
-    });
+    var app = service.newApp();
     app.save(function(){
         app.set('id', app.get('_id'));
         var data = {app: app};

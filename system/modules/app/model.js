@@ -1,9 +1,19 @@
 var mongoose = require('../../../framework/mongoose');
 
-var Keywords = new mongoose.Schema({
-    keyword: String
+var Subscription = new mongoose.Schema({
+    id: String,
+    // from module
+    code: String,
+    name: String,
+    title: String,
+
+    order: String,
+    status: Number,
+
+    createTime: Date,
+    updateTime: Date
 });
-exports.Keywords = Keywords;
+exports.Subscription = Subscription;
 
 var App = new mongoose.Schema({
     id: String,
@@ -12,7 +22,9 @@ var App = new mongoose.Schema({
     status:Number,
 
     createTime:Date,
-    updateTime:Date
+    updateTime:Date,
+
+    subs: [Subscription]
 });
 exports.App = App;
 
