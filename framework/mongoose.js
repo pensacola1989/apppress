@@ -31,9 +31,9 @@ exports.findAll = function (model, callback) {
     });
 };
 
-exports.findById = function(model, callback){
+exports.findById = function(model, id, callback){
     var success = false;
-    var query = model.findById(req.params.id).exec(function(err, obj){
+    var query = model.findById(id).exec(function(err, obj){
         if(!err){
             success = true;
             console.log('findById success');

@@ -27,3 +27,4 @@ $.ajaxSetup({
 });
 
 $.cookie.defaults = { expires: 7, path: '/', domain: "localhost" };
+

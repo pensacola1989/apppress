@@ -11,7 +11,9 @@ var Subscription = new mongoose.Schema({
     status: Number,
 
     createTime: Date,
-    updateTime: Date
+    updateTime: Date,
+
+    _app: [{ type: mongoose.Schema.Types.ObjectId, ref: 'App' }]
 });
 exports.Subscription = Subscription;
 
@@ -22,9 +24,7 @@ var App = new mongoose.Schema({
     status:Number,
 
     createTime:Date,
-    updateTime:Date,
-
-    subs: [Subscription]
+    updateTime:Date
 });
 exports.App = App;
 

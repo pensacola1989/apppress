@@ -8,7 +8,7 @@ exports.findAll = function (req, res) {
     mongoose.findAll(VideoModel, function(objs) {res.send({app: objs});});
 };
 exports.findById = function(req, res){
-    mongoose.findById(VideoModel, function(obj) {res.send({app: obj});});
+    mongoose.findById(VideoModel, req.params.id, function(obj) {res.send({app: obj});});
 };
 
 exports.save = function (req, res) {
