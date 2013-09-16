@@ -5,10 +5,10 @@ var VideoModel = mongoose.model('Video', require('./model').Video);
 
 //Rest Interface
 exports.findAll = function (req, res) {
-    mongoose.findAll(VideoModel, req, res);
+    mongoose.findAll(VideoModel, function(objs) {res.send({app: objs});});
 };
 exports.findById = function(req, res){
-    mongoose.findById(VideoModel, req, res);
+    mongoose.findById(VideoModel, function(obj) {res.send({app: obj});});
 };
 
 exports.save = function (req, res) {

@@ -5,10 +5,10 @@ var CouponModel = mongoose.model('Coupon', require('./model').App);
 
 //Rest Interface
 exports.findAll = function (req, res) {
-    mongoose.findAll(CouponModel, req, res);
+    mongoose.findAll(CouponModel, function(objs) {res.send({app: objs});});
 };
 exports.findById = function(req, res){
-    mongoose.findById(CouponModel, req, res);
+    mongoose.findById(CouponModel, function(obj) {res.send({app: obj});});
 };
 
 exports.save = function (req, res) {

@@ -5,10 +5,10 @@ var AlbumModel = mongoose.model('Album', require('./model').Album);
 
 //Rest Interface
 exports.findAll = function (req, res) {
-    mongoose.findAll(AlbumModel, req, res);
+    mongoose.findAll(AlbumModel, function(objs) {res.send({app: objs});});
 };
 exports.findById = function(req, res){
-    mongoose.findById(AlbumModel, req, res);
+    mongoose.findById(AlbumModel, function(obj) {res.send({app: obj});});
 };
 
 exports.save = function (req, res) {

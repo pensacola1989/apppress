@@ -5,10 +5,10 @@ var StoreModel = mongoose.model('Store', require('./model').Store);
 
 //Rest Interface
 exports.findAll = function (req, res) {
-    mongoose.findAll(StoreModel, req, res);
+    mongoose.findAll(StoreModel, function(objs) {res.send({app: objs});});
 };
 exports.findById = function(req, res){
-    mongoose.findById(StoreModel, req, res);
+    mongoose.findById(StoreModel, function(obj) {res.send({app: obj});});
 };
 
 exports.save = function (req, res) {
