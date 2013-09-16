@@ -8,7 +8,7 @@ exports.findAll = function (req, res) {
     mongoose.findAll(EventModel, function(objs) {res.send({app: objs});});
 };
 exports.findById = function(req, res){
-    mongoose.findById(EventModel, function(obj) {res.send({app: obj});});
+    mongoose.findById(EventModel, req.params.id, function(obj) {res.send({app: obj});});
 };
 
 exports.save = function (req, res) {
