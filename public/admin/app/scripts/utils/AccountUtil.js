@@ -19,7 +19,8 @@ AccountUtil = {
                         console.log("success to signonWithToken");
 
                         $.cookie(Vari.TokenName, json.data.token);
-                        Vari.UserEmail = json.data.email;
+
+                        Vari.CurrUser = json.data;
 
                         if (location.href.indexOf("apps") > -1) {
                             location.reload();

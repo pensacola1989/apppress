@@ -6,8 +6,6 @@ var Subscription = require('./model').Subscription;
 
 //Rest Interface
 exports.findAll = function (req, res) {
-    console.log(req.query.appId);
-
     Subscription.find({_app: req.query.appId }).exec(function (err, subs) {
         util.addId(subs);
         res.send({subscription: subs});

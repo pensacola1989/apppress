@@ -16,7 +16,7 @@ var config = {
 	],
 	site_static_host: '', // 静态文件存储域名  dbUserName:dbPassword@127.0.0.1:27017/dbName
 	db: 'mongodb://localhost/apppress',
-	session_secret: 'apppress',
+	session_secret: '1234567890QWERTY',
 	auth_cookie_name: 'apppress',
 	port: 9000,
     

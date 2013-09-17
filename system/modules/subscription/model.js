@@ -13,7 +13,7 @@ var subscriptionSchema = new mongoose.Schema({
     createTime: Date,
     updateTime: Date,
 
-    _app: [{ type: mongoose.Schema.Types.ObjectId, ref: 'App' }]
+    _app: { type: mongoose.Schema.Types.ObjectId, ref: 'App' }
 });
 exports.Subscription = mongoose.model('Subscription', subscriptionSchema);
 

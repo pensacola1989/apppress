@@ -12,7 +12,7 @@ Admin.UserController = Em.ObjectController.extend({
                     $.removeCookie(Vari.TokenName);
                 }
 
-                Vari.UserEmail = json.data.email;
+                Vari.CurrUser = json.data;
                 me.transitionToRoute("apps");
             } else {
                 $.removeCookie(Vari.TokenName);
@@ -38,7 +38,7 @@ Admin.UserController = Em.ObjectController.extend({
                     } else {
                         $.removeCookie(Vari.TokenName);
                     }
-                    Vari.UserEmail = json.email;
+                    Vari.CurrUser = json.data;
                     me.transitionToRoute("apps");
                 } else {
                     $.removeCookie(Vari.TokenName);
@@ -68,7 +68,7 @@ Admin.UserController = Em.ObjectController.extend({
                 } else {
                     $.removeCookie(Vari.TokenName);
                 }
-                Vari.UserEmail = json.email;
+                Vari.CurrUser = json.data;
                 //alertify.log("Success to signup!", "", 2000);
                 //alertify.alert('<span class="my-success">' + 'Success to signup!' + '</span>');
                 me.transitionToRoute("apps");

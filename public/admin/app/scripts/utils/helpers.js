@@ -2,9 +2,11 @@ Handlebars.registerHelper('vari', function(v) {
 	if (Util.isEmpty(v))
 		return "";
 
-	//alert(Vari.UserEmail);
+    var value = eval('Vari.' + v);
 
-	return new Handlebars.SafeString("");
+	alert(value);
+
+	return new Handlebars.SafeString(value);
 });
 
 Handlebars.registerHelper('reqPath', function(uri) {

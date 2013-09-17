@@ -11,10 +11,13 @@ exports.signonWithToken = function (req, res) {
 
     return User.findOne({token: req.body.token}).exec(function(err, obj){
         if(!err && obj != null){
+            req.session.user = obj._id;
             success = true;
         } else {
             console.log(err);
         }
+        obj.set('id', obj.get('_id'));
+
         var data = {success: success, data: obj};
         res.send(data);
     });
@@ -27,7 +30,10 @@ exports.signon = function (req, res) {
             obj.token = uuid.v4();
             obj.updateTime = new Date();
             obj.save(function(){
+                req.session.user = obj._id;
+
                 var data = {success: true, code:"", data: obj};
+                obj.set('id', obj.get('_id'));
                 res.send(data);
             });
         } else {
@@ -51,6 +57,9 @@ exports.signup = function (req, res) {
                 createTime: new Date()
             });
             user.save(function(){
+                req.session.user = obj._id;
+
+                user.set('id', user.get('_id'));
                 var data = {success: true, code:"", data: obj};
                 res.send(data);
             });

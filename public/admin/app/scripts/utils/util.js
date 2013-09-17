@@ -12,10 +12,8 @@ Vari = {
     ApiPath: Custant.WebRoot + "api/" + Custant.ApiVer + "/",
 	
 	TokenName: "apppress.token",
-	UserEmail: null,
-	UserId: null,
+	CurrUser: {id: null},
 
-	CurrAppId: null,
     CurrApp: null,
 
 	CurrAction: null,

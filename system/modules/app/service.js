@@ -3,16 +3,18 @@ var http = require('http');
 var url = require('url');
 
 var App = require('./model').App;
-var Subscription = require('./model').Subscription;
+var Subscription = require('../subscription/model').Subscription;
 var Module = require('../module/model').Module;
 
-exports.createApp = function (name, descr, callback) {
+exports.createApp = function (name, descr, userId, callback) {
     Module.find().exec(function (err, objs) {
+
         if (!err) {
             var app = new App({
                 name: name,
                 descr: descr,
-                createDate: new Date()
+                createDate: new Date(),
+                _user: userId
             });
 
             var subs = [];
@@ -21,7 +23,6 @@ exports.createApp = function (name, descr, callback) {
             }
             Subscription.create(subs, function (err, sub) {
                 Subscription.find({ _app: app._id }).exec(function (err, subss) {
-                    console.log(subss);
                     for (var i = 0; i < subss.length; i++) {
                         app._subs.push(subss[i]);
                     }

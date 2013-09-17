@@ -9,6 +9,7 @@ var appSchema = new mongoose.Schema({
     createTime:Date,
     updateTime:Date,
 
+    _user: { type: mongoose.Schema.Types.ObjectId, ref: 'User' },
     _subs : [{ type: mongoose.Schema.Types.ObjectId, ref: 'Subscription' }]
 });
 exports.App = mongoose.model('App', appSchema);
