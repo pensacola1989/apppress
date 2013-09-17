@@ -3,7 +3,7 @@ var http = require('http');
 var url = require('url');
 
 var App = require('./model').App;
-var Subscription = require('./model').Subscriptio;
+var Subscription = require('./model').Subscription;
 var Module = require('../module/model').Module;
 
 exports.createApp = function (name, descr, callback) {
