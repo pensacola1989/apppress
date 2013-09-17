@@ -27,7 +27,7 @@ exports.findAll = function (model, callback) {
             objs[i].set('id', objs[i].get('_id'));
         }
 
-        callback(objs);           ;
+        callback(objs);
     });
 };
 

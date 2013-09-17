@@ -1,6 +1,6 @@
 var mongoose = require('../../../framework/mongoose');
 
-var Subscription = new mongoose.Schema({
+var subscriptionSchema = new mongoose.Schema({
     id: String,
     // from module
     code: String,
@@ -15,9 +15,9 @@ var Subscription = new mongoose.Schema({
 
     _app: [{ type: mongoose.Schema.Types.ObjectId, ref: 'App' }]
 });
-exports.Subscription = Subscription;
+exports.Subscription = mongoose.model('Subscription', subscriptionSchema);
 
-var App = new mongoose.Schema({
+var appSchema = new mongoose.Schema({
     id: String,
     name:String,
     descr:String,
@@ -28,7 +28,9 @@ var App = new mongoose.Schema({
 
     _subs : [{ type: mongoose.Schema.Types.ObjectId, ref: 'Subscription' }]
 });
-exports.App = App;
+exports.App = mongoose.model('App', appSchema);
+
+
 
 
 

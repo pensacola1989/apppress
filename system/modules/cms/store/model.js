@@ -1,6 +1,6 @@
 var mongoose = require('../../../../framework/mongoose');
 
-var Store = new mongoose.Schema({
+var storeSchema = new mongoose.Schema({
     id: String,
 
     name: String,
@@ -15,7 +15,7 @@ var Store = new mongoose.Schema({
     createTime: Date,
     updateTime: Date
 });
-exports.Store = Store;
+exports.Store = mongoose.model('Store', storeSchema);;
 
 
 

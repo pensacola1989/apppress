@@ -1,6 +1,6 @@
 var mongoose = require('../../../framework/mongoose');
 
-var User = new mongoose.Schema({
+var userSchema = new mongoose.Schema({
     id: String,
     email:String,
     passwd:String,
@@ -11,4 +11,4 @@ var User = new mongoose.Schema({
     createTime:Date,
     updateTime:Date
 });
-exports.User = User;
+exports.User = mongoose.model('User', userSchema);

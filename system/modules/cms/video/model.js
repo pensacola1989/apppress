@@ -1,6 +1,6 @@
 var mongoose = require('../../../../framework/mongoose');
 
-var Video = new mongoose.Schema({
+var videoSchema = new mongoose.Schema({
     id: String,
 
     title: String,
@@ -13,7 +13,7 @@ var Video = new mongoose.Schema({
     createTime: Date,
     updateTime: Date
 });
-exports.Video = Video;
+exports.Video = mongoose.model('Video', videoSchema);
 
 
 

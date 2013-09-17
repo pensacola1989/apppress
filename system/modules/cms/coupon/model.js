@@ -1,6 +1,6 @@
 var mongoose = require('../../../../framework/mongoose');
 
-var Coupon = new mongoose.Schema({
+var couponSchema = new mongoose.Schema({
     id: String,
 
     sn: String,
@@ -14,7 +14,7 @@ var Coupon = new mongoose.Schema({
     createTime: Date,
     expirationTime: Date
 });
-exports.Coupon = Coupon;
+exports.Coupon = mongoose.model('Coupon', couponSchema);
 
 
 

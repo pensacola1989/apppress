@@ -1,18 +1,18 @@
 var mongoose = require('../../../../framework/mongoose');
 var service = require('./service');
 
-var EventModel = mongoose.model('Event', require('./model').Event);
+var Event = require('./model').Event;
 
 //Rest Interface
 exports.findAll = function (req, res) {
-    mongoose.findAll(EventModel, function(objs) {res.send({app: objs});});
+    mongoose.findAll(Event, function(objs) {res.send({app: objs});});
 };
 exports.findById = function(req, res){
-    mongoose.findById(EventModel, req.params.id, function(obj) {res.send({app: obj});});
+    mongoose.findById(Event, req.params.id, function(obj) {res.send({app: obj});});
 };
 
 exports.save = function (req, res) {
-    var mobiEvent = new EventModel({
+    var mobiEvent = new Event({
         name: req.body.mobiEvent.name,
         descr: req.body.mobiEvent.descr,
         createDate: new Date()
@@ -25,7 +25,7 @@ exports.save = function (req, res) {
 };
 
 exports.update = function(req, res){
-    EventModel.findByIdAndUpdate(
+    Event.findByIdAndUpdate(
         req.params.id,
         {
             name: req.body.event.name,
@@ -38,7 +38,7 @@ exports.update = function(req, res){
 };
 
 exports.delete = function(req, res){
-    EventModel.findByIdAndRemove(req.params.id, function(){
+    Event.findByIdAndRemove(req.params.id, function(){
         return res.send({});
     })
 };

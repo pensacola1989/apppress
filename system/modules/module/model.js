@@ -1,6 +1,6 @@
 var mongoose = require('../../../framework/mongoose');
 
-var Module = new mongoose.Schema({
+var moduleSchema = new mongoose.Schema({
     id: String,
     code: String,
     name: String,
@@ -12,13 +12,13 @@ var Module = new mongoose.Schema({
     createTime: Date,
     updateTime: Date
 });
-exports.Module = Module;
+var module = mongoose.model('Module', moduleSchema);
+exports.Module = module;
 
-var ModuleModel = mongoose.model('Module', Module);
-ModuleModel.find().exec(function (err, objs) {
+module.find().exec(function (err, objs) {
     if (!err) {
         if (objs.length === 0) {
-            ModuleModel.create(
+            module.create(
                 {code: 'album',  name: '相册', title: '相册', status: 1, type: 0, createTime: new Date()},
                 {code: 'event',  name: '事件', title: '事件', status: 1, type: 0, createTime: new Date()},
                 {code: 'video',  name: '视频', title: '视频', status: 1, type: 0, createTime: new Date()},

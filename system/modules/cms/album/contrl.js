@@ -1,18 +1,18 @@
 var mongoose = require('../../../../framework/mongoose');
 var service = require('./service');
 
-var AlbumModel = mongoose.model('Album', require('./model').Album);
+var Album = require('./model').Album;
 
 //Rest Interface
 exports.findAll = function (req, res) {
-    mongoose.findAll(AlbumModel, function(objs) {res.send({app: objs});});
+    mongoose.findAll(Album, function(objs) {res.send({app: objs});});
 };
 exports.findById = function(req, res){
-    mongoose.findById(AlbumModel, req.params.id, function(obj) {res.send({app: obj});});
+    mongoose.findById(Album, req.params.id, function(obj) {res.send({app: obj});});
 };
 
 exports.save = function (req, res) {
-    var mobiAlbum = new AlbumModel({
+    var mobiAlbum = new Album({
         name: req.body.mobiAlbum.name,
         descr: req.body.mobiAlbum.descr,
         createDate: new Date()
@@ -25,7 +25,7 @@ exports.save = function (req, res) {
 };
 
 exports.update = function(req, res){
-    AlbumModel.findByIdAndUpdate(
+    Album.findByIdAndUpdate(
         req.params.id,
         {
             name: req.body.album.name,
@@ -38,7 +38,7 @@ exports.update = function(req, res){
 };
 
 exports.delete = function(req, res){
-    AlbumModel.findByIdAndRemove(req.params.id, function(){
+    Album.findByIdAndRemove(req.params.id, function(){
         return res.send({});
     })
 };

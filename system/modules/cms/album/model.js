@@ -1,12 +1,12 @@
 var mongoose = require('../../../../framework/mongoose');
 
-var Photo = new mongoose.Schema({
+var photoSchema = new mongoose.Schema({
     path: String,
     descr: String
 });
-exports.Photo = Photo;
+exports.Photo = mongoose.model('Photo', photoSchema);
 
-var Album = new mongoose.Schema({
+var albumSchema = new mongoose.Schema({
     id: String,
 
     name: String,
@@ -21,9 +21,9 @@ var Album = new mongoose.Schema({
     createTime: Date,
     updateTime: Date,
 
-    photos: [Photo]
+    //photos: [photoSchema]
 });
-exports.Album = Album;
+exports.Album = mongoose.model('Album', albumSchema);
 
 
 

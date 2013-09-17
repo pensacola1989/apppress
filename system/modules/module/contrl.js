@@ -1,18 +1,18 @@
 var mongoose = require('../../../framework/mongoose');
 var service = require('./service');
 
-var ModuleModel = mongoose.model('Module', require('./model').Module);
+var Module = require('./model').Module;
 
 //Rest Interface
 exports.findAll = function (req, res) {
-    mongoose.findAll(ModuleModel, function(objs) {res.send({app: objs});});
+    mongoose.findAll(Module, function(objs) {res.send({app: objs});});
 };
 exports.findById = function(req, res){
-    mongoose.findById(ModuleModel, req.params.id, function(obj) {res.send({app: obj});});
+    mongoose.findById(Module, req.params.id, function(obj) {res.send({app: obj});});
 };
 
 exports.save = function (req, res) {
-    var module = new ModuleModel({
+    var module = new Module({
         name: req.body.module.name,
         descr: req.body.module.descr,
         createDate: new Date()
@@ -25,7 +25,7 @@ exports.save = function (req, res) {
 };
 
 exports.update = function(req, res){
-    ModuleModel.findByIdAndUpdate(
+    Module.findByIdAndUpdate(
         req.params.id,
         {
             name: req.body.module.name,
@@ -38,7 +38,7 @@ exports.update = function(req, res){
 };
 
 exports.delete = function(req, res){
-    ModuleModel.findByIdAndRemove(req.params.id, function(){
+    Module.findByIdAndRemove(req.params.id, function(){
         return res.send({});
     })
 };

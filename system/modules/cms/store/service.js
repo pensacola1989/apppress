@@ -3,5 +3,4 @@ var http = require('http');
 var url = require('url');
 
 var Store = require('./model').Store;
-var StoreModel = mongoose.model('Store', Store);
 

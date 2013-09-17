@@ -1,18 +1,18 @@
 var mongoose = require('../../../../framework/mongoose');
 var service = require('./service');
 
-var VideoModel = mongoose.model('Video', require('./model').Video);
+var Video = require('./model').Video;
 
 //Rest Interface
 exports.findAll = function (req, res) {
-    mongoose.findAll(VideoModel, function(objs) {res.send({app: objs});});
+    mongoose.findAll(Video, function(objs) {res.send({app: objs});});
 };
 exports.findById = function(req, res){
-    mongoose.findById(VideoModel, req.params.id, function(obj) {res.send({app: obj});});
+    mongoose.findById(Video, req.params.id, function(obj) {res.send({app: obj});});
 };
 
 exports.save = function (req, res) {
-    var mobiVideo = new VideoModel({
+    var mobiVideo = new Video({
         name: req.body.mobiVideo.name,
         descr: req.body.mobiVideo.descr,
         createDate: new Date()
@@ -25,7 +25,7 @@ exports.save = function (req, res) {
 };
 
 exports.update = function(req, res){
-    VideoModel.findByIdAndUpdate(
+    Video.findByIdAndUpdate(
         req.params.id,
         {
             name: req.body.video.name,
@@ -38,7 +38,7 @@ exports.update = function(req, res){
 };
 
 exports.delete = function(req, res){
-    VideoModel.findByIdAndRemove(req.params.id, function(){
+    Video.findByIdAndRemove(req.params.id, function(){
         return res.send({});
     })
 };

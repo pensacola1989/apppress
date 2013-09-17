@@ -3,13 +3,13 @@ var uuid = require('node-uuid');
 var mongoose = require('../../../framework/mongoose');
 var service = require('./service');
 
-var UserModel = mongoose.model('User', require('./model').App);
+var User =require('./model').User;
 
 //Interface
 exports.signonWithToken = function (req, res) {
     var success = false;
 
-    return UserModel.findOne({token: req.body.token}).exec(function(err, obj){
+    return User.findOne({token: req.body.token}).exec(function(err, obj){
         if(!err && obj != null){
             success = true;
         } else {
@@ -21,7 +21,7 @@ exports.signonWithToken = function (req, res) {
 };
 
 exports.signon = function (req, res) {
-    UserModel.findOne({email: req.body.email, passwd: req.body.password}).exec(function(err, obj){
+    User.findOne({email: req.body.email, passwd: req.body.password}).exec(function(err, obj){
         if(!err && obj != null){   // found
 
             obj.token = uuid.v4();
@@ -39,9 +39,9 @@ exports.signon = function (req, res) {
 };
 
 exports.signup = function (req, res) {
-    UserModel.findOne({email: req.body.email}).exec(function(err, obj){
+    User.findOne({email: req.body.email}).exec(function(err, obj){
         if(!err && obj == null){   // not exist
-            var user = new UserModel({
+            var user = new User({
                 email:  req.body.email,
                 passwd: req.body.password,
                 token: '',
