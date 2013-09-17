@@ -8,12 +8,10 @@ Admin.AppsController = Em.Controller.extend({
             this.transitionToRoute("app.edit", newApp);
         },
         editApp: function(app) {
-            console.log(app)
             this.transitionToRoute("app.edit", app);
         },
         modifyApp: function(app) {
-            console.log(app);
-            this.transitionToRoute("app.contents", app);
+            this.transitionToRoute("cms", app);
         },
         deleteApp: function(app) {
             app.one("didDelete", this, function() {
@@ -21,9 +19,6 @@ Admin.AppsController = Em.Controller.extend({
             });
             app.deleteRecord();
             app.save();
-        },
-        addContents: function(app) {
-            var me = this;
         }
     }
 });

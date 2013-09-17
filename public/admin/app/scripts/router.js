@@ -8,11 +8,11 @@ Admin.Router.map(function () {
 
     this.resource('apps', { path: '/apps' }, function() {
     });
-    this.resource('app', { path: '/app/:app_id' }, function() {
+    this.resource('app', { path: 'app/:app_id' }, function() {
         this.route('edit', { path: 'edit' });
-    });
 
-    this.resource('cms', { path: '/cms' }, function() {
+        this.resource('cms', { path: 'cms' }, function() {
 
+        });
     });
 });

@@ -22,15 +22,15 @@ Admin.AppEditView = Em.View.extend({
     }
 });
 
-Admin.AppContentsView = Em.View.extend({
-    templateName: 'app/contents',
+Admin.CmsIndexView = Em.View.extend({
+    templateName: 'cms/index',
     didInsertElement: function() {
 
     }
 });
 
-Admin.AppPreviewView = Em.View.extend({
-    templateName: 'app/preview',
+Admin.CmsPreviewView = Em.View.extend({
+    templateName: 'cms/preview',
     didInsertElement: function() {
 
     }
