@@ -4,7 +4,7 @@ Handlebars.registerHelper('vari', function(v) {
 
     var value = eval('Vari.' + v);
 
-	alert(value);
+	//alert(value);
 
 	return new Handlebars.SafeString(value);
 });
