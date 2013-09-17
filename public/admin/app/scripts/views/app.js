@@ -22,7 +22,7 @@ Admin.AppEditView = Em.View.extend({
     }
 });
 
-Admin.CmsIndexView = Em.View.extend({
+Admin.CmsView = Em.View.extend({
     templateName: 'cms/index',
     didInsertElement: function() {
 

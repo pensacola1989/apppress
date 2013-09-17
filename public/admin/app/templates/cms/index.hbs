@@ -9,7 +9,9 @@
       </div>
       <div class="span8 right_col">
           <div id="main">
-              _cms_
+              {{#each sub in content}}
+                {{sub.title}}
+              {{/each}}
               <div class="clear_both"></div>
           </div>
           <div class="clear_both"></div>
