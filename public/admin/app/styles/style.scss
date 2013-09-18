@@ -83,15 +83,29 @@ form.cmxform.w-600 {
   margin-right: auto;
 }
 
-.right_col #main {
-  #tab-bar {
-    margin-bottom: 0;
-  }
-  #tab-panel {
-    padding: 20px;
-    border: 1px solid #ddd;
-    border-top: 0;
-    @include border-radius(0 0 6px 6px);
+.left_col {
+  float: left;
+  margin: 0;
+  min-width: 320px; max-width: 320px;
+}
+
+.right_col {
+  margin-left: 340px;
+  #main {
+    #tab-bar {
+      margin-bottom: 0;
+      height: 37px;
+    }
+    #tab-panel {
+      padding: 20px;
+      border: 1px solid #ddd;
+      border-top: 0;
+      @include border-radius(0 0 6px 6px);
+
+      #module-menu {
+         width: 420px;
+      }
+    }
   }
 }
 

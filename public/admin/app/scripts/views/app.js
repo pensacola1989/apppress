@@ -44,8 +44,7 @@ Admin.CmsView = Em.View.extend({
                     itemLoadCallback: function (carousel, state) {
                         if (state != 'init') return;
                         for (i = 0; i < items.length; i++) {
-                            carousel.add(i+1, '<li style="width: 60px; height: 40px;">' + items[i].title + '</li>');
-                            //carousel.add(i+1, '<img src="http://static.flickr.com/66/199481236_dc98b5abb3_s.jpg" width="75" height="75" alt="" />');
+                            carousel.add(i+1, '<li><div><img src="images/' + items[i].code + '.png" height=30 width=30></div><div>' + items[i].title + '</div></li>');
                         }
                         carousel.size(items.length);
                     }
