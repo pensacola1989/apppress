@@ -25,7 +25,5 @@ $.ajaxSetup({
 
 Admin.Store = DS.Store.extend();
 
-
-
 $.cookie.defaults = { expires: 7, path: '/', domain: "localhost" };
 

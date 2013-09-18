@@ -9,5 +9,9 @@ Admin.Subscription = DS.Model.extend({
     order: attr(),
 
     createTime: attr(),
-    updateTime: attr()
+    updateTime: attr(),
+
+    didLoad: function() {
+        alert(1);
+    }
 });
