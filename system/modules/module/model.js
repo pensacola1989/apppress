@@ -24,6 +24,7 @@ module.find().exec(function (err, objs) {
                 {code: 'video',  name: '视频', title: '视频', status: 1, type: 0, createTime: new Date()},
                 {code: 'store',  name: '商店', title: '商店', status: 1, type: 0, createTime: new Date()},
                 {code: 'coupon', name: '优惠券', title: '优惠券', status: 1, type: 0, createTime: new Date()},
+                {code: 'preference', name: '配置', title: '配置', status: 1, type: 0, createTime: new Date()},
                 function (err, small) {
                     if (err) return handleError(err);
                         console.log('Init Module db successfully!!!');

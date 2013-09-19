@@ -89,6 +89,7 @@ form.cmxform.w-600 {
   min-width: 320px; max-width: 320px;
 }
 
+
 .right_col {
   margin-left: 340px;
   #main {
@@ -103,7 +104,7 @@ form.cmxform.w-600 {
       @include border-radius(0 0 6px 6px);
 
       #module-menu {
-         width: 420px;
+         width: 410px;
       }
     }
   }

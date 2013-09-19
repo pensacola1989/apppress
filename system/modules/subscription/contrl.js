@@ -10,8 +10,6 @@ exports.findAll = function (req, res) {
         util.addId(subs);
         res.send({subscription: subs});
     })
-
-    //mongoose.findAll(Subscription, function(objs) {res.send({subscription: objs})});
 };
 exports.findById = function(req, res){
     mongoose.findById(Subscription, req.params.id, function(obj) {

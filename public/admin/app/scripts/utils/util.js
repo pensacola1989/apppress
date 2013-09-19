@@ -101,4 +101,30 @@ Util = {
 		var w = word.substring(0,1).toLowerCase() + word.substring(1);
 		return w;
 	},
+    createModuleMenu: function (items){
+        $('#module-menu').jcarousel({
+            size: items.length,
+            itemLoadCallback: function (carousel, state) {
+                for (var i = carousel.first; i <= carousel.last; i++) {
+                    if (carousel.has(i)) {
+                        continue;
+                    }
+
+                    if (i > items.length) {
+                        break;
+                    }
+
+                    carousel.add(i,
+                        '<li>' +
+                            '<div class="jcarousel-item-container">' +
+                            '<div><img src="images/icons/white/' + items[i-1].code + '.png" height=30 width=30></div>' +
+                            '<div>' + items[i-1].title + '</div>' +
+                            '</div>' +
+                            '</li>'
+                    );
+                }
+                carousel.size(items.length);
+            }
+        });
+    }
 };

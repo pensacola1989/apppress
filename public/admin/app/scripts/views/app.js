@@ -39,16 +39,7 @@ Admin.CmsView = Em.View.extend({
 
             success : function(json, textStatus) {
                 var items = json.subscription;
-                console.log(items);
-                $('#module-menu').jcarousel({
-                    itemLoadCallback: function (carousel, state) {
-                        if (state != 'init') return;
-                        for (i = 0; i < items.length; i++) {
-                            carousel.add(i+1, '<li><div><img src="images/' + items[i].code + '.png" height=30 width=30></div><div>' + items[i].title + '</div></li>');
-                        }
-                        carousel.size(items.length);
-                    }
-                });
+               Util.createModuleMenu(items);
             }
         });
     }
