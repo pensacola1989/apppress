@@ -5,7 +5,7 @@
 .jcarousel-skin .jcarousel-clip {
     overflow: hidden;
     height: 58px;
-    width: 420px;
+    width: 410px;
 }
 
 .jcarousel-item {
@@ -16,6 +16,11 @@
     background-color: #666;
     width: 82px;
     height: 62px;
+}
+.jcarousel-item.forbidden {
+    background: url(img/menu_bg_forbidden.png) right top no-repeat;
+    background-color: #666;
+
 }
 .jcarousel-item:hover,
 .jcarousel-item:focus {
@@ -37,6 +42,18 @@
     color: white;
 }
 
+.jcarousel-item .jcarousel-item-move {
+    display: none;
+    width: 20px;
+    height: 20px;
+    position: absolute;
+    margin-left: 5px;
+    top: 3px;
+    z-index: 1;
+    background-image: url(img/move.png);
+    background-repeat: no-repeat no-repeat;"
+}
+
 .jcarousel-skin .jcarousel-prev-horizontal {
     position: absolute;
     top: 0;
@@ -45,6 +62,7 @@
     height: 58px;
     cursor: pointer;
     background: transparent url(img/prev-horizontal.png) no-repeat 0 0;
+    overflow: hidden;
 }
 .jcarousel-skin .jcarousel-prev-horizontal:hover,
 .jcarousel-skin .jcarousel-prev-horizontal:focus {

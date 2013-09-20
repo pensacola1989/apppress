@@ -104,6 +104,8 @@ Util = {
     createModuleMenu: function (items){
         $('#module-menu').jcarousel({
             size: items.length,
+            scroll: 5,
+            visible: 5,
             itemLoadCallback: function (carousel, state) {
                 for (var i = carousel.first; i <= carousel.last; i++) {
                     if (carousel.has(i)) {
@@ -113,17 +115,29 @@ Util = {
                     if (i > items.length) {
                         break;
                     }
-
+                     var cls = items[i-1].status===0? 'forbidden':'';
                     carousel.add(i,
-                        '<li>' +
+                        '<li id="jcarousel-item-' + items[i-1].id + '" class="' + cls + '">' +
                             '<div class="jcarousel-item-container">' +
-                            '<div><img src="images/icons/white/' + items[i-1].code + '.png" height=30 width=30></div>' +
-                            '<div>' + items[i-1].title + '</div>' +
+                                '<div><img src="images/icons/white/' + items[i-1].code + '.png" height=30 width=30></div>' +
+                                '<div>' + items[i-1].title + '</div>' +
                             '</div>' +
-                            '</li>'
+                            '<div class="jcarousel-item-move"></div>' +
+                        '</li>'
                     );
                 }
                 carousel.size(items.length);
+            }
+        });
+
+        $("li[id^=jcarousel-item-]").mouseover(function(e){
+            if(!$(this).hasClass("forbidden")){
+                $(this).find('.jcarousel-item-move').css("display", "block");
+            }
+        });
+        $("li[id^=jcarousel-item-]").mouseout(function(e){
+            if(!$(this).hasClass("forbidden")){
+                $(this).find('.jcarousel-item-move').css("display", "none");
             }
         });
     }
