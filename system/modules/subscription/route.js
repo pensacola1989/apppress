@@ -7,4 +7,6 @@ exports = module.exports = function(server) {
     server.post(config.api_version  + 'subscriptions', appController.save);
     server.put(config.api_version  + 'subscriptions/:id', appController.update);
     server.delete(config.api_version  + 'subscriptions/:id', appController.delete);
+
+    server.get(config.api_version  + 'sub/changeOrder', appController.changeOrder);
 };

@@ -6,7 +6,7 @@ var Subscription = require('./model').Subscription;
 
 //Rest Interface
 exports.findAll = function (req, res) {
-    Subscription.find({_app: req.query.appId }).sort('-status').exec(function (err, subs) {
+    Subscription.find({_app: req.query.appId }).sort('-status order').exec(function (err, subs) {
         util.addId(subs);
         res.send({subscription: subs});
     })
@@ -41,4 +41,10 @@ exports.delete = function(req, res){
     Subscription.findByIdAndRemove(req.params.id, function(){
         res.send({});
     })
+};
+
+exports.changeOrder = function(req, res){
+    service.changeOrder(req.query.newIds, function() {
+        res.send({});
+    });
 };

@@ -58,3 +58,13 @@ form label.error {
     float: right;
 }
 
+.ui-state-highlight {
+    float: left;
+    width: 82px;
+    height:62px;
+    border: 1px solid #f9dd34;
+    background: #ffef8f 50% top repeat-x;
+    color: #363636;
+}
+
+

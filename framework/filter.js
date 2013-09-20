@@ -1,4 +1,5 @@
 exports.authorize = function(req, res, next) {
+    //console.log(req.session);
     if (!req.session || !req.session.user) {
         console.log('======NOT SIGNON ERROR======');
 

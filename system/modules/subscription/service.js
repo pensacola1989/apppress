@@ -35,3 +35,12 @@ exports.createSub = function (name, descr, callback) {
 //        }
 //    });
 };
+exports.changeOrder = function (newIds, callback) {
+    var arr = newIds.split(',');
+    for(var i = 0; i< arr.length; i++){
+        var id = arr[i];
+        Subscription.update({ _id: id }, { order: i }).exec();
+    }
+
+    callback();
+};

@@ -139,5 +139,45 @@ Util = {
                 $(this).find('.jcarousel-item-move').css("display", "none");
             }
         }));
+
+        var menuItems = $('ul.jcarousel-list');
+        menuItems.sortable({
+            items: 'li.jcarousel-item',
+            axis: 'x',
+            placeholder: 'ui-state-highlight' ,
+            revert: true,
+            scroll: true,
+            tolerance: 'pointer',
+            cursor: 'move',
+            opacity: 0.9,
+            //scrollSpeed:10 ,
+            //scrollSensitivity: 10 ,
+            //distance: 30,
+            stop: function(event, ui){
+                console.log($('ul.jcarousel-list li.jcarousel-item'));
+                var newIds = [];
+                $('ul.jcarousel-list li.jcarousel-item').each(function() {
+                    newIds.push( $(this).attr("id").replace('jcarousel-item-', '') );
+                });
+                var newIds = newIds.join(',');
+                console.log(newIds);
+                try {
+                    $.ajax({
+                        type : 'GET',
+                        dataType : 'json',
+                        url : Vari.ApiPath + 'sub/changeOrder',
+                        data: {newIds: newIds},
+
+                        success : function(json, textStatus) {
+                            console.log('Success to change order!!!');
+                        }
+                    });
+                } catch(err) {
+                    console.log(err.name + ': ' + err.message);
+                    menuItems.sortable( "cancel" );
+                }
+            }
+        });
+        menuItems.disableSelection();
     }
 };
