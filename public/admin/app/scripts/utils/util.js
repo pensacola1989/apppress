@@ -154,13 +154,11 @@ Util = {
             //scrollSensitivity: 10 ,
             //distance: 30,
             stop: function(event, ui){
-                console.log($('ul.jcarousel-list li.jcarousel-item'));
                 var newIds = [];
                 $('ul.jcarousel-list li.jcarousel-item').each(function() {
                     newIds.push( $(this).attr("id").replace('jcarousel-item-', '') );
                 });
                 var newIds = newIds.join(',');
-                console.log(newIds);
                 try {
                     $.ajax({
                         type : 'GET',
@@ -169,7 +167,7 @@ Util = {
                         data: {newIds: newIds},
 
                         success : function(json, textStatus) {
-                            console.log('Success to change order!!!');
+                            //console.log('Success to change order!!!');
                         }
                     });
                 } catch(err) {
