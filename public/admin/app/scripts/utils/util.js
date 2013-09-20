@@ -129,16 +129,15 @@ Util = {
                 carousel.size(items.length);
             }
         });
-
-        $("li[id^=jcarousel-item-]").mouseover(function(e){
+        $(".jcarousel-container").delegate('li[id^=jcarousel-item-]', 'mouseover', (function(e){
             if(!$(this).hasClass("forbidden")){
                 $(this).find('.jcarousel-item-move').css("display", "block");
             }
-        });
-        $("li[id^=jcarousel-item-]").mouseout(function(e){
+        }));
+        $(".jcarousel-container").delegate('li[id^=jcarousel-item-]','mouseout',(function(e){
             if(!$(this).hasClass("forbidden")){
                 $(this).find('.jcarousel-item-move').css("display", "none");
             }
-        });
+        }));
     }
 };
