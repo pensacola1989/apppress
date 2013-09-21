@@ -31,22 +31,22 @@
         float: left;
         margin-left: 20px;
 
-          margin: -2px 0 0;
-          .brand {
-            display: block;
-            width: 200px;
-            img {
-              height: 28px;
-              width: 100px;
-            }
-            .beta {
-              padding-left: 3px;
-              margin-top: -3px;
-              font-size: 10px;
-              font-weight: normal;
-              color: white;
-            }
+        margin: -2px 0 0;
+        .brand {
+          display: block;
+          width: 200px;
+          img {
+            height: 28px;
+            width: 100px;
           }
+          .beta {
+            padding-left: 3px;
+            margin-top: -3px;
+            font-size: 10px;
+            font-weight: normal;
+            color: white;
+          }
+        }
       }
       .span14.top-bar {
         width: 80%;
@@ -86,9 +86,9 @@ form.cmxform.w-600 {
 .left_col {
   float: left;
   margin: 0;
-  min-width: 320px; max-width: 320px;
+  min-width: 320px;
+  max-width: 320px;
 }
-
 
 .right_col {
   margin-left: 340px;
@@ -103,10 +103,114 @@ form.cmxform.w-600 {
       border-top: 0;
       @include border-radius(0 0 6px 6px);
 
-      #module-menu {
-         width: 410px;
+      .jcarousel-skin {
+        .jcarousel-container {
+          width: 410px;
+          padding: 0px 13px;
+          background: transparent url(../images/prev-horizontal.png) no-repeat 0 0;
+          .jcarousel-clip {
+            overflow: hidden;
+            height: 58px;
+            width: 410px;
+
+            .jcarousel-item {
+              float: left;
+              list-style: none;
+              padding: 0;
+              margin: 0;
+              text-align: center;
+              background-color: #666;
+              width: 82px;
+              height: 62px;
+
+              &.forbidden {
+                background: url(../images/menu_bg_forbidden.png) right top no-repeat;
+                background-color: #666;
+              }
+              &:hover, &:focus {
+                border-color: #808080;
+              }
+              .jcarousel-item-container {
+                -webkit-border-image: url(../images/border_bg.png) 2 stretch stretch;
+                -moz-border-image: url(../images/border_bg.png) 2 stretch stretch;
+                border-image: url(../images/border_bg.png) 2 stretch stretch;
+                -ms-border-image: url(../images/border_bg.png) 2 stretch stretch;
+                border-width: 2px;
+
+                width: 80px;
+                height: 50px;
+                padding: 2px 0;
+
+                font-weight: bold;
+                color: white;
+              }
+              .jcarousel-item-move {
+                display: none;
+                width: 20px;
+                height: 20px;
+                position: absolute;
+                margin-left: 5px;
+                top: 3px;
+                z-index: 1;
+                background-image: url(../images/move.png);
+                background-repeat: no-repeat no-repeat;
+
+              }
+            }
+          }
+          .jcarousel-prev-horizontal {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 14px;
+            height: 58px;
+            cursor: pointer;
+            background: transparent url(../images/prev-horizontal.png) no-repeat 0 0;
+            overflow: hidden;
+
+            &:hover, &:focus {
+              background-position: -32px 0;
+            }
+            &:active {
+              background-position: -64px 0;
+            }
+          }
+          .jcarousel-prev-disabled-horizontal,
+          .jcarousel-prev-disabled-horizontal:hover,
+          .jcarousel-prev-disabled-horizontal:focus,
+          .jcarousel-prev-disabled-horizontal:active {
+            cursor: default;
+            background-position: -96px 0;
+          }
+
+          .jcarousel-next-horizontal {
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 14px;
+            height: 58px;
+            cursor: pointer;
+            background: transparent url(../images/next-horizontal.png) no-repeat 0 0;
+
+            &:hover, &:focus {
+              background-position: -32px 0;
+            }
+            &:active {
+              background-position: -64px 0;
+            }
+          }
+          .jcarousel-next-disabled-horizontal,
+          .jcarousel-next-disabled-horizontal:hover,
+          .jcarousel-next-disabled-horizontal:focus,
+          .jcarousel-next-disabled-horizontal:active {
+            cursor: default;
+            background-position: -96px 0;
+          }
+        }
       }
     }
   }
 }
+
+
 
