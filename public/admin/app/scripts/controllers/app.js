@@ -15,7 +15,8 @@ Admin.AppsController = Em.Controller.extend({
         },
         deleteApp: function(app) {
             app.one("didDelete", this, function() {
-                //this.transitionTo("apps");
+                var list = this.store.find('app', { userId: Vari.CurrUser.id });
+                this.set('model', list);
             });
             app.deleteRecord();
             app.save();
@@ -33,8 +34,16 @@ Admin.AppEditController = Em.Controller.extend({
     actions: {
         saveApp: function(app) {
             var me = this;
+
+            app.one("didCreate", this, function() {
+                me.transitionToRoute("apps");
+            });
+            app.one("didUpdate", this, function() {
+                me.transitionToRoute("apps");
+            });
             app.save();
-            me.transitionToRoute("apps");
         }
     }
 });
+
+
