@@ -1,13 +1,4 @@
-﻿/**
- * @name jQuery waterfall Plugin
- * @version 1.0.6
- * @create 2012.1.30
- * @lastmodified 2012.2.11
- * @description Based on jQuery 1.4+
- * @author MuFeng (http://mufeng.me)
- * @url http://mufeng.me/waterfall.html
- **/
-~function($){var
+﻿~function($){var
     /**
      * @param wholeArg全局数组,储存参数
      * @param x:插件设置, y:对象集合, Water:构造函数
