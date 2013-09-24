@@ -1,4 +1,4 @@
-﻿﻿/**
+﻿/**
  * @name jQuery waterfall Plugin
  * @version 1.0.6
  * @create 2012.1.30
