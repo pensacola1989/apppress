@@ -1,10 +1,21 @@
 <html>
 
     <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
+
         <style type="text/css">
             .item {
                 text-align: center;
-                padding: 5px;
+                margin: 5px;
+                background-color: white;
+            }
+            .item .title	{
+                margin: 6px;
+            }
+
+            body {
+                background-color: #E5E5E5;
+                padding: 0 10px 0 0;
             }
         </style>
 
@@ -20,7 +31,6 @@
 			$(document).ready(function(){
                 var colNumb;
                 var bodyWidth = $("body").width();
-                console.log(bodyWidth);
                 if (bodyWidth <= 480) {
                     colNumb = 2;
                 } else if (bodyWidth > 480 && bodyWidth <= 1200) {
@@ -29,47 +39,21 @@
                     colNumb = 4;
                 }
 
-                var columnWidth = $("body").width()  / colNumb;
+                var columnWidth = Math.floor($("body").width()  / colNumb);
                 var contentWidth = columnWidth - 10;
 
-				var date1 = 	[
-                    '<div class="item" style="width:' + contentWidth +';"><img src="images/01.png" style=""></div>',
-                    '<div class="item" style="width:' + contentWidth +';"><img src="images/02.png" style=""></div>',
-                    '<div class="item" style="width:' + contentWidth +';"><img src="images/03.png" style=""></div>',
-                    '<div class="item" style="width:' + contentWidth +';"><img src="images/04.png" style=""></div>',
-                    '<div class="item" style="width:' + contentWidth +';"><img src="images/05.png" style=""></div>',
-                    '<div class="item" style="width:' + contentWidth +';"><img src="images/06.png" style=""></div>',
-                    '<div class="item" style="width:' + contentWidth +';"><img src="images/07.png" style=""></div>',
-                    '<div class="item" style="width:' + contentWidth +';"><img src="images/08.png" style=""></div>',
-                    '<div class="item" style="width:' + contentWidth +';"><img src="images/09.png" style=""></div>',
-                    '<div class="item" style="width:' + contentWidth +';"><img src="images/10.png" style=""></div>',
-                    '<div class="item" style="width:' + contentWidth +';"><img src="images/11.png" style=""></div>',
-                    '<div class="item" style="width:' + contentWidth +';"><img src="images/12.png" style=""></div>',
-                ].join('');
-                var date2 = 	[
-                    '<div class="item" style="width:' + contentWidth +';"><img src="images/13.png" style=""></div>',
-                    '<div class="item" style="width:' + contentWidth +';"><img src="images/14.png" style=""></div>',
-                    '<div class="item" style="width:' + contentWidth +';"><img src="images/15.png" style=""></div>',
-                    '<div class="item" style="width:' + contentWidth +';"><img src="images/16.png" style=""></div>',
-                    '<div class="item" style="width:' + contentWidth +';"><img src="images/17.png" style=""></div>',
-                    '<div class="item" style="width:' + contentWidth +';"><img src="images/18.png" style=""></div>',
-                    '<div class="item" style="width:' + contentWidth +';"><img src="images/19.png" style=""></div>',
-                    '<div class="item" style="width:' + contentWidth +';"><img src="images/20.png" style=""></div>',
-                    '<div class="item" style="width:' + contentWidth +';"><img src="images/21.png" style=""></div>',
-                    '<div class="item" style="width:' + contentWidth +';"><img src="images/22.png" style=""></div>',
-                    '<div class="item" style="width:' + contentWidth +';"><img src="images/23.png" style=""></div>',
-                    '<div class="item" style="width:' + contentWidth +';"><img src="images/24.png" style=""></div>'
-                ].join('');
+                var data1 = genData(1, 12, contentWidth);
+                var data2 = genData(13, 24, contentWidth);
 
                 $('#more').hide();
-                $('#container').append(date1).waterfall({
+                $('#container').append(data1).waterfall({
                     itemSelector:'.item',
                     columnCount:colNumb,
                     columnWidth:columnWidth,
-                    //isResizable:false,
-                    //isAnimated:false,
-                    //Duration:500,
-                    //Easing:'swing',
+                    isResizable:false,
+                    isAnimated:false,
+                    Duration:500,
+                    Easing:'swing',
                     endFn:function(){
                         $('#more').show();
                     }
@@ -78,7 +62,7 @@
                 $('#more').click(function(){
                     var h = $("#container").height();
                     $('#more').hide();
-                    $('#container').append(date2).waterfall({
+                    $('#container').append(data2).waterfall({
                         endFn:function(){
                             $('#more').show();
                             $("body").scrollTop(h);
@@ -86,6 +70,23 @@
                     });
                 });
 			});
+
+            var genData = function (start, end, contentWidth) {
+                var date = [];
+                for (var i = start; i < end; i++) {
+                    var s = '' + i;
+                    if (i < 10 ) {
+                        s = '0' + s;
+                    }
+                    date[i]  = [
+                            '<div class="item" style="width:' + contentWidth +';">',
+                                '<div><img src="images/' + s +  '.png" style=""></div>',
+                                '<div class="title">标题</div>',
+                            '</div>'
+                    ].join('');
+                }
+                return date.join('');
+            }
 		</script>
 	</body>
 	
