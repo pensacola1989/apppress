@@ -1,60 +1,90 @@
 <html>
 
-    <head>		
-		<script src="jquery.js"></script>
+    <head>
+        <style type="text/css">
+            .item {
+                text-align: center;
+                padding: 5px;
+            }
+        </style>
+
+        <script src="jquery.js"></script>
 		<script src="jquery.waterfall.js"></script>
     </head>
 	
     <body>        
-		<div id="container">
+		<div id="container"></div>
+        <div id="more" style="display: none; cursor:hand; font-size: 30px;padding: 10px; text-align: center;">More</div>
 
-		</div>
 		<script>			
 			$(document).ready(function(){
+                var colNumb;
+                var bodyWidth = $("body").width();
+                console.log(bodyWidth);
+                if (bodyWidth <= 480) {
+                    colNumb = 2;
+                } else if (bodyWidth > 480 && bodyWidth <= 1200) {
+                    colNumb = 3;
+                } else {
+                    colNumb = 4;
+                }
+
+                var columnWidth = $("body").width()  / colNumb;
+                var contentWidth = columnWidth - 10;
+
 				var date1 = 	[
-                    '<div class="item" style="height: 225px; width: 254px;"><img src="images/01.png"></div>',
-                    '<div class="item" style="height: 433px; width: 253px;"><img src="images/02.png"></div>',
-                    '<div class="item" style="height: 433px; width: 253px;"><img src="images/03.png"></div>',
-                    '<div class="item" style="height: 225px; width: 254px;"><img src="images/04.png"></div>',
-                    '<div class="item" style="height: 225px; width: 254px;"><img src="images/05.png"></div>',
-                    '<div class="item" style="height: 433px; width: 253px;"><img src="images/06.png"></div>',
-                    '<div class="item" style="height: 433px; width: 253px;"><img src="images/07.png"></div>',
-                    '<div class="item" style="height: 225px; width: 254px;"><img src="images/08.png"></div>',
-                    '<div class="item" style="height: 225px; width: 254px;"><img src="images/09.png"></div>',
-                    '<div class="item" style="height: 433px; width: 253px;"><img src="images/10.png"></div>',
-                    '<div class="item" style="height: 433px; width: 253px;"><img src="images/11.png"></div>',
-                    '<div class="item" style="height: 225px; width: 254px;"><img src="images/12.png"></div>',
+                    '<div class="item" style="width:' + contentWidth +';"><img src="images/01.png" style=""></div>',
+                    '<div class="item" style="width:' + contentWidth +';"><img src="images/02.png" style=""></div>',
+                    '<div class="item" style="width:' + contentWidth +';"><img src="images/03.png" style=""></div>',
+                    '<div class="item" style="width:' + contentWidth +';"><img src="images/04.png" style=""></div>',
+                    '<div class="item" style="width:' + contentWidth +';"><img src="images/05.png" style=""></div>',
+                    '<div class="item" style="width:' + contentWidth +';"><img src="images/06.png" style=""></div>',
+                    '<div class="item" style="width:' + contentWidth +';"><img src="images/07.png" style=""></div>',
+                    '<div class="item" style="width:' + contentWidth +';"><img src="images/08.png" style=""></div>',
+                    '<div class="item" style="width:' + contentWidth +';"><img src="images/09.png" style=""></div>',
+                    '<div class="item" style="width:' + contentWidth +';"><img src="images/10.png" style=""></div>',
+                    '<div class="item" style="width:' + contentWidth +';"><img src="images/11.png" style=""></div>',
+                    '<div class="item" style="width:' + contentWidth +';"><img src="images/12.png" style=""></div>',
                 ].join('');
                 var date2 = 	[
-                    '<div class="item" style="height: 225px; width: 254px;"><img src="images/13.png"></div>',
-                    '<div class="item" style="height: 433px; width: 253px;"><img src="images/14.png"></div>',
-                    '<div class="item" style="height: 433px; width: 253px;"><img src="images/15.png"></div>',
-                    '<div class="item" style="height: 225px; width: 254px;"><img src="images/16.png"></div>',
-                    '<div class="item" style="height: 225px; width: 254px;"><img src="images/17.png"></div>',
-                    '<div class="item" style="height: 433px; width: 253px;"><img src="images/18.png"></div>',
-                    '<div class="item" style="height: 433px; width: 253px;"><img src="images/19.png"></div>',
-                    '<div class="item" style="height: 225px; width: 254px;"><img src="images/20.png"></div>',
-                    '<div class="item" style="height: 225px; width: 254px;"><img src="images/21.png"></div>',
-                    '<div class="item" style="height: 433px; width: 253px;"><img src="images/22.png"></div>',
-                    '<div class="item" style="height: 433px; width: 253px;"><img src="images/23.png"></div>',
-                    '<div class="item" style="height: 225px; width: 254px;"><img src="images/24.png"></div>'
+                    '<div class="item" style="width:' + contentWidth +';"><img src="images/13.png" style=""></div>',
+                    '<div class="item" style="width:' + contentWidth +';"><img src="images/14.png" style=""></div>',
+                    '<div class="item" style="width:' + contentWidth +';"><img src="images/15.png" style=""></div>',
+                    '<div class="item" style="width:' + contentWidth +';"><img src="images/16.png" style=""></div>',
+                    '<div class="item" style="width:' + contentWidth +';"><img src="images/17.png" style=""></div>',
+                    '<div class="item" style="width:' + contentWidth +';"><img src="images/18.png" style=""></div>',
+                    '<div class="item" style="width:' + contentWidth +';"><img src="images/19.png" style=""></div>',
+                    '<div class="item" style="width:' + contentWidth +';"><img src="images/20.png" style=""></div>',
+                    '<div class="item" style="width:' + contentWidth +';"><img src="images/21.png" style=""></div>',
+                    '<div class="item" style="width:' + contentWidth +';"><img src="images/22.png" style=""></div>',
+                    '<div class="item" style="width:' + contentWidth +';"><img src="images/23.png" style=""></div>',
+                    '<div class="item" style="width:' + contentWidth +';"><img src="images/24.png" style=""></div>'
                 ].join('');
 
+                $('#more').hide();
                 $('#container').append(date1).waterfall({
-                    //itemSelector:'.item',
-                    //columnCount:4,
-                    //columnWidth:260,
+                    itemSelector:'.item',
+                    columnCount:colNumb,
+                    columnWidth:columnWidth,
                     //isResizable:false,
                     //isAnimated:false,
                     //Duration:500,
                     //Easing:'swing',
                     endFn:function(){
-                        setTimeout(function() {
-                            $('#container').append(date2).waterfall({});
-                        }, 5000);
+                        $('#more').show();
                     }
                 });
 
+                $('#more').click(function(){
+                    var h = $("#container").height();
+                    $('#more').hide();
+                    $('#container').append(date2).waterfall({
+                        endFn:function(){
+                            $('#more').show();
+                            $("body").scrollTop(h);
+                        }
+                    });
+                });
 			});
 		</script>
 	</body>
