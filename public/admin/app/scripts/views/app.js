@@ -21,33 +21,3 @@ Admin.AppEditView = Em.View.extend({
 
     }
 });
-
-Admin.CmsView = Em.View.extend({
-    templateName: 'cms/index',
-    didInsertElement: function() {
-        var subController = this.get("controller");
-        var appController = subController.get('controllers.app');
-
-        var app = appController.get('content');
-        var appId = app.get('id');
-
-        $.ajax({
-            type : 'GET',
-            dataType : 'json',
-            url : Vari.ApiPath + 'subscriptions',
-            data: {appId: appId},
-
-            success : function(json, textStatus) {
-                var items = json.subscription;
-               Util.createModuleMenu(items);
-            }
-        });
-    }
-});
-
-Admin.CmsPreviewView = Em.View.extend({
-    templateName: 'cms/preview',
-    didInsertElement: function() {
-
-    }
-});

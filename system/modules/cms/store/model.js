@@ -13,7 +13,9 @@ var storeSchema = new mongoose.Schema({
     status: Number,
 
     createTime: Date,
-    updateTime: Date
+    updateTime: Date,
+
+    _sub: { type: mongoose.Schema.Types.ObjectId, ref: 'Subscription' }
 });
 exports.Store = mongoose.model('Store', storeSchema);;
 

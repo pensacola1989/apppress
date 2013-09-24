@@ -1,7 +1,10 @@
+var util = require('../../../../framework/util');
 var mongoose = require('../../../../framework/mongoose');
-var service = require('./service');
 
 var Store = require('./model').Store;
+var service = require('./service');
+
+var Subscription = require('../../subscription/model').Subscription;
 
 //Rest Interface
 exports.findAll = function (req, res) {
@@ -41,4 +44,14 @@ exports.delete = function(req, res){
     Store.findByIdAndRemove(req.params.id, function(){
         return res.send({});
     })
+};
+
+exports.content = function(req, res){
+    Subscription.findById(req.query.subId, function (err, sub) {
+        util.addId([sub]);
+        Store.find({_sub: req.query.subId, status: 1}).sort('order').exec(function (err, stores) {
+            util.addId(stores);
+            res.send({ sub: sub, stores: stores});
+        })
+    });
 };

@@ -7,4 +7,6 @@ exports = module.exports = function(server) {
     server.post(config.api_version  + 'stores', storeController.save);
     server.put(config.api_version  + 'stores/:id', storeController.update);
     server.delete(config.api_version  + 'stores/:id', storeController.delete);
+
+    server.get(config.api_version  + 'store/content', storeController.content);
 };

@@ -1,12 +1,13 @@
 var config = require('../../../config');
-var appController = require('./contrl');
+var subController = require('./contrl');
 
 exports = module.exports = function(server) {
-    server.get(config.api_version  + 'subscriptions', appController.findAll);
-    server.get(config.api_version  + 'subscriptions/:id', appController.findById);
-    server.post(config.api_version  + 'subscriptions', appController.save);
-    server.put(config.api_version  + 'subscriptions/:id', appController.update);
-    server.delete(config.api_version  + 'subscriptions/:id', appController.delete);
+    server.get(config.api_version  + 'subscriptions', subController.findAll);
+    server.get(config.api_version  + 'subscriptions/:id', subController.findById);
+    server.post(config.api_version  + 'subscriptions', subController.save);
+    server.put(config.api_version  + 'subscriptions/:id', subController.update);
+    server.delete(config.api_version  + 'subscriptions/:id', subController.delete);
 
-    server.get(config.api_version  + 'sub/changeOrder', appController.changeOrder);
+    server.get(config.api_version  + 'sub/list', subController.list);
+    server.get(config.api_version  + 'sub/changeOrder', subController.changeOrder);
 };

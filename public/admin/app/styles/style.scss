@@ -126,6 +126,7 @@ form.cmxform.w-600 {
               background-color: #666;
               width: 82px;
               height: 62px;
+              cursor:pointer;
 
               &.forbidden {
                 background: url(../images/menu_bg_forbidden.png) right top no-repeat;
@@ -158,7 +159,6 @@ form.cmxform.w-600 {
                 z-index: 1;
                 background-image: url(../images/move.png);
                 background-repeat: no-repeat no-repeat;
-
               }
             }
           }
@@ -211,6 +211,9 @@ form.cmxform.w-600 {
             background-position: -96px 0;
           }
         }
+      }
+      #sub-content {
+        margin-top: 10px;
       }
     }
   }
