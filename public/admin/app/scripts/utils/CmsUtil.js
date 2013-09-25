@@ -15,13 +15,13 @@ CmsUtil = {
                     }
                     var cls = items[i-1].status===0? 'forbidden':'';
                     carousel.add(i,
-                        '<li id="jcarousel-item-' + items[i-1].id + '" class="' + cls + '" >' +
+                        '<li id="jcarousel-item-' + items[i-1].id + '" class="' + cls + '" data-id="' + items[i-1].id + '" data-code="' + items[i-1].code + '">' +
                             '<div class="jcarousel-item-container">' +
                             '<div><img src="images/icons/white/' + items[i-1].code + '.png" height=30 width=30></div>' +
                             '<div>' + items[i-1].title + '</div>' +
                             '</div>' +
                             '<div class="jcarousel-item-move"></div>' +
-                            '</li>'
+                        '</li>'
                     );
                 }
                 carousel.size(items.length);
@@ -76,23 +76,25 @@ CmsUtil = {
         });
         menuItems.disableSelection();
     },
-    editSub: function(subId) {
-        $.ajax({
-            type : 'GET',
-            dataType : 'json',
-            url : Vari.ApiPath + 'store/content',
-            data: {subId: subId},
+    editSub: function(subId, subCode) {
+        if (subCode === 'store') {
+            $.ajax({
+                type : 'GET',
+                dataType : 'json',
+                url : Vari.ApiPath + 'store/content',
+                data: {subId: subId},
 
-            success : function(json, textStatus) {
-                var childView = Admin.SubContentView.create();
-                var parentView = Em.View.views['sub_content_view'];
-                parentView.get('childViews').forEach(function(item) {
-                    item.remove();
-                });
-                parentView.removeAllChildren();
-                parentView.pushObject(childView);
-                childView.set("context", json);
-            }
-        });
+                success : function(json, textStatus) {
+                    var childView = Admin.SubContentView.create();
+                    var parentView = Em.View.views['sub_content_view'];
+                    parentView.get('childViews').forEach(function(item) {
+                        item.remove();
+                    });
+                    parentView.removeAllChildren();
+                    parentView.pushObject(childView);
+                    childView.set("context", json);
+                }
+            });
+        }
     }
 }

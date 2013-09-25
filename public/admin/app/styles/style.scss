@@ -128,6 +128,9 @@ form.cmxform.w-600 {
               height: 62px;
               cursor:pointer;
 
+              &.active {
+                background-color: #333;
+              }
               &.forbidden {
                 background: url(../images/menu_bg_forbidden.png) right top no-repeat;
                 background-color: #666;

@@ -18,7 +18,9 @@ Admin.CmsView = Em.View.extend({
                 CmsUtil.createModuleMenu(items);
                 $(".jcarousel-container").delegate('li.jcarousel-item','click',(function(e){
                     if(!$(this).hasClass("forbidden")){
-                        CmsUtil.editSub($(this).attr('id').replace('jcarousel-item-', ''));
+                        $('li.jcarousel-item').removeClass('active');
+                        $(this).addClass('active');
+                        CmsUtil.editSub($(this).attr('data-id'), $(this).attr('data-code'));
                     }
                 }));
             }

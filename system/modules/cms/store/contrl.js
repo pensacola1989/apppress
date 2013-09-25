@@ -53,7 +53,6 @@ exports.content = function(req, res){
             util.addId([store]);
             util.addId(store._products);
             res.send({ sub: sub, store: store});
-            console.log(store);
         })
     });
 };
