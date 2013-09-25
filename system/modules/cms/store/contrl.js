@@ -49,9 +49,11 @@ exports.delete = function(req, res){
 exports.content = function(req, res){
     Subscription.findById(req.query.subId, function (err, sub) {
         util.addId([sub]);
-        Store.find({_sub: req.query.subId, status: 1}).sort('order').exec(function (err, stores) {
-            util.addId(stores);
-            res.send({ sub: sub, stores: stores});
+        Store.findOne({_sub: sub._id}).sort('order').populate('_products').exec(function (err, store) {
+            util.addId([store]);
+            util.addId(store._products);
+            res.send({ sub: sub, store: store});
+            console.log(store);
         })
     });
 };

@@ -1,3 +1,26 @@
 {{sub.title}}
 
-{{stores.length}}
+<table class="table table-bordered table-hover">
+    <thead>
+        <tr class="header">
+            <th>ID</td>
+            <th>Name</td>
+            <th>Price</td>
+            <th>Action</td>
+        </tr>
+    <thead>
+    <tbody>
+        {{#each product in store._products}}
+            <tr>
+                <td>{{product.id}}</td>
+                <td>{{product.name}}</td>
+                <td>{{product.price}}</td>
+                <td>
+                    <a href="#" {{action editProduct product}}>Edit<a/> &nbsp;&nbsp;
+                    <a href="#" {{action deleteProduct product}}>Delete<a/> &nbsp;&nbsp;
+                </td>
+            </tr>
+        {{/each}}
+    </tbody>
+</table>
+

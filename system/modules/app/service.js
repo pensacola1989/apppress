@@ -4,6 +4,9 @@ var url = require('url');
 
 var App = require('./model').App;
 var Subscription = require('../subscription/model').Subscription;
+var Store = require('../cms/store/model').Store;
+var Product = require('../cms/store/model').Product;
+
 var Module = require('../module/model').Module;
 
 exports.createApp = function (name, descr, userId, callback) {
@@ -21,16 +24,33 @@ exports.createApp = function (name, descr, userId, callback) {
             for (var i = 0; i < objs.length; i++) {
                 subs[i] = {code: objs[i].code,  name: objs[i].name, title: objs[i].title, status: 1, order: i, createTime: new Date(), _app: app._id};
             }
-            Subscription.create(subs, function (err, sub) {
-                Subscription.find({ _app: app._id }).exec(function (err, subss) {
-                    for (var i = 0; i < subss.length; i++) {
-                        app._subs.push(subss[i]);
+            Subscription.create(subs, function (err) { // create subs
+                for (var i = 1; i < arguments.length; ++i) {
+                    app._subs.push(arguments[i]);
+
+                    if (arguments[i].code == 'store') {
+                        Store.create({_sub: arguments[i]._id}, function (err, store) {
+                            var product = {
+                                name: 'iPhone 5',
+                                descr: '',
+                                price: 5000.00,
+                                freight: 50,
+                                flatRate: false,
+                                order: -1,
+                                status: 1,
+                                createTime: new Date()
+                            };
+                            Product.create(product, function (err, product) {
+                                store._products.push(product);
+                                store.save(function(){});
+                            });
+                        });
                     }
-                    app.save(function(){
-                        app.set('id', app.get('_id'));
-                        callback(app);
-                        //console.log('Init subs for app successfully!!!');
-                    });
+                }
+                app.save(function(){
+                    app.set('id', app.get('_id'));
+                    callback(app);
+                    //console.log('Init subs for app successfully!!!');
                 });
             });
         }
