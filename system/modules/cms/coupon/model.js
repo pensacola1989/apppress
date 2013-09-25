@@ -1,8 +1,7 @@
+var config = require('../../../../config');
 var mongoose = require('../../../../framework/mongoose');
 
 var couponSchema = new mongoose.Schema({
-    id: String,
-
     sn: String,
     name: String,
     descr: String,
@@ -13,6 +12,9 @@ var couponSchema = new mongoose.Schema({
 
     createTime: Date,
     expirationTime: Date
+}, config.schemaOptions);
+couponSchema.virtual('id').get(function() {
+    return this._id;
 });
 exports.Coupon = mongoose.model('Coupon', couponSchema);
 

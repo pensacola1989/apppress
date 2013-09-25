@@ -7,7 +7,6 @@ var App = require('./model').App;
 //Rest Interface
 exports.findAll = function (req, res) {
     App.find({_user: req.session.user }).exec(function (err, apps) {
-        util.addId(apps);
         res.send({app: apps});
     })
 };

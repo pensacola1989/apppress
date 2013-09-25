@@ -1,7 +1,7 @@
+var config = require('../../../config');
 var mongoose = require('../../../framework/mongoose');
 
 var userSchema = new mongoose.Schema({
-    id: String,
     email:String,
     passwd:String,
     token:String,
@@ -10,5 +10,8 @@ var userSchema = new mongoose.Schema({
     status:Number,
     createTime:Date,
     updateTime:Date
+});
+userSchema.virtual('id').get(function() {
+    return this._id;
 });
 exports.User = mongoose.model('User', userSchema);

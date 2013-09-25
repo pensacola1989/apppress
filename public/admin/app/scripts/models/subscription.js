@@ -12,6 +12,6 @@ Admin.Subscription = DS.Model.extend({
     updateTime: attr(),
 
     didLoad: function() {
-        alert(1);
+
     }
 });

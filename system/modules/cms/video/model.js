@@ -1,8 +1,7 @@
+var config = require('../../../../config');
 var mongoose = require('../../../../framework/mongoose');
 
 var videoSchema = new mongoose.Schema({
-    id: String,
-
     title: String,
     descr: String,
     url: Date,
@@ -12,6 +11,9 @@ var videoSchema = new mongoose.Schema({
 
     createTime: Date,
     updateTime: Date
+}, config.schemaOptions);
+videoSchema.virtual('id').get(function() {
+    return this._id;
 });
 exports.Video = mongoose.model('Video', videoSchema);
 

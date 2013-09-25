@@ -1,7 +1,7 @@
+var config = require('../../../config');
 var mongoose = require('../../../framework/mongoose');
 
 var moduleSchema = new mongoose.Schema({
-    id: String,
     code: String,
     name: String,
     title: String,
@@ -11,8 +11,11 @@ var moduleSchema = new mongoose.Schema({
 
     createTime: Date,
     updateTime: Date
-});
+}, config.schemaOptions);
 var module = mongoose.model('Module', moduleSchema);
+moduleSchema.virtual('id').get(function() {
+    return this._id;
+});
 exports.Module = module;
 
 module.find().exec(function (err, objs) {

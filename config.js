@@ -35,7 +35,15 @@ var config = {
 
     modules: ['app','user', 'module', 'subscription', 'cms/album', 'cms/coupon', 'cms/event', 'cms/store', 'cms/video'],
     components: [],
-	plugins: []
+	plugins: [],
+    schemaOptions: {
+        toObject: {
+            virtuals: true
+        }
+        ,toJSON: {
+            virtuals: true
+        }
+    }
 };
 exports = module.exports = config;
 

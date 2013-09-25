@@ -47,11 +47,9 @@ exports.delete = function(req, res){
 };
 
 exports.content = function(req, res){
+    console.log(req.query.subId);
     Subscription.findById(req.query.subId, function (err, sub) {
-        util.addId([sub]);
         Store.findOne({_sub: sub._id}).sort('order').populate('_products').exec(function (err, store) {
-            util.addId([store]);
-            util.addId(store._products);
             res.send({ sub: sub, store: store});
         })
     });

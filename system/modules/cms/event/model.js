@@ -1,8 +1,7 @@
+var config = require('../../../../config');
 var mongoose = require('../../../../framework/mongoose');
 
 var eventSchema = new mongoose.Schema({
-    id: String,
-
     title: String,
     descr: String,
     date: Date,
@@ -12,6 +11,9 @@ var eventSchema = new mongoose.Schema({
 
     createTime: Date,
     updateTime: Date
+}, config.schemaOptions);
+eventSchema.virtual('id').get(function() {
+    return this._id;
 });
 exports.Event = mongoose.model('Event', eventSchema);
 

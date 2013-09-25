@@ -1,7 +1,7 @@
+var config = require('../../../config');
 var mongoose = require('../../../framework/mongoose');
 
 var subscriptionSchema = new mongoose.Schema({
-    id: String,
     // from module
     code: String,
     name: String,
@@ -14,6 +14,9 @@ var subscriptionSchema = new mongoose.Schema({
     updateTime: Date,
 
     _app: { type: mongoose.Schema.Types.ObjectId, ref: 'App' }
+}, config.schemaOptions);
+subscriptionSchema.virtual('id').get(function() {
+    return this._id;
 });
 exports.Subscription = mongoose.model('Subscription', subscriptionSchema);
 
