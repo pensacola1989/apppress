@@ -10,7 +10,8 @@ Admin.CmsController = Em.ArrayController.extend({
             var childView = Admin.StoreContentView.create();
             var parentView = Em.View.views['sub_content_view'];
             parentView.pushObject(childView);
-            childView.set("context", category);
+            console.log(category.get('products'));
+            childView.set("context", category.get('products'));
         }
     },
     showSubContent: function(subId, subCode) {
@@ -23,22 +24,5 @@ Admin.CmsController = Em.ArrayController.extend({
             parentView.pushObject(childView);
             childView.set("context", data);
         }
-
-//        if (subCode === 'store') {
-//            $.ajax({
-//                type : 'GET',
-//                dataType : 'json',
-//                url : Vari.ApiPath + 'store/content',
-//                data: {subId: subId},
-//
-//                success : function(json, textStatus) {
-//                    console.log(json);
-//                    var childView = Admin.SubContentView.create();
-//                    var parentView = Em.View.views['sub_content_view'];
-//                    parentView.pushObject(childView);
-//                    childView.set("context", json);
-//                }
-//            });
-//        }
     }
 });

@@ -3,8 +3,9 @@ var attr = DS.attr,
     belongsTo = DS.belongsTo;
 
 Admin.Category = DS.Model.extend({
-//    store: belongsTo('mstore'),
-//    products: hasMany('product'),
+    name: attr(),
+    //store: belongsTo('mstore'),
+    products: hasMany('product'),
 
     didLoad: function() {
 

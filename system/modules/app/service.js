@@ -31,11 +31,11 @@ exports.createApp = function (name, descr, userId, callback) {
 
                     if (arguments[i].code == 'store') {
                         CmsStore.create({subscription: arguments[i]._id}, function (err, store) {
-                            CmsStoreCategory.create({name: 'iPhone', descr: '', mstore: store._id}, function (err, category) {
+                            CmsStoreCategory.create({name: 'iPhone', mstore: store._id}, function (err, category) {
                                 store.categories.push(category);
                                 store.save(function(){});
 
-                                CmsStoreProduct.create({name: 'iPhone 5', descr: '', price: 5000.00, freight: 50, flatRate: false, order: -1, status: 1, createTime: new Date(), _category: category._id}, function (err, product) {
+                                CmsStoreProduct.create({name: 'iPhone 5', descr: '', price: 5000.00, freight: 50, flatRate: false, order: -1, status: 1, createTime: new Date(), category: category._id}, function (err, product) {
                                     category.products.push(product);
                                     category.save(function(){});
                                 });

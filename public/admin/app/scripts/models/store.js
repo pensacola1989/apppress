@@ -3,10 +3,8 @@ var attr = DS.attr,
     belongsTo = DS.belongsTo;
 
 Admin.Mstore = DS.Model.extend({
-
     subscription: belongsTo('subscription'),
     categories: hasMany('category'),
-
 
     didLoad: function() {
 

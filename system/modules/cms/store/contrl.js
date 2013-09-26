@@ -13,8 +13,14 @@ var Subscription = require('../../subscription/model').Subscription;
 exports.findAll = function (req, res) {
     CmsStore.find({subscription: req.query.subId}).sort('order').exec(function (err, stores) {
             CmsStoreCategory.find({mstore: stores[0].id}).sort('order').exec(function (err, categories) {
-                res.send({mstore:stores, categories: categories});
-                console.log({mstore:stores, categories: categories});
+                var categoryIds = [];
+                for (var i = 0; i < categories.length; i++) {
+                    categoryIds[i] = mongoose.Types.ObjectId(categories[i].id);
+                }
+                CmsStoreProduct.find().where('category').in(categoryIds).sort('order').exec(function (err, products) {
+                    res.send({mstore:stores, categories: categories, products: products});
+                    //console.log({mstore:stores, categories: categories, products: products});
+                });
             });
     });
 };
