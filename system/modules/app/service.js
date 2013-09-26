@@ -18,25 +18,25 @@ exports.createApp = function (name, descr, userId, callback) {
                 name: name,
                 descr: descr,
                 createDate: new Date(),
-                _user: userId
+                user: userId
             });
 
             var subs = [];
             for (var i = 0; i < objs.length; i++) {
-                subs[i] = {code: objs[i].code,  name: objs[i].name, title: objs[i].title, status: 1, order: i, createTime: new Date(), _app: app._id};
+                subs[i] = {code: objs[i].code,  name: objs[i].name, title: objs[i].title, status: 1, order: i, createTime: new Date(), app: app._id};
             }
             Subscription.create(subs, function (err) { // create subs
                 for (var i = 1; i < arguments.length; ++i) {
-                    app._subs.push(arguments[i]);
+                    app.subscriptions.push(arguments[i]);
 
                     if (arguments[i].code == 'store') {
-                        CmsStore.create({_sub: arguments[i]._id}, function (err, store) {
-                            CmsStoreCategory.create({name: 'iPhone', descr: '', _store: store._id}, function (err, category) {
-                                store._categories.push(category);
+                        CmsStore.create({subscription: arguments[i]._id}, function (err, store) {
+                            CmsStoreCategory.create({name: 'iPhone', descr: '', mstore: store._id}, function (err, category) {
+                                store.categories.push(category);
                                 store.save(function(){});
 
                                 CmsStoreProduct.create({name: 'iPhone 5', descr: '', price: 5000.00, freight: 50, flatRate: false, order: -1, status: 1, createTime: new Date(), _category: category._id}, function (err, product) {
-                                    category._products.push(product);
+                                    category.products.push(product);
                                     category.save(function(){});
                                 });
                             });
@@ -51,13 +51,13 @@ exports.createApp = function (name, descr, userId, callback) {
             });
         }
     });
-//    Subscription.findOne({ _id: '5236c330e086bbec41000003' }).populate('_app').exec(function (err, sub) {
+//    Subscription.findOne({ _id: '5236c330e086bbec41000003' }).populate('app').exec(function (err, sub) {
 //        console.log('=1==');
 //        console.log(sub);
 //        console.log('---');
 //    });
 //
-//    App.findOne({ _id: '5236c330e086bbec41000002' }).populate('_subs').exec(function (err, app) {
+//    App.findOne({ _id: '5236c330e086bbec41000002' }).populate('subscriptions').exec(function (err, app) {
 //        console.log('=2==');
 //        console.log(app);
 //        console.log('---');

@@ -4,6 +4,7 @@ Admin.AppsRoute = Ember.Route.extend({
     },
     setupController: function(controller) {
         var list = controller.store.find('app', { userId: Vari.CurrUser.id });
+        //console.log(list);
         controller.set('model', list);
     }
 });

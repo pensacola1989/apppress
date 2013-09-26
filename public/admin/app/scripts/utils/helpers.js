@@ -9,6 +9,10 @@ Handlebars.registerHelper('vari', function(v) {
 	return new Handlebars.SafeString(value);
 });
 
+Handlebars.registerHelper('first', function(context, block) {
+    return context[0];
+});
+
 Handlebars.registerHelper('reqPath', function(uri) {
 	if (Util.isEmpty(uri))
 		return new Handlebars.SafeString(Vari.ApiPath);

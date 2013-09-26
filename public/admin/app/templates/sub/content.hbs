@@ -1,4 +1,4 @@
-{{sub.title}}
+1111
 
 <table class="table table-bordered table-hover">
     <thead>
@@ -10,17 +10,20 @@
         </tr>
     <thead>
     <tbody>
-        {{#each category in store._categories}}
-            <tr>
-                <td>{{category.id}}</td>
-                <td>{{category.name}}</td>
-                <td>{{category.descr}}</td>
-                <td>
-                    <a href="#" {{action viewCategory category}}>View<a/> &nbsp;&nbsp;
-                    <a href="#" {{action editCategory category}}>Edit<a/> &nbsp;&nbsp;
-                    <a href="#" {{action deleteCategory category}}>Delete<a/> &nbsp;&nbsp;
-                </td>
-            </tr>
+        {{#each store in .}}
+            {{store.subscription.name}}
+            {{#each category in store.categories}}
+                <tr>
+                    <td>{{category.id}}</td>
+                    <td>{{category.name}}</td>
+                    <td>{{category.descr}}</td>
+                    <td>
+                        <a href="#" {{action viewCategory category}}>View<a/> &nbsp;&nbsp;
+                        <a href="#" {{action editCategory category}}>Edit<a/> &nbsp;&nbsp;
+                        <a href="#" {{action deleteCategory category}}>Delete<a/> &nbsp;&nbsp;
+                    </td>
+                </tr>
+            {{/each}}
         {{/each}}
     </tbody>
 </table>

@@ -11,7 +11,12 @@ var Subscription = require('../../subscription/model').Subscription;
 
 //Rest Interface
 exports.findAll = function (req, res) {
-    mongoose.findAll(CmsStore, function(objs) {res.send({app: objs});});
+    CmsStore.find({subscription: req.query.subId}).sort('order').exec(function (err, stores) {
+            CmsStoreCategory.find({mstore: stores[0].id}).sort('order').exec(function (err, categories) {
+                res.send({mstore:stores, categories: categories});
+                console.log({mstore:stores, categories: categories});
+            });
+    });
 };
 exports.findById = function(req, res){
     mongoose.findById(CmsStore, req.params.id, function(obj) {res.send({app: obj});});
@@ -49,14 +54,14 @@ exports.delete = function(req, res){
     })
 };
 
-exports.content = function(req, res){
-    Subscription.findById(req.query.subId, function (err, sub) {
-        CmsStore.findOne({_sub: sub._id}).sort('order').populate('_categories').exec(function (err, store) {
-            CmsStoreCategory.populate(store._categories, {path:'_products'}, function(err, data){
-                    //console.log(store._categories[0]._products[0].name);
-                    res.send({ sub: sub, store: store});
-                }
-            );
-        })
-    });
-};
+//exports.content = function(req, res){
+//    Subscription.findById(req.query.subId, function (err, sub) {
+//        CmsStore.findOne({subscription: sub._id}).sort('order').populate('categories').exec(function (err, store) {
+//            CmsStoreCategory.populate(store.categories, {path:'products'}, function(err, data){
+//                    //console.log(store.categories[0].products[0].name);
+//                    res.send({ subscription: sub, store: store});
+//                }
+//            );
+//        })
+//    });
+//};

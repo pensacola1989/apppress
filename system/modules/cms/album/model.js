@@ -4,7 +4,7 @@ var mongoose = require('../../../../framework/mongoose');
 var photoSchema = new mongoose.Schema({
     path: String,
     descr: String,
-    _sub: { type: mongoose.Schema.Types.ObjectId, ref: 'cms_album' }
+    subscription: { type: mongoose.Schema.Types.ObjectId, ref: 'cms_album' }
 }, config.schemaOptions);
 photoSchema.virtual('id').get(function() {
     return this._id;
@@ -23,8 +23,8 @@ var albumSchema = new mongoose.Schema({
 
     createTime: Date,
     updateTime: Date,
-    _sub: { type: mongoose.Schema.Types.ObjectId, ref: 'app_subscription' },
-    _photos : [{ type: mongoose.Schema.Types.ObjectId, ref: 'cms_album_photo' }]
+    subscription: { type: mongoose.Schema.Types.ObjectId, ref: 'app_subscription' },
+    photos : [{ type: mongoose.Schema.Types.ObjectId, ref: 'cms_album_photo' }]
 }, config.schemaOptions);
 albumSchema.virtual('id').get(function() {
     return this._id;

@@ -11,7 +11,7 @@ var eventSchema = new mongoose.Schema({
 
     createTime: Date,
     updateTime: Date,
-    _sub: { type: mongoose.Schema.Types.ObjectId, ref: 'app_subscription' }
+    subscription: { type: mongoose.Schema.Types.ObjectId, ref: 'app_subscription' }
 }, config.schemaOptions);
 eventSchema.virtual('id').get(function() {
     return this._id;

@@ -17,13 +17,13 @@ exports.createSub = function (name, descr, callback) {
 //
 //            var subs = [];
 //            for (var i = 0; i < objs.length; i++) {
-//                subs[i] = {code: objs[i].code,  name: objs[i].name, title: objs[i].title, status: 1, order: i, createTime: new Date(), _app: app._id};
+//                subs[i] = {code: objs[i].code,  name: objs[i].name, title: objs[i].title, status: 1, order: i, createTime: new Date(), app: app._id};
 //            }
 //            Subscription.create(subs, function (err, sub) {
-//                Subscription.find({ _app: app._id }).exec(function (err, subss) {
+//                Subscription.find({ app: app._id }).exec(function (err, subss) {
 //                    console.log(subss);
 //                    for (var i = 0; i < subss.length; i++) {
-//                        app._subs.push(subss[i]);
+//                        app.subscriptions.push(subss[i]);
 //                    }
 //                    app.save(function(){
 //                        app.set('id', app.get('_id'));

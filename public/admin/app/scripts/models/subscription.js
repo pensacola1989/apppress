@@ -11,6 +11,8 @@ Admin.Subscription = DS.Model.extend({
     createTime: attr(),
     updateTime: attr(),
 
+    app: belongsTo('app'),
+
     didLoad: function() {
 
     }
