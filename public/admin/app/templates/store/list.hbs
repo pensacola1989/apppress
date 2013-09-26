@@ -1,3 +1,4 @@
+{{store.id}}
 <table class="table table-bordered table-hover">
     <thead>
         <tr class="header">
@@ -7,19 +8,17 @@
         </tr>
     <thead>
     <tbody>
-        {{#each store in .}}
-            {{#each category in store.categories}}
+            {{#each category in categories}}
                 <tr>
                     <td>{{category.id}}</td>
                     <td>{{category.name}}</td>
                     <td>
-                        <a href="#" {{action viewCategory category}}>View<a/> &nbsp;&nbsp;
+                        <a href="#" {{action showProductList category}}>View<a/> &nbsp;&nbsp;
                         <a href="#" {{action editCategory category}}>Edit<a/> &nbsp;&nbsp;
                         <a href="#" {{action deleteCategory category}}>Delete<a/> &nbsp;&nbsp;
                     </td>
                 </tr>
             {{/each}}
-        {{/each}}
     </tbody>
 </table>
 

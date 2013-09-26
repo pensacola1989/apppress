@@ -8,7 +8,7 @@ Admin.App = DS.Model.extend({
     createTime: attr(),
     updateTime: attr(),
 
-    subscriptions: hasMany('subscription'),
+    //subscriptions: hasMany('subscription'),
 
     userId: attr()
 });

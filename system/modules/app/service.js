@@ -25,24 +25,25 @@ exports.createApp = function (name, descr, userId, callback) {
             for (var i = 0; i < objs.length; i++) {
                 subs[i] = {code: objs[i].code,  name: objs[i].name, title: objs[i].title, status: 1, order: i, createTime: new Date(), app: app._id};
             }
-            Subscription.create(subs, function (err) { // create subs
-                for (var i = 1; i < arguments.length; ++i) {
-                    app.subscriptions.push(arguments[i]);
+            Subscription.create(subs, function (err, m1, m2, m3, m4, m5, m6) { // create subs
+                app.subscriptions.push(m1,m2,m3,m4,m5,m6);
 
-                    if (arguments[i].code == 'store') {
-                        CmsStore.create({subscription: arguments[i]._id}, function (err, store) {
-                            CmsStoreCategory.create({name: 'iPhone', mstore: store._id}, function (err, category) {
-                                store.categories.push(category);
-                                store.save(function(){});
+                CmsStore.create({subscription: m5._id}, function (err, store) {
+                    m5.moduleId =  store.id;
+                    m5.save(function(){});
 
-                                CmsStoreProduct.create({name: 'iPhone 5', descr: '', price: 5000.00, freight: 50, flatRate: false, order: -1, status: 1, createTime: new Date(), category: category._id}, function (err, product) {
-                                    category.products.push(product);
-                                    category.save(function(){});
-                                });
-                            });
+                    CmsStoreCategory.create({name: 'iPhone', mstore: store._id}, function (err, category) {
+                        store.categories.push(category);
+                        store.save(function(){});
+
+                        CmsStoreProduct.create({name: 'iPhone 5', descr: '', price: 5000.00, freight: 50, flatRate: false, order: -1, status: 1, createTime: new Date(), category: category._id}, function (err, product) {
+                            category.products.push(product);
+                            category.save(function(){});
+
+
                         });
-                    }
-                }
+                    });
+                });
                 app.save(function(){
                     app.set('id', app.get('_id'));
                     callback(app);

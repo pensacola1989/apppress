@@ -47,3 +47,4 @@ Admin.AppEditController = Em.Controller.extend({
 });
 
 
+

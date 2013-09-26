@@ -4,6 +4,8 @@ var attr = DS.attr,
 
 Admin.Subscription = DS.Model.extend({
     code: attr(),
+    moduleId: attr(),
+
     name: attr(),
     title: attr(),
     order: attr(),

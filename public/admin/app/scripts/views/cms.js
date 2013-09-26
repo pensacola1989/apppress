@@ -22,7 +22,7 @@ Admin.CmsView = Em.View.extend({
                         $(this).addClass('active');
 
                         CmsUtil.clearContentView();
-                        subController.showSubContent($(this).attr('data-id'), $(this).attr('data-code'));
+                        subController.showStoreCategories($(this).attr('data-id'), $(this).attr('data-code'));
                     }
                 }));
             }

@@ -2,7 +2,7 @@ var config = require('../../../config');
 var mongoose = require('../../../framework/mongoose');
 
 var subscriptionSchema = new mongoose.Schema({
-    // from module
+    moduleId: String,
     code: String,
     name: String,
     title: String,

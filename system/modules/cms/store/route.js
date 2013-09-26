@@ -9,5 +9,6 @@ exports = module.exports = function(server) {
     server.put(config.api_version  + 'mstores/:id', filter.authorize, storeController.update);
     server.delete(config.api_version  + 'mstores/:id', filter.authorize, storeController.delete);
 
-    //server.get(config.api_version  + 'mstores/content', filter.authorize, storeController.content);
+    server.get(config.api_version  + 'categories', filter.authorize, storeController.findCategories);
+    server.get(config.api_version  + 'products', filter.authorize, storeController.findProducts);
 };

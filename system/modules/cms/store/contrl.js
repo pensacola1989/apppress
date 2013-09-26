@@ -11,21 +11,27 @@ var Subscription = require('../../subscription/model').Subscription;
 
 //Rest Interface
 exports.findAll = function (req, res) {
+
     CmsStore.find({subscription: req.query.subId}).sort('order').exec(function (err, stores) {
-            CmsStoreCategory.find({mstore: stores[0].id}).sort('order').exec(function (err, categories) {
-                var categoryIds = [];
-                for (var i = 0; i < categories.length; i++) {
-                    categoryIds[i] = mongoose.Types.ObjectId(categories[i].id);
-                }
-                CmsStoreProduct.find().where('category').in(categoryIds).sort('order').exec(function (err, products) {
-                    res.send({mstore:stores, categories: categories, products: products});
-                    //console.log({mstore:stores, categories: categories, products: products});
-                });
-            });
+        res.send({mstore:stores});
     });
+
+//            // Example of retrieve nested data
+//            CmsStoreCategory.find({mstore: stores[0].id}).sort('order').exec(function (err, categories) {
+//                var categoryIds = [];
+//                for (var i = 0; i < categories.length; i++) {
+//                    categoryIds[i] = mongoose.Types.ObjectId(categories[i].id);
+//                }
+//                CmsStoreProduct.find().where('category').in(categoryIds).sort('order').exec(function (err, products) {
+//                    res.send({mstore:stores, categories: categories, products: products});
+//                });
+//            });
+
 };
 exports.findById = function(req, res){
-    mongoose.findById(CmsStore, req.params.id, function(obj) {res.send({app: obj});});
+    mongoose.findById(CmsStore, req.params.id, function(obj) {
+        res.send({mstore: obj});
+    });
 };
 
 exports.save = function (req, res) {
@@ -59,6 +65,20 @@ exports.delete = function(req, res){
         return res.send({});
     })
 };
+
+exports.findCategories = function(req, res){
+    console.log(req.query);
+    CmsStoreCategory.find({mstore: req.query.mstoreId}).sort('order').exec(function (err, categories) {
+        return res.send({category: categories});
+    })
+};
+exports.findProducts = function(req, res){
+    console.log(req.query);
+    CmsStoreProduct.find({category: req.query.categoryId}).sort('order').exec(function (err, products) {
+        return res.send({product: products});
+    })
+};
+
 
 //exports.content = function(req, res){
 //    Subscription.findById(req.query.subId, function (err, sub) {
