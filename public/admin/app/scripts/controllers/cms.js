@@ -5,7 +5,7 @@ Admin.CmsController = Em.ArrayController.extend({
         saveStore: function(app) {
             console.log(this.get('controllers.app').get('content').get('name'));
         },
-        showProductList: function(category) {
+        showStoreProductList: function(category) {
             var me =this;
             CmsUtil.clearContentView();
 
