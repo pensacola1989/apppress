@@ -7,19 +7,18 @@ Admin.CmsController = Em.ArrayController.extend({
         },
         viewCategory: function(category) {
             CmsUtil.clearContentView();
-            var childView = Admin.StoreContentView.create();
+            var childView = Admin.ProductListView.create();
             var parentView = Em.View.views['sub_content_view'];
             parentView.pushObject(childView);
-            console.log(category.get('products'));
+
             childView.set("context", category.get('products'));
         }
     },
     showSubContent: function(subId, subCode) {
         if (subCode === 'store') {
             var data = this.store.find('mstore', {subId: subId});
-            console.log(data);
 
-            var childView = Admin.SubContentView.create();
+            var childView = Admin.StoreListView.create();
             var parentView = Em.View.views['sub_content_view'];
             parentView.pushObject(childView);
             childView.set("context", data);
