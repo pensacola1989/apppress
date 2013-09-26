@@ -16,7 +16,6 @@ exports.signonWithToken = function (req, res) {
         } else {
             console.log(err);
         }
-        obj.set('id', obj.get('_id'));
 
         var data = {success: success, data: obj};
         res.send(data);
@@ -56,11 +55,9 @@ exports.signup = function (req, res) {
                 status: 1,
                 createTime: new Date()
             });
-            user.save(function(){
-                req.session.user = obj._id;
-
-                user.set('id', user.get('_id'));
-                var data = {success: true, code:"", data: obj};
+            User.create(user, function (err, user) {
+                req.session.user = user._id;
+                var data = {success: true, code:"", data: user};
                 res.send(data);
             });
         } else {

@@ -16,7 +16,7 @@ var couponSchema = new mongoose.Schema({
 couponSchema.virtual('id').get(function() {
     return this._id;
 });
-exports.Coupon = mongoose.model('Coupon', couponSchema);
+exports.CmsCoupon = mongoose.model('cms_coupon', couponSchema);
 
 
 

@@ -14,4 +14,4 @@ var userSchema = new mongoose.Schema({
 userSchema.virtual('id').get(function() {
     return this._id;
 });
-exports.User = mongoose.model('User', userSchema);
+exports.User = mongoose.model('system_user', userSchema);

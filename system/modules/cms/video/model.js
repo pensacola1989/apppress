@@ -15,7 +15,7 @@ var videoSchema = new mongoose.Schema({
 videoSchema.virtual('id').get(function() {
     return this._id;
 });
-exports.Video = mongoose.model('Video', videoSchema);
+exports.CmsVideo = mongoose.model('cms_video', videoSchema);
 
 
 

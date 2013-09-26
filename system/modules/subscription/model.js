@@ -18,7 +18,7 @@ var subscriptionSchema = new mongoose.Schema({
 subscriptionSchema.virtual('id').get(function() {
     return this._id;
 });
-exports.Subscription = mongoose.model('Subscription', subscriptionSchema);
+exports.Subscription = mongoose.model('app_subscription', subscriptionSchema);
 
 
 

@@ -1,21 +1,24 @@
 var util = require('../../../../framework/util');
 var mongoose = require('../../../../framework/mongoose');
 
-var Store = require('./model').Store;
+var CmsStore = require('./model').CmsStore;
+var CmsStoreCategory = require('./model').CmsStoreCategory;
+var CmsStoreProduct = require('./model').CmsStoreProduct;
+
 var service = require('./service');
 
 var Subscription = require('../../subscription/model').Subscription;
 
 //Rest Interface
 exports.findAll = function (req, res) {
-    mongoose.findAll(Store, function(objs) {res.send({app: objs});});
+    mongoose.findAll(CmsStore, function(objs) {res.send({app: objs});});
 };
 exports.findById = function(req, res){
-    mongoose.findById(Store, req.params.id, function(obj) {res.send({app: obj});});
+    mongoose.findById(CmsStore, req.params.id, function(obj) {res.send({app: obj});});
 };
 
 exports.save = function (req, res) {
-    var mobiStore = new Store({
+    var mobiStore = new CmsStore({
         name: req.body.mobiStore.name,
         descr: req.body.mobiStore.descr,
         createDate: new Date()
@@ -28,7 +31,7 @@ exports.save = function (req, res) {
 };
 
 exports.update = function(req, res){
-    Store.findByIdAndUpdate(
+    CmsStore.findByIdAndUpdate(
         req.params.id,
         {
             name: req.body.store.name,
@@ -41,15 +44,14 @@ exports.update = function(req, res){
 };
 
 exports.delete = function(req, res){
-    Store.findByIdAndRemove(req.params.id, function(){
+    CmsStore.findByIdAndRemove(req.params.id, function(){
         return res.send({});
     })
 };
 
 exports.content = function(req, res){
-    console.log(req.query.subId);
     Subscription.findById(req.query.subId, function (err, sub) {
-        Store.findOne({_sub: sub._id}).sort('order').populate('_products').exec(function (err, store) {
+        CmsStore.findOne({_sub: sub._id}).sort('order').populate('_categories').exec(function (err, store) {
             res.send({ sub: sub, store: store});
         })
     });

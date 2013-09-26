@@ -3,14 +3,19 @@ var mongoose = require('../../../../framework/mongoose');
 
 var storeSchema = new mongoose.Schema({
     _sub: { type: mongoose.Schema.Types.ObjectId, ref: 'Subscription' },
-    _products : [{ type: mongoose.Schema.Types.ObjectId, ref: 'Product' }]
+    _categories : [{ type: mongoose.Schema.Types.ObjectId, ref: 'CmsStoreCategory' }]
 }, config.schemaOptions);
-storeSchema.virtual('id').get(function() {
-    return this._id;
-});
-exports.Store = mongoose.model('Store', storeSchema);
+storeSchema.virtual('id').get(function() { return this._id; });
+exports.CmsStore = mongoose.model('cms_store', storeSchema);
 
-var productSchema = new mongoose.Schema({
+var storeCategorySchema = new mongoose.Schema({
+    _store: { type: mongoose.Schema.Types.ObjectId, ref: 'CmsStore' },
+    _products : [{ type: mongoose.Schema.Types.ObjectId, ref: 'CmsStoreProduct' }]
+}, config.schemaOptions);
+storeCategorySchema.virtual('id').get(function() { return this._id; });
+exports.CmsStoreCategory = mongoose.model('cms_store_category', storeCategorySchema);
+
+var storeProductSchema = new mongoose.Schema({
     name: String,
     descr: String,
     price: Number,
@@ -23,12 +28,10 @@ var productSchema = new mongoose.Schema({
     createTime: Date,
     updateTime: Date,
 
-    _store: { type: mongoose.Schema.Types.ObjectId, ref: 'Store' }
+    _category: { type: mongoose.Schema.Types.ObjectId, ref: 'CmsStoreCategory' }
 }, config.schemaOptions);
-productSchema.virtual('id').get(function() {
-    return this._id;
-});
-exports.Product = mongoose.model('Product', productSchema);
+storeProductSchema.virtual('id').get(function() { return this._id; });
+exports.CmsStoreProduct = mongoose.model('cms_store_product', storeProductSchema);
 
 
 

@@ -8,7 +8,7 @@ var photoSchema = new mongoose.Schema({
 photoSchema.virtual('id').get(function() {
     return this._id;
 });
-exports.Photo = mongoose.model('Photo', photoSchema);
+exports.CmsAlbumPhoto = mongoose.model('cms_album_photo', photoSchema);
 
 var albumSchema = new mongoose.Schema({
     name: String,
@@ -23,12 +23,12 @@ var albumSchema = new mongoose.Schema({
     createTime: Date,
     updateTime: Date,
 
-    //photos: [photoSchema]
+    //photos: [CmsAlbumPhoto]
 }, config.schemaOptions);
 albumSchema.virtual('id').get(function() {
     return this._id;
 });
-exports.Album = mongoose.model('Album', albumSchema);
+exports.CmsAlbum = mongoose.model('cms_album', albumSchema);
 
 
 

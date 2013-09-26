@@ -15,7 +15,7 @@ var appSchema = new mongoose.Schema({
 appSchema.virtual('id').get(function() {
     return this._id;
 });
-exports.App = mongoose.model('App', appSchema);
+exports.App = mongoose.model('app', appSchema);
 
 
 

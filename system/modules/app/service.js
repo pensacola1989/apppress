@@ -4,8 +4,9 @@ var url = require('url');
 
 var App = require('./model').App;
 var Subscription = require('../subscription/model').Subscription;
-var Store = require('../cms/store/model').Store;
-var Product = require('../cms/store/model').Product;
+var CmsStore = require('../cms/store/model').CmsStore;
+var CmsStoreCategory = require('../cms/store/model').CmsStoreCategory;
+var CmsStoreProduct = require('../cms/store/model').CmsStoreProduct;
 
 var Module = require('../module/model').Module;
 
@@ -29,20 +30,15 @@ exports.createApp = function (name, descr, userId, callback) {
                     app._subs.push(arguments[i]);
 
                     if (arguments[i].code == 'store') {
-                        Store.create({_sub: arguments[i]._id}, function (err, store) {
-                            var product = {
-                                name: 'iPhone 5',
-                                descr: '',
-                                price: 5000.00,
-                                freight: 50,
-                                flatRate: false,
-                                order: -1,
-                                status: 1,
-                                createTime: new Date()
-                            };
-                            Product.create(product, function (err, product) {
-                                store._products.push(product);
+                        CmsStore.create({_sub: arguments[i]._id}, function (err, store) {
+                            CmsStoreCategory.create({name: 'iPhone', descr: '', _store: store._id}, function (err, category) {
+                                store._categories.push(category);
                                 store.save(function(){});
+
+                                CmsStoreProduct.create({name: 'iPhone 5', descr: '', price: 5000.00, freight: 50, flatRate: false, order: -1, status: 1, createTime: new Date(), _category: category._id}, function (err, product) {
+                                    category._products.push(product);
+                                    category.save(function(){});
+                                });
                             });
                         });
                     }

@@ -15,12 +15,19 @@ Admin.CmsView = Em.View.extend({
 
             success : function(json, textStatus) {
                 var items = json;
-                CmsUtil.createModuleMenu(items);
+                CmsUtil.createSubMenu(items);
                 $(".jcarousel-container").delegate('li.jcarousel-item','click',(function(e){
                     if(!$(this).hasClass("forbidden")){
                         $('li.jcarousel-item').removeClass('active');
                         $(this).addClass('active');
-                        CmsUtil.editSub($(this).attr('data-id'), $(this).attr('data-code'));
+
+                        var parentView = Em.View.views['sub_content_view'];
+                        parentView.get('childViews').forEach(function(item) {
+                            item.remove();
+                        });
+                        parentView.removeAllChildren();
+
+                        CmsUtil.showSubContent($(this).attr('data-id'), $(this).attr('data-code'));
                     }
                 }));
             }

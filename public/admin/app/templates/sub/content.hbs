@@ -10,14 +10,14 @@
         </tr>
     <thead>
     <tbody>
-        {{#each product in store._products}}
+        {{#each category in store._categories}}
             <tr>
-                <td>{{product.id}}</td>
-                <td>{{product.name}}</td>
-                <td>{{product.price}}</td>
+                <td>{{category.id}}</td>
+                <td>{{category.name}}</td>
+                <td>{{category.descr}}</td>
                 <td>
-                    <a href="#" {{action editProduct product}}>Edit<a/> &nbsp;&nbsp;
-                    <a href="#" {{action deleteProduct product}}>Delete<a/> &nbsp;&nbsp;
+                    <a href="#" {{action editCategory category}}>Edit<a/> &nbsp;&nbsp;
+                    <a href="#" {{action deleteCategory category}}>Delete<a/> &nbsp;&nbsp;
                 </td>
             </tr>
         {{/each}}

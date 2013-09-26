@@ -15,7 +15,7 @@ var eventSchema = new mongoose.Schema({
 eventSchema.virtual('id').get(function() {
     return this._id;
 });
-exports.Event = mongoose.model('Event', eventSchema);
+exports.CmsEvent = mongoose.model('cms_event', eventSchema);
 
 
 

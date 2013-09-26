@@ -12,7 +12,7 @@ var moduleSchema = new mongoose.Schema({
     createTime: Date,
     updateTime: Date
 }, config.schemaOptions);
-var module = mongoose.model('Module', moduleSchema);
+var module = mongoose.model('system_module', moduleSchema);
 moduleSchema.virtual('id').get(function() {
     return this._id;
 });
