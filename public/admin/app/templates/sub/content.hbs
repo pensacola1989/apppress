@@ -5,7 +5,7 @@
         <tr class="header">
             <th>ID</td>
             <th>Name</td>
-            <th>Price</td>
+            <th>Descr</td>
             <th>Action</td>
         </tr>
     <thead>
@@ -16,6 +16,7 @@
                 <td>{{category.name}}</td>
                 <td>{{category.descr}}</td>
                 <td>
+                    <a href="#" {{action viewCategory category}}>View<a/> &nbsp;&nbsp;
                     <a href="#" {{action editCategory category}}>Edit<a/> &nbsp;&nbsp;
                     <a href="#" {{action deleteCategory category}}>Delete<a/> &nbsp;&nbsp;
                 </td>

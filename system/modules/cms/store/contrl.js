@@ -52,7 +52,11 @@ exports.delete = function(req, res){
 exports.content = function(req, res){
     Subscription.findById(req.query.subId, function (err, sub) {
         CmsStore.findOne({_sub: sub._id}).sort('order').populate('_categories').exec(function (err, store) {
-            res.send({ sub: sub, store: store});
+            CmsStoreCategory.populate(store._categories, {path:'_products'}, function(err, data){
+                    //console.log(store._categories[0]._products[0].name);
+                    res.send({ sub: sub, store: store});
+                }
+            );
         })
     });
 };

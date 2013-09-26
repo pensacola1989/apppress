@@ -11,7 +11,8 @@ var couponSchema = new mongoose.Schema({
     status: Number,
 
     createTime: Date,
-    expirationTime: Date
+    expirationTime: Date,
+    _sub: { type: mongoose.Schema.Types.ObjectId, ref: 'app_subscription' }
 }, config.schemaOptions);
 couponSchema.virtual('id').get(function() {
     return this._id;

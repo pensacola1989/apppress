@@ -1,4 +1,12 @@
 CmsUtil = {
+    clearContentView: function (){
+        var parentView = Em.View.views['sub_content_view'];
+        parentView.get('childViews').forEach(function(item) {
+            item.remove();
+        });
+        parentView.removeAllChildren();
+    },
+
     createSubMenu: function (items){
         $('#sub-menu').jcarousel({
             size: items.length,
@@ -87,6 +95,7 @@ CmsUtil = {
                 data: {subId: subId},
 
                 success : function(json, textStatus) {
+                    console.log(json);
                     var childView = Admin.SubContentView.create();
                     var parentView = Em.View.views['sub_content_view'];
                     parentView.pushObject(childView);

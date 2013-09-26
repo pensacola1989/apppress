@@ -13,7 +13,7 @@ var subscriptionSchema = new mongoose.Schema({
     createTime: Date,
     updateTime: Date,
 
-    _app: { type: mongoose.Schema.Types.ObjectId, ref: 'App' }
+    _app: { type: mongoose.Schema.Types.ObjectId, ref: 'app' }
 }, config.schemaOptions);
 subscriptionSchema.virtual('id').get(function() {
     return this._id;

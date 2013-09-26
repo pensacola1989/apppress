@@ -21,11 +21,7 @@ Admin.CmsView = Em.View.extend({
                         $('li.jcarousel-item').removeClass('active');
                         $(this).addClass('active');
 
-                        var parentView = Em.View.views['sub_content_view'];
-                        parentView.get('childViews').forEach(function(item) {
-                            item.remove();
-                        });
-                        parentView.removeAllChildren();
+                        CmsUtil.clearContentView();
 
                         CmsUtil.showSubContent($(this).attr('data-id'), $(this).attr('data-code'));
                     }
