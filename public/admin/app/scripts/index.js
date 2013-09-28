@@ -14,6 +14,8 @@ Admin.ApplicationAdapter = DS.RESTAdapter.extend({
     host: 'http://192.168.1.228:9000'
 });
 
+Admin.Store = DS.Store.extend();
+
 $.ajaxSetup({
     statusCode: {
         555: function() {
@@ -21,7 +23,4 @@ $.ajaxSetup({
         }
     }
 });
-
-Admin.Store = DS.Store.extend();
-
 $.cookie.defaults = { expires: 7, path: '/', domain: "localhost" };

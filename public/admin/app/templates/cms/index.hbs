@@ -14,12 +14,17 @@
               </li>
             </ul>
             <div id="tab-panel">
-                <div id="sub-menu" class="jcarousel-skin">
-                    <ul>
-                    </ul>
+                <div id="cms-header">
+                    <div id="cms-menu" class="jcarousel-skin">
+                        <ul></ul>
+                    </div>
+                    <div id="cms-nav" class="">
+                         {{view Admin.CmsNavView elementId="cms_nav_view"}}
+                    </div>
                 </div>
-                <div id="sub-content">
-                     {{view Em.ContainerView elementId="sub_content_view"}}
+
+                <div id="cms-content">
+                     {{view Em.ContainerView elementId="cms_content_view"}}
                 </div>
             </div>
 

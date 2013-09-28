@@ -7,10 +7,11 @@ Admin.CmsStoreController = Em.ArrayController.extend({
 
             var products = me.store.find('product', {categoryId: category.id});
             var childView = Admin.ProductListView.create();
-            var parentView = Em.View.views['sub_content_view'];
+            var parentView = Em.View.views['cms_content_view'];
             parentView.pushObject(childView);
 
             childView.set("context", products);
+            CmsUtil.showCmsNav([{label: 'store'}, {label: 'list'}]);
         },
         saveStore: function(app) {
             console.log(this.get('controllers.app').get('content').get('name'));
@@ -24,9 +25,12 @@ Admin.CmsStoreController = Em.ArrayController.extend({
         var childView = Admin.StoreListView.create({
             controller: me
         });
-        var parentView = Em.View.views['sub_content_view'];
+        var parentView = Em.View.views['cms_content_view'];
         parentView.pushObject(childView);
         childView.set("context", {store: store, categories: categories});
+
+        CmsUtil.showCmsNav([{label: 'store'}]);
+
     }
 });
 

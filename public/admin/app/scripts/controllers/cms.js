@@ -17,7 +17,7 @@ Admin.CmsController = Em.ArrayController.extend({
             data: {appId: appId},
 
             success : function(items, textStatus) {
-                CmsUtil.createSubMenu(items);
+                CmsUtil.createCmsMenu(items);
                 $(".jcarousel-container").delegate('li.jcarousel-item','click',(function(e){
                     if(!$(this).hasClass("forbidden")){
                         $('li.jcarousel-item').removeClass('active');

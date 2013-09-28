@@ -1,14 +1,14 @@
 CmsUtil = {
     clearContentView: function (){
-        var parentView = Em.View.views['sub_content_view'];
+        var parentView = Em.View.views['cms_content_view'];
         parentView.get('childViews').forEach(function(item) {
             item.remove();
         });
         parentView.removeAllChildren();
     },
 
-    createSubMenu: function (items){
-        $('#sub-menu').jcarousel({
+    createCmsMenu: function (items){
+        $('#cms-menu').jcarousel({
             size: items.length,
             scroll: 5,
             visible: 5,
@@ -85,6 +85,10 @@ CmsUtil = {
             }
         });
         menuItems.disableSelection();
+    },
+    showCmsNav: function(arr) {
+        var view = Em.View.views['cms_nav_view'];
+        view.set("context", arr);
     }
 
 }

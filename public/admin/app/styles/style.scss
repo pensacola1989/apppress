@@ -107,7 +107,11 @@ form.cmxform.w-600 {
       border-top: 0;
       @include border-radius(0 0 6px 6px);
 
+      #cms-header {
+        height: 60px;
+      }
       .jcarousel-skin {
+        float: left;
         .jcarousel-container {
           width: 410px;
           padding: 0px 13px;
@@ -215,7 +219,10 @@ form.cmxform.w-600 {
           }
         }
       }
-      #sub-content {
+      #cms-nav {
+        float: right;
+      }
+      #cms-content {
         margin-top: 10px;
       }
     }
