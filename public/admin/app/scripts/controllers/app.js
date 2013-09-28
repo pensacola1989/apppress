@@ -2,8 +2,8 @@ Admin.AppsController = Em.Controller.extend({
     actions: {
         createApp: function() {
             var newApp = this.store.createRecord('app', {
-                name: 'n',
-                descr: 'd'
+                name: 'new',
+                descr: ''
             });
             this.transitionToRoute("app.edit", newApp);
         },
@@ -15,10 +15,10 @@ Admin.AppsController = Em.Controller.extend({
         },
         deleteApp: function(app) {
             app.one("didDelete", this, function() {
-                var list = this.store.find('app', { userId: Vari.CurrUser.id });
+                var list = this.store.find('app');
                 this.set('model', list);
             });
-            app.deleteRecord();
+            this.store.deleteRecord(app);
             app.save();
         }
     }
