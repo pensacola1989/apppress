@@ -80,14 +80,16 @@ exports.findProducts = function(req, res){
 };
 
 
-//exports.content = function(req, res){
-//    Subscription.findById(req.query.subId, function (err, sub) {
-//        CmsStore.findOne({subscription: sub._id}).sort('order').populate('categories').exec(function (err, store) {
-//            CmsStoreCategory.populate(store.categories, {path:'products'}, function(err, data){
-//                    //console.log(store.categories[0].products[0].name);
-//                    res.send({ subscription: sub, store: store});
-//                }
-//            );
-//        })
-//    });
-//};
+exports.saveCategory = function (req, res) {
+    var storeCategory = new CmsStoreCategory({
+        name: req.body.category.name,
+        mstore: '524659292b597ef80f000026'
+    });
+
+    storeCategory.save(function(){
+        var data = {category: storeCategory};
+        return res.send(data);
+        console.log('===');
+        console.log(storeCategory);
+    });
+};

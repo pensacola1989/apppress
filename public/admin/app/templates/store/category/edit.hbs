@@ -1,0 +1,18 @@
+<form action="#">
+    <div id="content">
+        <div class="control-group">
+            <label class="control-label" for="name">Name</label>
+            <div class="controls">
+                {{view Ember.TextField id="name" valueBinding="name"}}
+            </div>
+        </div>
+    </div>
+    <div id="toolbar">
+        <div class="control-group">
+            <div class="controls">
+                <button type="submit" class="btn btn-primary" {{action saveCategory .}}>Save</button>&nbsp;&nbsp;
+                <button type="reset" class="btn">Reset</button>
+            </div>
+        </div>
+    </div>
+</form>
