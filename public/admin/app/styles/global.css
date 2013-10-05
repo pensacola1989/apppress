@@ -77,3 +77,10 @@ form label.error {
   background: #ffef8f 50% top repeat-x;
   color: #363636;
 }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/D\:\/Dev\/NodeJs\/Project\/apppress\/public\/admin\/app\/styles\/global\.scss}line{font-family:\0000369}}
+.form-horizontal .control-group::before, .form-horizontal .control-group::after {
+  display: none !important;
+  content: "" !important;
+  line-height: 0 !important;
+}

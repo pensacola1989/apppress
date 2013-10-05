@@ -82,6 +82,8 @@ Admin.CmsStoreController = Em.ArrayController.extend({
             CmsUtil.showCmsNav([{label: 'categories'}, {label: 'products'}, {label: 'edit'}]);
         },
         saveProduct: function(product) {
+            console.log(product.get('flatRate'));
+
             var me = this;
             jQuery.validator.setDefaults({
                 debug: true,

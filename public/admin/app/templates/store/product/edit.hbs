@@ -1,4 +1,4 @@
-<form id="productEditForm" action="#">
+<form id="productEditForm" action="#" class="form-horizontal">
     <div id="content">
         <div class="control-group">
             <label class="control-label" for="name">Name</label>
@@ -21,13 +21,13 @@
         <div class="control-group">
             <label class="control-label" for="freight">Freight</label>
             <div class="controls">
-                {{view Ember.TextField name="freight" valueBinding="freight" classNames="required"}}
+                {{view Ember.TextField name="freight" valueBinding="freight" classNames="required number"}}
             </div>
         </div>
         <div class="control-group">
             <label class="control-label" for="flatRate">FlatRate</label>
             <div class="controls">
-                {{view Ember.TextField name="flatRate" valueBinding="flatRate" classNames="required"}}
+                {{view Ember.Checkbox name="flatRate" checkedBinding="flatRate" classNames=""}}
             </div>
         </div>
     </div>

@@ -66,5 +66,11 @@ form label.error {
     color: #363636;
 }
 
+.form-horizontal .control-group::before, .form-horizontal .control-group::after {
+  display: none!important;
+  content: ""!important;
+  line-height: 0!important;
+}
+
 
 
