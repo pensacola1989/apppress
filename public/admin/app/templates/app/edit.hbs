@@ -2,18 +2,18 @@
     {{#linkTo "apps"}}Back{{/linkTo}}
 </div> -->
 
-<form action="#">
+<form id="appEditForm" action="#">
     <div id="content">
         <div class="control-group">
             <label class="control-label" for="name">Name</label>
             <div class="controls">
-                {{view Ember.TextField id="name" valueBinding="app.content.name"}}
+                {{view Ember.TextField name="name" name="name" valueBinding="app.content.name" classNames="required" }}
             </div>
         </div>
         <div class="control-group">
             <label class="control-label" for="headline">Description</label>
             <div class="controls">
-                {{view Ember.TextArea id="descr" valueBinding="app.content.descr"}}
+                {{view Ember.TextArea name="descr" valueBinding="app.content.descr"}}
             </div>
         </div>
     </div>

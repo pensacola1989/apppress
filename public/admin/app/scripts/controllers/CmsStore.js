@@ -6,7 +6,7 @@ Admin.CmsStoreController = Em.ArrayController.extend({
             var me =this;
 
             var newCategory = me.store.createRecord('category', {
-                name: 'nn',
+                name: '',
                 mstore: mstore
             });
             CmsUtil.clearContentView();
@@ -30,6 +30,10 @@ Admin.CmsStoreController = Em.ArrayController.extend({
         },
         saveCategory: function(category) {
             var me = this;
+
+            var form = $('#categoryEditForm');
+            form.validate()
+            if (!form.valid()) return;
 
             category.one("didCreate", this, function() {
                 me.showContent();
@@ -79,6 +83,14 @@ Admin.CmsStoreController = Em.ArrayController.extend({
         },
         saveProduct: function(product) {
             var me = this;
+            jQuery.validator.setDefaults({
+                debug: true,
+                success: "valid"
+            });
+            var form = $('#productEditForm');
+            form.validate()
+            if (!form.valid()) return;
+
             var category = product.get('category');
             product.one("didCreate", this, function() {
                 me.showProductList(category);

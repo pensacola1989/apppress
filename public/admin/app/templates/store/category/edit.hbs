@@ -1,9 +1,9 @@
-<form action="#">
+<form id="categoryEditForm" action="#">
     <div id="content">
         <div class="control-group">
             <label class="control-label" for="name">Name</label>
             <div class="controls">
-                {{view Ember.TextField id="name" valueBinding="name"}}
+                {{view Ember.TextField name="name" valueBinding="name" classNames="required"}}
             </div>
         </div>
     </div>

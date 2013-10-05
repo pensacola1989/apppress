@@ -2,7 +2,7 @@ Admin.AppsController = Em.Controller.extend({
     actions: {
         createApp: function() {
             var newApp = this.store.createRecord('app', {
-                name: 'new',
+                name: '',
                 descr: ''
             });
             this.transitionToRoute("app.edit", newApp);
@@ -34,6 +34,10 @@ Admin.AppEditController = Em.Controller.extend({
     actions: {
         saveApp: function(app) {
             var me = this;
+
+            var form = $('#appEditForm');
+            form.validate()
+            if (!form.valid()) return;
 
             app.one("didCreate", this, function() {
                 me.transitionToRoute("apps");
