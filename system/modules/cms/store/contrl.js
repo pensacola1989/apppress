@@ -92,6 +92,12 @@ exports.findProducts = function(req, res){
 exports.saveProduct = function (req, res) {
     var storeProduct = new CmsStoreProduct({
         name: req.body.product.name,
+        descr: req.body.product.descr,
+        price: req.body.product.price,
+        freight: req.body.product.freight,
+        flatRate: req.body.product.flatRate,
+        status: 1,
+        createTime: new Date(),
         category: req.body.product.category
     });
 
@@ -104,7 +110,13 @@ exports.updateProduct = function(req, res){
     CmsStoreProduct.findByIdAndUpdate(
         req.params.id,
         {
-            name: req.body.product.name
+            name: req.body.product.name,
+            descr: req.body.product.descr,
+            price: req.body.product.price,
+            freight: req.body.product.freight,
+            flatRate: req.body.product.flatRate,
+            status: 1,
+            createTime: new Date()
         }, function(){
             res.send({});
         }
