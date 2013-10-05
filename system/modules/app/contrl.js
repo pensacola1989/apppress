@@ -4,6 +4,17 @@ var service = require('./service');
 
 var App = require('./model').App;
 
+//            // Example of retrieve nested data
+//            CmsStoreCategory.find({mstore: stores[0].id}).sort('order').exec(function (err, categories) {
+//                var categoryIds = [];
+//                for (var i = 0; i < categories.length; i++) {
+//                    categoryIds[i] = mongoose.Types.ObjectId(categories[i].id);
+//                }
+//                CmsStoreProduct.find().where('category').in(categoryIds).sort('order').exec(function (err, products) {
+//                    res.send({mstore:stores, categories: categories, products: products});
+//                });
+//            });
+
 //Rest Interface
 exports.findAll = function (req, res) {
     App.find({user: req.session.user }).exec(function (err, apps) {

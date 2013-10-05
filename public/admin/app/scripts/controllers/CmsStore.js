@@ -1,5 +1,6 @@
 Admin.CmsStoreController = Em.ArrayController.extend({
     needs: ['app', 'cms'],
+
     actions: {
         createCategory: function(mstore) {
             var me =this;
@@ -14,7 +15,7 @@ Admin.CmsStoreController = Em.ArrayController.extend({
                 context: newCategory
             });
             CmsUtil.showCmsContent(childView);
-            CmsUtil.showCmsNav([{label: 'store'}, {label: 'edit'}]);
+            CmsUtil.showCmsNav([{label: 'categories'}, {label: 'create'}]);
 
         },
         editCategory: function(category) {
@@ -25,7 +26,7 @@ Admin.CmsStoreController = Em.ArrayController.extend({
                 context: category
             });
             CmsUtil.showCmsContent(childView);
-            CmsUtil.showCmsNav([{label: 'store'}, {label: 'edit'}]);
+            CmsUtil.showCmsNav([{label: 'categories'}, {label: 'edit'}]);
         },
         saveCategory: function(category) {
             var me = this;
@@ -47,21 +48,58 @@ Admin.CmsStoreController = Em.ArrayController.extend({
             me.store.deleteRecord(category);
             category.save();
         },
-        showStoreProductList: function(category) {
+        showProductList: function(category) {
+            this.showProductList(category);
+        },
+        createProduct: function(category) {
             var me =this;
+
+            var newProduct = me.store.createRecord('product', {
+                name: 'pp',
+                category: category
+            });
             CmsUtil.clearContentView();
-
-
-            var products = me.store.find('product', {categoryId: category.id});
-            var childView = Admin.StoreProductListView.create({
+            var childView = Admin.StoreProductEditView.create({
                 controller: me,
-                context: products
+                context: newProduct
             });
             CmsUtil.showCmsContent(childView);
-            CmsUtil.showCmsNav([{label: 'store'}, {label: 'list'}]);
+            CmsUtil.showCmsNav([{label: 'categories'}, {label: 'products'}, {label: 'create'}]);
+
+        },
+        editProduct: function(product) {
+            var me =this;
+
+            var childView = Admin.StoreProductEditView.create({
+                controller: me,
+                context: product
+            });
+            CmsUtil.showCmsContent(childView);
+            CmsUtil.showCmsNav([{label: 'categories'}, {label: 'products'}, {label: 'edit'}]);
+        },
+        saveProduct: function(product) {
+            var me = this;
+            var category = product.get('category');
+            product.one("didCreate", this, function() {
+                me.showProductList(category);
+            });
+            product.one("didUpdate", this, function() {
+                me.showProductList(category);
+            });
+            product.save();
+        },
+        deleteProduct: function(product) {
+            var me = this;
+            var category = product.get('category');
+            product.one("didDelete", this, function() {
+                me.showProductList(category);
+            });
+            me.store.deleteRecord(product);
+            product.save();
         }
     },
 
+    // called by the sub menu
     showContent: function() {
         CmsUtil.clearContentView();
 
@@ -74,8 +112,19 @@ Admin.CmsStoreController = Em.ArrayController.extend({
                     context: {store: mstore, categories: categories}
                 });
                 CmsUtil.showCmsContent(childView);
-                CmsUtil.showCmsNav([{label: 'store'}]);
+                CmsUtil.showCmsNav([{label: 'categories'}]);
             });
+        });
+    },
+    showProductList: function(category) {
+        var me =this;
+        me.store.find('product', {categoryId: category.id}).then(function(products) {
+            var childView = Admin.StoreProductListView.create({
+                controller: me,
+                context: {category: category, products: products}
+            });
+            CmsUtil.showCmsContent(childView);
+            CmsUtil.showCmsNav([{label: 'categories'}, {label: 'products'}]);
         });
     }
 });

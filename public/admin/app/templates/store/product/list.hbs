@@ -1,4 +1,4 @@
-
+<a href="#" {{action createProduct category}}>Create<a/>
 <table class="table table-bordered table-hover">
     <thead>
         <tr class="header">
@@ -9,7 +9,7 @@
         </tr>
     <thead>
     <tbody>
-        {{#each product in .}}
+        {{#each product in products}}
             <tr>
                 <td>{{product.id}}</td>
                 <td>{{product.name}}</td>

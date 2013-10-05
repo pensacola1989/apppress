@@ -1,0 +1,42 @@
+<form action="#">
+    <div id="content">
+        <div class="control-group">
+            <label class="control-label" for="name">Name</label>
+            <div class="controls">
+                {{view Ember.TextField id="name" valueBinding="name"}}
+            </div>
+        </div>
+        <div class="control-group">
+            <label class="control-label" for="descr">Descr</label>
+            <div class="controls">
+                {{view Ember.TextArea id="descr" valueBinding="descr"}}
+            </div>
+        </div>
+        <div class="control-group">
+            <label class="control-label" for="price">Price</label>
+            <div class="controls">
+                {{view Ember.TextField id="price" valueBinding="price"}}
+            </div>
+        </div>
+        <div class="control-group">
+            <label class="control-label" for="freight">Freight</label>
+            <div class="controls">
+                {{view Ember.TextField id="freight" valueBinding="freight"}}
+            </div>
+        </div>
+        <div class="control-group">
+            <label class="control-label" for="flatRate">FlatRate</label>
+            <div class="controls">
+                {{view Ember.TextField id="flatRate" valueBinding="flatRate"}}
+            </div>
+        </div>
+    </div>
+    <div id="toolbar">
+        <div class="control-group">
+            <div class="controls">
+                <button type="submit" class="btn btn-primary" {{action saveProduct .}}>Save</button>&nbsp;&nbsp;
+                <button type="reset" class="btn">Reset</button>
+            </div>
+        </div>
+    </div>
+</form>
