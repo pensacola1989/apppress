@@ -12,7 +12,8 @@ var Subscription = require('../../subscription/model').Subscription;
 //Rest Interface
 exports.findAll = function (req, res) {
 
-    CmsStore.find({subscription: req.query.subId}).sort('order').exec(function (err, stores) {
+    CmsStore.find({subscription: req.query.subscriptionId}).sort('order').exec(function (err, stores) {
+        console.log(stores);
         res.send({mstore:stores});
     });
 
@@ -83,7 +84,7 @@ exports.findProducts = function(req, res){
 exports.saveCategory = function (req, res) {
     var storeCategory = new CmsStoreCategory({
         name: req.body.category.name,
-        mstore: '524659292b597ef80f000026'
+        mstore: req.body.category.mstore
     });
 
     storeCategory.save(function(){

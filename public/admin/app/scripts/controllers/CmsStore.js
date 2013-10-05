@@ -16,12 +16,10 @@ Admin.CmsStoreController = Em.ArrayController.extend({
         createCategory: function(mstore) {
             var me =this;
 
-            var newCategory = this.store.createRecord('category', {
+            var newCategory = me.store.createRecord('category', {
                 name: 'nn',
-                //mstore: mstore
-                //categories: []
+                mstore: mstore
             });
-
             CmsUtil.clearContentView();
             var childView = Admin.StoreCategoryEditView.create({
                 controller: me
@@ -31,6 +29,7 @@ Admin.CmsStoreController = Em.ArrayController.extend({
 
             childView.set("context", newCategory);
             CmsUtil.showCmsNav([{label: 'store'}, {label: 'edit'}]);
+
         },
         saveCategory: function(category) {
             var me = this;
@@ -45,22 +44,23 @@ Admin.CmsStoreController = Em.ArrayController.extend({
         }
     },
 
-    showContent: function(moduleId) {
+    showContent: function(subId) {
         CmsUtil.clearContentView();
 
         var me = this;
-        var store = me.store.find('mstore', moduleId);
-        var categories = me.store.find('category', {mstoreId: moduleId});
+        me.store.find('mstore', {subscriptionId: subId}).then(function(mstores) {
+            var mstore = mstores.get('content')[0];
+            me.store.find('category', {mstoreId: mstore.get('id')}).then(function(categories) {
+                var childView = Admin.StoreCategoryListView.create({
+                    controller: me
+                });
+                var parentView = Em.View.views['cms_content_view'];
+                parentView.pushObject(childView);
+                childView.set("context", {store: mstore, categories: categories});
 
-        var childView = Admin.StoreCategoryListView.create({
-            controller: me
+                CmsUtil.showCmsNav([{label: 'store'}]);
+            });
         });
-        var parentView = Em.View.views['cms_content_view'];
-        parentView.pushObject(childView);
-        childView.set("context", {store: store, categories: categories});
-
-        CmsUtil.showCmsNav([{label: 'store'}]);
-
     }
 });
 

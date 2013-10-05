@@ -29,8 +29,6 @@ exports.createApp = function (name, descr, userId, callback) {
                 app.subscriptions.push(m1,m2,m3,m4,m5,m6);
 
                 CmsStore.create({subscription: m5._id}, function (err, store) {
-                    m5.moduleId =  store.id;
-                    m5.save(function(){});
 
                     CmsStoreCategory.create({name: 'iPhone', mstore: store._id}, function (err, category) {
                         store.categories.push(category);
