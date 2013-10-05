@@ -32,9 +32,7 @@ Admin.CmsController = Em.ArrayController.extend({
     },
     showCmsContent: function(subId, subCode) {
         var me = this;
-        //var sub = me.store.find('subscription', subId).then(function(sub) {
-        //    var moduleId = sub.get('moduleId');
-            me.get('controllers.cms' + Util.capFirstLetter(subCode)).showContent(subId);
-        //});
+        Vari.CurrSubId = subId;
+        me.get('controllers.cms' + Util.capFirstLetter(subCode)).showContent();
     }
 });

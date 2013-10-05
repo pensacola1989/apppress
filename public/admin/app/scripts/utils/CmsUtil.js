@@ -89,6 +89,12 @@ CmsUtil = {
     showCmsNav: function(arr) {
         var view = Em.View.views['cms_nav_view'];
         view.set("context", arr);
+    },
+    showCmsContent: function(view, content, context) {
+        CmsUtil.clearContentView();
+
+        var parentView = Em.View.views['cms_content_view'];
+        parentView.pushObject(view);
     }
 
 }

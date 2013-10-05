@@ -73,6 +73,25 @@ exports.findCategories = function(req, res){
         return res.send({category: categories});
     })
 };
+exports.updateCategory = function(req, res){
+    console.log(req.body);
+    CmsStoreCategory.findByIdAndUpdate(
+        req.params.id,
+        {
+            name: req.body.category.name
+        }, function(){
+            res.send({});
+        }
+    )
+};
+exports.deleteCategory = function(req, res){
+    console.log('===');
+    console.log(req.params);
+    console.log('---');
+    CmsStoreCategory.findByIdAndRemove(req.params.id, function(){
+        return res.send({});
+    })
+};
 exports.findProducts = function(req, res){
     console.log(req.query);
     CmsStoreProduct.find({category: req.query.categoryId}).sort('order').exec(function (err, products) {

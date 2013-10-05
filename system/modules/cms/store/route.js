@@ -11,6 +11,8 @@ exports = module.exports = function(server) {
 
     server.get(config.api_version  + 'categories', filter.authorize, storeController.findCategories);
     server.post(config.api_version  + 'categories', filter.authorize, storeController.saveCategory);
+    server.put(config.api_version  + 'categories/:id', filter.authorize, storeController.updateCategory);
+    server.delete(config.api_version  + 'categories/:id', filter.authorize, storeController.deleteCategory);
 
     server.get(config.api_version  + 'products', filter.authorize, storeController.findProducts);
 };

@@ -15,10 +15,12 @@ Vari = {
 	CurrUser: {id: null},
 
     CurrApp: null,
+    CurrSub: null,
+    CurrSubId: null,
 
 	CurrAction: null,
 	DragType: null,
-	srcId: null
+	srcId: null,
 };
 
 Util = {
