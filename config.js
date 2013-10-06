@@ -1,6 +1,6 @@
 var path = require('path');
 var config = {
-    web_root: path.join(__dirname, 'public'),
+    web_root: path.join(__dirname, 'public/'),
 	name: 'AppPress',
 	description: '',
 	version: '0.1.0',
@@ -31,7 +31,7 @@ var config = {
 
 	admins: { admin: true },
 
-    modules: ['app','user', 'module', 'subscription', 'cms/album', 'cms/coupon', 'cms/event', 'cms/store', 'cms/video'],
+    modules: ['util', 'app','user', 'module', 'subscription', 'cms/album', 'cms/coupon', 'cms/event', 'cms/store', 'cms/video'],
     components: [],
 	plugins: [],
     schemaOptions: {

@@ -4,7 +4,12 @@ var config = require('./config');
 
 var server = express();
 server.configure(function () {
-    server.use(express.bodyParser()); //parses request body and populates req.body
+    server.use(express.bodyParser({
+        keepExtensions:true,
+        limit:100000000,
+        defer:true,
+        uploadDir: "d:/"})
+    );
     server.use(express.cookieParser());
     server.use(express.session({secret: 'apppress'}));
 
@@ -29,12 +34,3 @@ for (var i = 0, l = modules.length; i < l; i++) {
     var module = modules[i];
     require('./system/modules/' + module + '/route')(server);
 }
-
-var gm = require('gm');
-gm(config.web_root + '/upload/t.png')
-    .resize(100, 100)
-    .autoOrient()
-    .write(config.web_root + '/upload/tt.png', function (err) {
-        console.log(err);
-        if (!err) console.log(' hooray! ');
-    });

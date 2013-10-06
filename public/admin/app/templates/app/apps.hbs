@@ -1,4 +1,9 @@
 {{view Admin.HeaderView}}
+<input id="fileupload" type="file" name="files[]" multiple>
+<div id="progress" class="progress">
+    <div class="progress-bar progress-bar-success" style="height: 10px; width: 10px; background-color: red;"></div>
+</div>
+
 <div id="app_list" class="row-fluid main">
     <div class="new">
         <a href="#" {{action createApp}}>Create<a/>
