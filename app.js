@@ -6,8 +6,8 @@ var server = express();
 server.configure(function () {
     server.use(express.bodyParser({
         keepExtensions:true,
-        limit:100000000,
-        defer:true,
+        limit:10000000,
+        //defer:true,
         uploadDir: "d:/"})
     );
     server.use(express.cookieParser());

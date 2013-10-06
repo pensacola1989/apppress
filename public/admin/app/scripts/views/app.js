@@ -5,18 +5,9 @@ Admin.AppsView = Em.View.extend({
             url: Vari.ApiPath + 'upload',
             dataType: 'json',
             done: function (e, data) {
-                console.log(data);
-
-            },
-            progressall: function (e, data) {
-                var progress = parseInt(data.loaded / data.total * 100, 10);
-                $('#progress .progress-bar').css(
-                    'width',
-                    progress + '%'
-                );
+                console.log(data.result);
             }
-        }).prop('disabled', !$.support.fileInput)
-            .parent().addClass($.support.fileInput ? undefined : 'disabled');
+        })
     },
 
     handler: function() {    
