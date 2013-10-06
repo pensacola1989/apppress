@@ -29,3 +29,12 @@ for (var i = 0, l = modules.length; i < l; i++) {
     var module = modules[i];
     require('./system/modules/' + module + '/route')(server);
 }
+
+var gm = require('gm');
+gm(config.web_root + '/upload/t.png')
+    .resize(100, 100)
+    .autoOrient()
+    .write(config.web_root + '/upload/tt.png', function (err) {
+        console.log(err);
+        if (!err) console.log(' hooray! ');
+    });

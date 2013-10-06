@@ -1,4 +1,6 @@
+var path = require('path');
 var config = {
+    web_root: path.join(__dirname, 'public'),
 	name: 'AppPress',
 	description: '',
 	version: '0.1.0',
@@ -10,10 +12,6 @@ var config = {
 	],
 	host: 'localhost', // host 结尾不要添加'/'
 	site_logo: '', // default is `name`
-	site_navs: [
-		// [ path, title, [target=''] ]
-		[  ]
-	],
 	site_static_host: '', // 静态文件存储域名  dbUserName:dbPassword@127.0.0.1:27017/dbName
 	db: 'mongodb://localhost/apppress',
 	session_secret: '1234567890QWERTY',

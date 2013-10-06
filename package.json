@@ -9,7 +9,8 @@
         "mongodb": "1.1.8",
         "socket.io": "0.9.10",
         "mongoose": "3.6.19",
-        "node-uuid": "1.4.1"
+        "node-uuid": "1.4.1",
+        "gm": "*"
     },
     "engines": {
         "node": "0.10.16",

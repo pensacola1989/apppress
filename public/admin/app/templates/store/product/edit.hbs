@@ -7,12 +7,6 @@
             </div>
         </div>
         <div class="control-group">
-            <label class="control-label" for="descr">Descr</label>
-            <div class="controls">
-                {{view Ember.TextArea name="descr" valueBinding="descr"}}
-            </div>
-        </div>
-        <div class="control-group">
             <label class="control-label" for="price">Price</label>
             <div class="controls">
                 {{view Ember.TextField name="price" valueBinding="price" classNames="required number"}}
@@ -22,6 +16,12 @@
             <label class="control-label" for="freight">Freight</label>
             <div class="controls">
                 {{view Ember.TextField name="freight" valueBinding="freight" classNames="required number"}}
+            </div>
+        </div>
+        <div class="control-group">
+            <label class="control-label" for="descr">Descr</label>
+            <div class="controls">
+                {{view Ember.TextArea name="descr" valueBinding="descr"}}
             </div>
         </div>
         <div class="control-group">

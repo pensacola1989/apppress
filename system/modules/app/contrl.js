@@ -1,3 +1,4 @@
+var config = require('../../../config');
 var util = require('../../../framework/util');
 var mongoose = require('../../../framework/mongoose');
 var service = require('./service');
