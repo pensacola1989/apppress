@@ -154,7 +154,7 @@ exports.updateProduct = function(req, res){
             res.send({});
         }
     )
-    // TODO remove the picture
+    // TODO org the picture
 };
 exports.deleteProduct = function(req, res){
     CmsStoreProduct.findByIdAndRemove(req.params.id, function(){
