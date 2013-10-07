@@ -8,6 +8,7 @@ Admin.Product = DS.Model.extend({
     price: attr(),
     freight: attr(),
     flatRate: attr(),
+    thumb: attr(),
 
     order: attr(),
     status: attr(),
@@ -16,8 +17,11 @@ Admin.Product = DS.Model.extend({
     updateTime: attr(),
 
     category: belongsTo('category'),
+    pictures: hasMany('picture'),
+    pictureStr: attr(),
 
     didLoad: function() {
 
     }
 });
+

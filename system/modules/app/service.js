@@ -43,7 +43,6 @@ exports.createApp = function (name, descr, userId, callback) {
                     });
                 });
                 app.save(function(){
-                    app.set('id', app.get('_id'));
                     callback(app);
                     //console.log('Init subs for app successfully!!!');
                 });

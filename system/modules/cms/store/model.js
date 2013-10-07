@@ -22,6 +22,7 @@ var storeProductSchema = new mongoose.Schema({
     price: Number,
     freight: Number,
     flatRate: Boolean,
+    thumb: String,
 
     order: String,
     status: Number,
@@ -29,7 +30,8 @@ var storeProductSchema = new mongoose.Schema({
     createTime: Date,
     updateTime: Date,
 
-    category: { type: mongoose.Schema.Types.ObjectId, ref: 'cms_store_category' }
+    category: { type: mongoose.Schema.Types.ObjectId, ref: 'cms_store_category' },
+    pictures: [{ type: mongoose.Schema.Types.ObjectId, ref: 'cmm_picture' }]
 }, config.schemaOptions);
 storeProductSchema.virtual('id').get(function() { return this._id; });
 exports.CmsStoreProduct = mongoose.model('cms_store_product', storeProductSchema);

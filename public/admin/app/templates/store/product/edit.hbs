@@ -30,6 +30,22 @@
                 {{view Ember.Checkbox name="flatRate" checkedBinding="flatRate" classNames=""}}
             </div>
         </div>
+        <div class="control-group">
+            <label class="control-label" for="flatRate">Images</label>
+            <div class="controls">
+                <span class="btn fileinput-button">
+                	<i class="icon-upload"></i>
+                	<span>Upload...</span>
+                	<input id="fileupload" type="file" name="files[]" accept="image/*">
+                </span>
+                <span class="fileinput-preview">
+                      {{#each pictures}}
+                          <img src="/{{unbound src}}" class="img-rounded thumb">
+                      {{/each}}
+                </span>
+            </div>
+        </div>
+
     </div>
     <div id="toolbar">
         <div class="control-group">

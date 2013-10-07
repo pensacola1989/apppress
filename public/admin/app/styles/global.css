@@ -84,3 +84,46 @@ form label.error {
   content: "" !important;
   line-height: 0 !important;
 }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/D\:\/Dev\/NodeJs\/Project\/apppress\/public\/admin\/app\/styles\/global\.scss}line{font-family:\0000375}}
+.fileinput-button {
+  position: relative;
+  overflow: hidden;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/D\:\/Dev\/NodeJs\/Project\/apppress\/public\/admin\/app\/styles\/global\.scss}line{font-family:\0000379}}
+.fileinput-button input {
+  position: absolute;
+  top: 0;
+  right: 0;
+  margin: 0;
+  opacity: 0;
+  -ms-filter: 'alpha(opacity=0)';
+  font-size: 200px;
+  direction: ltr;
+  cursor: pointer;
+}
+
+@media -sass-debug-info{filename{font-family:file\:\/\/D\:\/Dev\/NodeJs\/Project\/apppress\/public\/admin\/app\/styles\/global\.scss}line{font-family:\0000391}}
+.fileinput-preview {
+  display: block;
+  padding: 6px 0 0 0;
+}
+
+@media -sass-debug-info{filename{font-family:file\:\/\/D\:\/Dev\/NodeJs\/Project\/apppress\/public\/admin\/app\/styles\/global\.scss}line{font-family:\0000397}}
+.table th, .table td {
+  vertical-align: middle !important;
+}
+
+@media -sass-debug-info{filename{font-family:file\:\/\/D\:\/Dev\/NodeJs\/Project\/apppress\/public\/admin\/app\/styles\/global\.scss}line{font-family:\00003101}}
+img.prew {
+  height: 60px;
+  width: 60px;
+  margin: 3px;
+}
+
+@media -sass-debug-info{filename{font-family:file\:\/\/D\:\/Dev\/NodeJs\/Project\/apppress\/public\/admin\/app\/styles\/global\.scss}line{font-family:\00003106}}
+img.thumb {
+  height: 50px;
+  width: 50px;
+  margin: 1px;
+}

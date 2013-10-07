@@ -72,5 +72,42 @@ form label.error {
   line-height: 0!important;
 }
 
+.fileinput-button {
+  position: relative;
+  overflow: hidden;
+
+  input {
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin: 0;
+    opacity: 0;
+    -ms-filter: 'alpha(opacity=0)';
+    font-size: 200px;
+    direction: ltr;
+    cursor: pointer;
+  }
+}
+.fileinput-preview {
+  display: block;
+  padding: 6px 0 0 0;
+
+}
+
+.table th, .table td {
+  vertical-align: middle !important;
+}
+
+img.prew {
+  height: 60px;
+  width: 60px;
+  margin: 3px;
+}
+img.thumb{
+    height: 50px;
+    width: 50px;
+    margin: 1px;
+}
+
 
 

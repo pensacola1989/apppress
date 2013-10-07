@@ -82,8 +82,6 @@ Admin.CmsStoreController = Em.ArrayController.extend({
             CmsUtil.showCmsNav([{label: 'categories'}, {label: 'products'}, {label: 'edit'}]);
         },
         saveProduct: function(product) {
-            console.log(product.get('flatRate'));
-
             var me = this;
             jQuery.validator.setDefaults({
                 debug: true,
@@ -93,7 +91,16 @@ Admin.CmsStoreController = Em.ArrayController.extend({
             form.validate()
             if (!form.valid()) return;
 
+            var str = '';
+
+            product.get('pictures').forEach(function(item) {
+                if (Util.isNotEmpty(str))  str += ',';
+                str += item.get('src');
+            });
+            product.set('pictureStr', str)
+
             var category = product.get('category');
+
             product.one("didCreate", this, function() {
                 me.showProductList(category);
             });
@@ -133,6 +140,7 @@ Admin.CmsStoreController = Em.ArrayController.extend({
     showProductList: function(category) {
         var me =this;
         me.store.find('product', {categoryId: category.id}).then(function(products) {
+
             var childView = Admin.StoreProductListView.create({
                 controller: me,
                 context: {category: category, products: products}

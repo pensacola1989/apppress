@@ -1,9 +1,11 @@
 var util = require('../../../../framework/util');
 var mongoose = require('../../../../framework/mongoose');
+var CmmPicture = require('../../../../framework/picture').CmmPicture;
 
 var CmsStore = require('./model').CmsStore;
 var CmsStoreCategory = require('./model').CmsStoreCategory;
 var CmsStoreProduct = require('./model').CmsStoreProduct;
+
 
 var service = require('./service');
 
@@ -21,6 +23,7 @@ exports.findById = function(req, res){
     });
 };
 exports.save = function (req, res) {
+
     var mobiStore = new CmsStore({
         name: req.body.mobiStore.name,
         descr: req.body.mobiStore.descr,
@@ -85,27 +88,53 @@ exports.deleteCategory = function(req, res){
 
 exports.findProducts = function(req, res){
     CmsStoreProduct.find({category: req.query.categoryId}).sort('order').exec(function (err, products) {
-        return res.send({product: products});
-    })
+        var productIds = [];
+        for (var i = 0; i < products.length; i++) {
+            productIds[i] = products[i].id;
+        }
+        CmmPicture.find().where('pid').in(productIds).sort('order').exec(function (err, pictures) {
+            console.log(pictures);
+            res.send({product:products, pictures: pictures});
+        });
+    });
 };
 exports.saveProduct = function (req, res) {
+    var imageArr = req.body.product.pictureStr.split(',');
+    var imageModelArr = [];
+
     var storeProduct = new CmsStoreProduct({
         name: req.body.product.name,
         descr: req.body.product.descr,
         price: req.body.product.price,
         freight: req.body.product.freight,
         flatRate: req.body.product.flatRate,
+        thumb: imageArr[0],
         status: 1,
         createTime: new Date(),
         category: req.body.product.category
     });
 
-    storeProduct.save(function(){
-        var data = {product: storeProduct};
-        return res.send(data);
+    var pictures = [];
+    for(var i = 0; i < imageArr.length; i++) {
+        pictures[i] = {pid: storeProduct._id, src: imageArr[i]};
+    }
+
+    CmmPicture.create(pictures, function (err, pic1, pic2, pic3, pic4, pic5) {
+        storeProduct.pictures.push(pic1);
+        storeProduct.save(function(){
+            var data = {product: storeProduct};
+            return res.send(data);
+        });
     });
+
 };
 exports.updateProduct = function(req, res){
+    var imageArr = req.body.product.imageStr.split(',');
+    var imageModelArr = [];
+    for(var i = 0; i < imageArr.length; i++) {
+        if (util.isNotEmpty(imageArr[i]))
+            imageModelArr[i] = {src : imageArr[i]};
+    }
     CmsStoreProduct.findByIdAndUpdate(
         req.params.id,
         {
@@ -114,6 +143,8 @@ exports.updateProduct = function(req, res){
             price: req.body.product.price,
             freight: req.body.product.freight,
             flatRate: req.body.product.flatRate,
+            thumb: imageArr[0],
+            images: imageModelArr,
             status: 1,
             createTime: new Date()
         }, function(){

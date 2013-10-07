@@ -1,24 +1,13 @@
+var toString = Object.prototype.toString,
+    functionType = '[object Function]',
+    objectType = '[object Object]';
+
 Handlebars.registerHelper('vari', function(v) {
 	if (Util.isEmpty(v))
 		return "";
 
     var value = eval('Vari.' + v);
-
-	//alert(value);
-
 	return new Handlebars.SafeString(value);
-});
-
-Handlebars.registerHelper('first', function(context, block) {
-    return context[0];
-});
-
-Handlebars.registerHelper('reqPath', function(uri) {
-	if (Util.isEmpty(uri))
-		return new Handlebars.SafeString(Vari.ApiPath);
-	var url = Vari.ApiPath + uri;
-
-	return new Handlebars.SafeString(url);
 });
 
 Handlebars.registerHelper('compare', function(lvalue, rvalue, options) {
