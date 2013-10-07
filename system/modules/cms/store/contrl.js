@@ -119,14 +119,17 @@ exports.saveProduct = function (req, res) {
         pictures[i] = {pid: storeProduct._id, src: imageArr[i]};
     }
 
-    CmmPicture.create(pictures, function (err, pic1, pic2, pic3, pic4, pic5) {
-        storeProduct.pictures.push(pic1);
+    CmmPicture.create(pictures, function (err) {
+        for (var i=1; i<arguments.length; ++i) {
+            if (arguments[i] != null) {
+                storeProduct.pictures.push(arguments[i]);
+            }
+        }
         storeProduct.save(function(){
             var data = {product: storeProduct};
             return res.send(data);
         });
     });
-
 };
 exports.updateProduct = function(req, res){
     var imageArr = req.body.product.imageStr.split(',');
@@ -151,6 +154,7 @@ exports.updateProduct = function(req, res){
             res.send({});
         }
     )
+    // TODO remove the picture
 };
 exports.deleteProduct = function(req, res){
     CmsStoreProduct.findByIdAndRemove(req.params.id, function(){
