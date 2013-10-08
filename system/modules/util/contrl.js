@@ -8,6 +8,7 @@ var uuid = require('node-uuid');
 var mkdirp = require('mkdirp');
 
 exports.upload = function(req, res){
+
     var scrName =  req.files.files[0].name;
     var scrFullPath =  req.files.files[0].path;
 

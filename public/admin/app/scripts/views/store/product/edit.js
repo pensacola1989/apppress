@@ -2,7 +2,6 @@ Admin.StoreProductEditView = Em.View.extend({
     templateName: 'store/product/edit',
     didInsertElement: function() {
         var me = this;
-        $('#imagesField').attr('readonly', 'readonly');
 
         $('#fileupload').fileupload({
             url: Vari.ApiPath + 'upload',
@@ -14,12 +13,14 @@ Admin.StoreProductEditView = Em.View.extend({
                 });
                 me.get('context').get('pictures').pushObject(picture);
             },
-            add: function (e, data) {
+            send: function (e, data) {
                 if (me.get('context').get('pictures').get('length') >= 5) {
-                    alert('You can only upload 5 pictures!');
+                    alert('You can only upload 5 pictures.');
                     return false;
-                } else {
-                    return true;
+                }
+                if (data.total > 10000000) {
+                    alert('File size must be less than 10M.');
+                    return false;
                 }
             }
         })

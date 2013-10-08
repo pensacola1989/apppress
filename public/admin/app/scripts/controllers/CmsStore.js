@@ -91,6 +91,11 @@ Admin.CmsStoreController = Em.ArrayController.extend({
             form.validate()
             if (!form.valid()) return;
 
+            if (product.get('pictures').get('length') <= 0) {
+                alert('Please at lease upload one picture.');
+                return;
+            }
+
             var str = '';
 
             product.get('pictures').forEach(function(item) {
