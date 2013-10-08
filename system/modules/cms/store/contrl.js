@@ -99,8 +99,7 @@ exports.findProducts = function(req, res){
     });
 };
 exports.saveProduct = function (req, res) {
-    var imageArr = req.body.product.pictureStr.split(',');
-    var imageModelArr = [];
+    var pictureUrls = req.body.product.pictureStr.split(',');
 
     var storeProduct = new CmsStoreProduct({
         name: req.body.product.name,
@@ -108,19 +107,19 @@ exports.saveProduct = function (req, res) {
         price: req.body.product.price,
         freight: req.body.product.freight,
         flatRate: req.body.product.flatRate,
-        thumb: imageArr[0],
+        thumb: pictureUrls[0],
         status: 1,
         createTime: new Date(),
         category: req.body.product.category
     });
 
     var pictures = [];
-    for(var i = 0; i < imageArr.length; i++) {
-        pictures[i] = {pid: storeProduct._id, src: imageArr[i]};
+    for(var i = 0; i < pictureUrls.length; i++) {
+        pictures[i] = {pid: storeProduct._id, src: pictureUrls [i]};
     }
 
     CmmPicture.create(pictures, function (err) {
-        for (var i=1; i<arguments.length; ++i) {
+        for (var i=1; i<arguments.length; i++) {
             if (arguments[i] != null) {
                 storeProduct.pictures.push(arguments[i]);
             }
@@ -132,29 +131,41 @@ exports.saveProduct = function (req, res) {
     });
 };
 exports.updateProduct = function(req, res){
-    var imageArr = req.body.product.imageStr.split(',');
-    var imageModelArr = [];
-    for(var i = 0; i < imageArr.length; i++) {
-        if (util.isNotEmpty(imageArr[i]))
-            imageModelArr[i] = {src : imageArr[i]};
-    }
-    CmsStoreProduct.findByIdAndUpdate(
-        req.params.id,
-        {
-            name: req.body.product.name,
-            descr: req.body.product.descr,
-            price: req.body.product.price,
-            freight: req.body.product.freight,
-            flatRate: req.body.product.flatRate,
-            thumb: imageArr[0],
-            images: imageModelArr,
-            status: 1,
-            createTime: new Date()
-        }, function(){
-            res.send({});
+    var pictureUrls  = req.body.product.pictureStr.split(',');
+
+    CmsStoreProduct.findById(req.params.id, function (err, storeProduct) {
+        storeProduct.name = req.body.product.name;
+        storeProduct.descr = req.body.product.descr;
+        storeProduct.price = req.body.product.price;
+        storeProduct.freight = req.body.product.freight;
+        storeProduct.flatRate = req.body.product.flatRate;
+        storeProduct.thumb = pictureUrls [0];
+        storeProduct.status = 1;
+        storeProduct.createTime = new Date();
+
+        var pictures = [];
+        for(var i = 0; i < pictureUrls.length; i++) {
+            pictures[i] = {pid: storeProduct._id, src: pictureUrls[i]};
         }
-    )
-    // TODO org the picture
+
+        CmmPicture.find().where('pid', storeProduct._id).exec(function (err, docs) {
+            docs.forEach( function (doc) {
+                doc.remove();
+            });
+
+            CmmPicture.create(pictures, function (err) {
+                storeProduct.pictures = [];
+                for (var i = 1; i < arguments.length; i++) {
+                    if (arguments[i] != null) {
+                        storeProduct.pictures.push(arguments[i]);
+                    }
+                }
+                storeProduct.save(function(){
+                    res.send({});
+                });
+            });
+        });
+    });
 };
 exports.deleteProduct = function(req, res){
     CmsStoreProduct.findByIdAndRemove(req.params.id, function(){

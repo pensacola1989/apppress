@@ -92,6 +92,26 @@ form label.error {
   display: block;
   padding: 6px 0 0 0;
 
+  .picture-container{
+    position: relative;
+    float: left;
+    height: 50px;
+    width: 50px;
+    margin: 3px;
+    .remove {
+      position: absolute;
+      display: none;
+      cursor: pointer;
+      width: 16px;
+      height: 16px;
+      background-image: url(../images/delete-picture.png);
+      background-repeat: no-repeat no-repeat;
+
+      right: 1px;
+      top: 1px;
+      z-index: 1;
+    }
+  }
 }
 
 .table th, .table td {
@@ -106,7 +126,6 @@ img.prew {
 img.thumb{
     height: 50px;
     width: 50px;
-    margin: 1px;
 }
 
 

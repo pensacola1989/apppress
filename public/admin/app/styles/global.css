@@ -108,22 +108,42 @@ form label.error {
   display: block;
   padding: 6px 0 0 0;
 }
+@media -sass-debug-info{filename{font-family:file\:\/\/D\:\/Dev\/NodeJs\/Project\/apppress\/public\/admin\/app\/styles\/global\.scss}line{font-family:\0000395}}
+.fileinput-preview .picture-container {
+  position: relative;
+  float: left;
+  height: 50px;
+  width: 50px;
+  margin: 3px;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/D\:\/Dev\/NodeJs\/Project\/apppress\/public\/admin\/app\/styles\/global\.scss}line{font-family:\00003101}}
+.fileinput-preview .picture-container .remove {
+  position: absolute;
+  display: none;
+  cursor: pointer;
+  width: 16px;
+  height: 16px;
+  background-image: url(../images/delete-picture.png);
+  background-repeat: no-repeat no-repeat;
+  right: 1px;
+  top: 1px;
+  z-index: 1;
+}
 
-@media -sass-debug-info{filename{font-family:file\:\/\/D\:\/Dev\/NodeJs\/Project\/apppress\/public\/admin\/app\/styles\/global\.scss}line{font-family:\0000397}}
+@media -sass-debug-info{filename{font-family:file\:\/\/D\:\/Dev\/NodeJs\/Project\/apppress\/public\/admin\/app\/styles\/global\.scss}line{font-family:\00003117}}
 .table th, .table td {
   vertical-align: middle !important;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/D\:\/Dev\/NodeJs\/Project\/apppress\/public\/admin\/app\/styles\/global\.scss}line{font-family:\00003101}}
+@media -sass-debug-info{filename{font-family:file\:\/\/D\:\/Dev\/NodeJs\/Project\/apppress\/public\/admin\/app\/styles\/global\.scss}line{font-family:\00003121}}
 img.prew {
   height: 60px;
   width: 60px;
   margin: 3px;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/D\:\/Dev\/NodeJs\/Project\/apppress\/public\/admin\/app\/styles\/global\.scss}line{font-family:\00003106}}
+@media -sass-debug-info{filename{font-family:file\:\/\/D\:\/Dev\/NodeJs\/Project\/apppress\/public\/admin\/app\/styles\/global\.scss}line{font-family:\00003126}}
 img.thumb {
   height: 50px;
   width: 50px;
-  margin: 1px;
 }

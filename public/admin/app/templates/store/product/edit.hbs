@@ -38,11 +38,15 @@
                 	<span>Upload...</span>
                 	<input id="fileupload" type="file" name="files[]" accept="image/*">
                 </span>
-                <span class="fileinput-preview">
+                <div class="fileinput-preview">
                       {{#each pictures}}
-                          <img id="{{unbound id}}" src="/{{unbound src}}" class="img-rounded thumb">
+                          <div class="picture-container">
+                            <img src="/{{unbound src}}" class="img-rounded thumb">
+                            <span class="remove"></span>
+                           </div>
                       {{/each}}
-                </span>
+                      <div class="clear-both"></div>
+                </div>
             </div>
         </div>
 
