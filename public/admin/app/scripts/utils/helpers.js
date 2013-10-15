@@ -10,6 +10,14 @@ Handlebars.registerHelper('vari', function(v) {
 	return new Handlebars.SafeString(value);
 });
 
+Handlebars.registerHelper('reqPath', function(uri) {
+    if (Util.isEmpty(uri))
+        return new Handlebars.SafeString(Vari.ApiPath);
+    var url = Vari.ApiPath + uri;
+
+    return new Handlebars.SafeString(url);
+});
+
 Handlebars.registerHelper('compare', function(lvalue, rvalue, options) {
 	
 	if (arguments.length < 3)
@@ -81,3 +89,4 @@ Handlebars.registerHelper("breadcrumb",function(arr, options) {
 
     return new Handlebars.SafeString(html);
 });
+
