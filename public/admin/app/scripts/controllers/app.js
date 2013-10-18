@@ -36,7 +36,7 @@ Admin.AppEditController = Em.Controller.extend({
             var me = this;
 
             var form = $('#appEditForm');
-            form.validate()
+            form.validate();
             if (!form.valid()) return;
 
             app.one("didCreate", this, function() {

@@ -14,11 +14,17 @@
     "strict": false,
     "trailing": false,
     "smarttabs": true,
+
+    "undef": false,
+    "unused": false,
     "globals": {
         "Admin": true,
         "jQuery": true,
         "Ember": true,
         "Handlebars": true,
-        "DS": true
+        "DS": true,
+        "Em": true,
+        "$": true
+
     }
 }

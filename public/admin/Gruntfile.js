@@ -1,21 +1,7 @@
 // Generated on 2013-09-05 using generator-ember 0.6.2
 'use strict';
-var LIVERELOAD_PORT = 35729;
-var lrSnippet = require('connect-livereload')({port: LIVERELOAD_PORT});
-var mountFolder = function (connect, dir) {
-    return connect.static(require('path').resolve(dir));
-};
-
-// # Globbing
-// for performance reasons we're only matching one level down:
-// 'test/spec/{,*/}*.js'
-// use this if you want to match all subfolders:
-// 'test/spec/**/*.js'
-
 module.exports = function (grunt) {
-    // show elapsed time at the end
     require('time-grunt')(grunt);
-    // load all grunt tasks
     require('load-grunt-tasks')(grunt);
 
     // configurable paths
@@ -38,59 +24,6 @@ module.exports = function (grunt) {
             neuter: {
                 files: ['<%= yeoman.app %>/scripts/**/*.js'],
                 tasks: ['neuter']
-            },
-            livereload: {
-                options: {
-                    livereload: LIVERELOAD_PORT
-                },
-                files: [
-                    '.tmp/scripts/*.js',
-                    '<%= yeoman.app %>/*.html',
-                    '<%= yeoman.app %>/styles/{,*/}*.css',
-                    '<%= yeoman.app %>/images/{,*/}*.{png,jpg,jpeg,gif,webp,svg}'
-                ]
-            }
-        },
-        connect: {
-            options: {
-                port: 9000,
-                // change this to '0.0.0.0' to access the server from outside
-                hostname: 'localhost'
-            },
-            livereload: {
-                options: {
-                    middleware: function (connect) {
-                        return [
-                            lrSnippet,
-                            mountFolder(connect, '.tmp'),
-                            mountFolder(connect, yeomanConfig.app)
-                        ];
-                    }
-                }
-            },
-            test: {
-                options: {
-                    middleware: function (connect) {
-                        return [
-                            mountFolder(connect, '.tmp'),
-                            mountFolder(connect, 'test')
-                        ];
-                    }
-                }
-            },
-            dist: {
-                options: {
-                    middleware: function (connect) {
-                        return [
-                            mountFolder(connect, yeomanConfig.dist)
-                        ];
-                    }
-                }
-            }
-        },
-        open: {
-            server: {
-                path: 'http://localhost:<%= connect.options.port %>'
             }
         },
         clean: {
@@ -108,11 +41,13 @@ module.exports = function (grunt) {
         },
         jshint: {
             options: {
-                jshintrc: '.jshintrc'
+                jshintrc: '.jshintrc',
+                //force: true,
+                reporterOutput: 'jshint.log'
             },
             all: [
                 'Gruntfile.js',
-                '<%= yeoman.app %>/scripts/{,*/}*.js',
+                '<%= yeoman.app %>/scripts/**/*.js',
                 '!<%= yeoman.app %>/scripts/vendor/*',
                 'test/spec/{,*/}*.js'
             ]

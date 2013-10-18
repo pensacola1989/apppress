@@ -20,12 +20,12 @@ Vari = {
 
 	CurrAction: null,
 	DragType: null,
-	srcId: null,
+	srcId: null
 };
 
 Util = {
 	isEmpty: function (o){
-		if (o == null || o== "null" || o == undefined || o == "undefined" || o == "") {
+		if (o === null || o === "null" || o === undefined || o === "undefined" || o === "") {
 			return true;
 		} else {
 			return false;
@@ -49,10 +49,9 @@ Util = {
         var args = allArgs.split("&");
         for(var i=0; i<args.length; i++) {
             var arg = args[i].split("=");
-            if (arg[0] == pname) {
-            	//console.log('find url param: ' + arg[0]+'="'+arg[1]+'";');
-            	rt = arg[1];
-            	return rt;
+            if (arg[0] === pname) {
+                rt = arg[1];
+                return rt;
             }          
         }
         return rt;
@@ -70,7 +69,7 @@ Util = {
 		var links=document.getElementsByTagName('link');
 		for (var i=0; i<links.length; i++) {
 			//console.log(links[i].rel+ ', ' + links[i].href);				
-			if ( links[i].rel == rel && 
+			if ( links[i].rel === rel &&
 					links[i].href.indexOf(href) > -1) {
 				links[i].parentNode.removeChild(links[i]);
 			}

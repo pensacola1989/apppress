@@ -37,16 +37,16 @@ CmsUtil = {
                 carousel.size(items.length);
             }
         });
-        $(".jcarousel-container").delegate('li.jcarousel-item', 'mouseover', (function(e){
+        $(".jcarousel-container").delegate('li.jcarousel-item', 'mouseover', function(e){
             if(!$(this).hasClass("forbidden")){
                 $(this).find('.jcarousel-item-move').css("display", "block");
             }
-        }));
-        $(".jcarousel-container").delegate('li.jcarousel-item','mouseout',(function(e){
+        });
+        $(".jcarousel-container").delegate('li.jcarousel-item','mouseout',function(e){
             if(!$(this).hasClass("forbidden")){
                 $(this).find('.jcarousel-item-move').css("display", "none");
             }
-        }));
+        });
 
         var menuItems = $('ul.jcarousel-list');
         menuItems.sortable({

@@ -32,7 +32,7 @@ Admin.CmsStoreController = Em.ArrayController.extend({
             var me = this;
 
             var form = $('#categoryEditForm');
-            form.validate()
+            form.validate();
             if (!form.valid()) return;
 
             category.one("didCreate", this, function() {
@@ -88,7 +88,7 @@ Admin.CmsStoreController = Em.ArrayController.extend({
                 success: "valid"
             });
             var form = $('#productEditForm');
-            form.validate()
+            form.validate();
             if (!form.valid()) return;
 
             if (product.get('pictures').get('length') <= 0) {
@@ -102,7 +102,7 @@ Admin.CmsStoreController = Em.ArrayController.extend({
                 if (Util.isNotEmpty(str))  str += ',';
                 str += item.get('src');
             });
-            product.set('pictureStr', str)
+            product.set('pictureStr', str);
 
             var category = product.get('category');
 

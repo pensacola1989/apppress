@@ -23,28 +23,28 @@ Admin.StoreProductEditView = Em.View.extend({
                     return false;
                 }
             }
-        })
+        });
 
-        $(".fileinput-preview").delegate('.picture-container', 'mouseover', (function(e){
+        $(".fileinput-preview").delegate('.picture-container', 'mouseover', function(e){
             $(this).find('.remove').css("display", "block");
-        }));
-        $(".fileinput-preview").delegate('.picture-container','mouseout',(function(e){
+        });
+        $(".fileinput-preview").delegate('.picture-container','mouseout',function(e){
             $(this).find('.remove').css("display", "none");
-        }));
+        });
 
-        $(".fileinput-preview").delegate('.picture-container .remove', 'click', (function(e){
+        $(".fileinput-preview").delegate('.picture-container .remove', 'click', function(e){
              var src = $(this).prev("img").attr('src');
             console.log(me.get('context').get('pictures').get('length'));
             var idx = -1;
             me.get('context').get('pictures').forEach(function(item, index, enumerable){
-                if ('/' + item.get('src')  == src) {
+                if ('/' + item.get('src')  === src) {
                     idx =  index;
-                };
+                }
             });
             me.get('context').get('pictures').removeAt(idx);
             console.log(me.get('context').get('pictures').get('length'));
             $(this).parent('.picture-container').remove();
-        }));
+        });
     }
 });
 

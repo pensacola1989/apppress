@@ -18,7 +18,7 @@ Admin.CmsController = Em.ArrayController.extend({
 
             success : function(items, textStatus) {
                 CmsUtil.createCmsMenu(items);
-                $(".jcarousel-container").delegate('li.jcarousel-item','click',(function(e){
+                $(".jcarousel-container").delegate('li.jcarousel-item','click',function(e){
                     if(!$(this).hasClass("forbidden")){
                         $('li.jcarousel-item').removeClass('active');
                         $(this).addClass('active');
@@ -26,7 +26,7 @@ Admin.CmsController = Em.ArrayController.extend({
                         CmsUtil.clearContentView();
                         me.showCmsContent($(this).attr('data-id'), $(this).attr('data-code'));
                     }
-                }));
+                });
             }
         });
     },

@@ -27,20 +27,20 @@ Handlebars.registerHelper('compare', function(lvalue, rvalue, options) {
 	constant = options.hash.constant || true;
 	
 	lvalue = Ember.get(this, lvalue);
-	if (operator != 'typeof') {
+	if (operator !== 'typeof') {
 		if (!constant)
 			rvalue = Ember.get(this, rvalue);
 	}
 
 	var operators = {
 		'==' : function(l, r) {
-			return l == r;
+			return l === r;
 		},
 		'===' : function(l, r) {
 			return l === r;
 		},
 		'!=' : function(l, r) {
-			return l != r;
+			return l !== r;
 		},
 		'<' : function(l, r) {
 			return l < r;
@@ -55,14 +55,13 @@ Handlebars.registerHelper('compare', function(lvalue, rvalue, options) {
 			return l >= r;
 		},
 		'typeof' : function(l, r) {
-			return typeof l == r;
+			return typeof l === r;
 		}
 	};
 
 	if (!operators[operator])
 		throw new Error(
-				"Handlerbars Helper 'compare' doesn't know the operator "
-						+ operator);
+				"Handlerbars Helper 'compare' doesn't know the operator " + operator);
 
 	var result = operators[operator](lvalue, rvalue);
 	//alert(lvalue + "," + rvalue);
