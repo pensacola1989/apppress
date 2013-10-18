@@ -46,7 +46,7 @@ module.exports = function (grunt) {
                 files: [
                     '.tmp/scripts/*.js',
                     '<%= yeoman.app %>/*.html',
-                    '{.tmp,<%= yeoman.app %>}/styles/{,*/}*.css',
+                    '<%= yeoman.app %>/styles/{,*/}*.css',
                     '<%= yeoman.app %>/images/{,*/}*.{png,jpg,jpeg,gif,webp,svg}'
                 ]
             }
@@ -137,9 +137,14 @@ module.exports = function (grunt) {
                 httpImagesPath: '/images',
                 httpGeneratedImagesPath: '/images/generated',
                 httpFontsPath: '/styles/fonts',
-                relativeAssets: true
+                relativeAssets: true,
+                outputStyle: 'compressed',
+                force: true
             },
-            dist: {},
+            dist: {
+                outputStyle: 'compressed',
+                force: true
+            },
             server: {
                 options: {
                     debugInfo: true
