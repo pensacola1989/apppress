@@ -1,13 +1,12 @@
 window.Admin = Ember.Application.create();
 
-require('scripts/utils/*');
-require('scripts/controllers/*');
-require('scripts/store');
-require('scripts/models/*');
-require('scripts/views/**/*');
-require('scripts/router');
-require('scripts/routes/*');
-
+require('utils/*');
+require('controllers/*');
+require('store');
+require('models/*');
+require('views/**/*');
+require('router');
+require('routes/*');
 
 Admin.ApplicationAdapter = DS.RESTAdapter.extend({
     namespace: 'api/v1',
