@@ -1,9 +1,6 @@
 .sass-cache
 .tmp
-node_modules
-temp
-upload
+bower_components
 dist
-
-admin/app/bower_components
-client/app/bower_components
+node_modules
+upload
