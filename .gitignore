@@ -1,0 +1,8 @@
+node_modules
+
+public/.sass-cache
+public/.tmp
+public/bower_components
+public/dist
+public/node_modules
+public/upload
