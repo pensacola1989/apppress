@@ -1,14 +1,16 @@
-// Generated on 2013-09-05 using generator-ember 0.6.2
 'use strict';
 module.exports = function (grunt) {
     require('time-grunt')(grunt);
     require('load-grunt-tasks')(grunt);
 
-    // configurable paths
+    var dir = grunt.option( "app" );
     var yeomanConfig = {
-        app: 'app',
-        dist: 'dist'
+        dir: dir,
+        app: dir + '/app',
+        test: dir + '/test',
+        dist: 'dist/' + dir
     };
+    console.log(yeomanConfig);
 
     grunt.initConfig({
         yeoman: yeomanConfig,
@@ -31,13 +33,13 @@ module.exports = function (grunt) {
                 files: [{
                     dot: true,
                     src: [
-                        '.tmp',
+                        '.tmp/<%= yeoman.dir %>',
                         '<%= yeoman.dist %>/*',
                         '!<%= yeoman.dist %>/.git*'
                     ]
                 }]
             },
-            server: '.tmp'
+            server: '.tmp/<%= yeoman.dir %>'
         },
         jshint: {
             options: {
@@ -49,26 +51,18 @@ module.exports = function (grunt) {
                 'Gruntfile.js',
                 '<%= yeoman.app %>/scripts/**/*.js',
                 '!<%= yeoman.app %>/scripts/vendor/*',
-                'test/spec/{,*/}*.js'
+                '<%= yeoman.dir %>/test/spec/{,*/}*.js'
             ]
-        },
-        mocha: {
-            all: {
-                options: {
-                    run: true,
-                    urls: ['http://localhost:<%= connect.options.port %>/index.html']
-                }
-            }
         },
         compass: {
             options: {
                 sassDir: '<%= yeoman.app %>/styles',
                 cssDir: '<%= yeoman.app %>/styles',
-                generatedImagesDir: '.tmp/images/generated',
+                generatedImagesDir: '.tmp/<%= yeoman.dir %>/images/generated',
                 imagesDir: '<%= yeoman.app %>/images',
                 javascriptsDir: '<%= yeoman.app %>/scripts',
                 fontsDir: '<%= yeoman.app %>/styles/fonts',
-                importPath: 'app/bower_components',
+                importPath: 'bower_components',
 
                 httpImagesPath: '/images',
                 httpGeneratedImagesPath: '/images/generated',
@@ -90,14 +84,14 @@ module.exports = function (grunt) {
         // not used since Uglify task does concat,
         // but still available if needed
         /*concat: {
-            dist: {}
-        },*/
+         dist: {}
+         },*/
         // not enabled since usemin task does concat and uglify
         // check index.html to edit your build targets
         // enable this task if you prefer defining your build targets here
         /*uglify: {
-            dist: {}
-        },*/
+         dist: {}
+         },*/
         rev: {
             dist: {
                 files: {
@@ -159,14 +153,14 @@ module.exports = function (grunt) {
             dist: {
                 options: {
                     /*removeCommentsFromCDATA: true,
-                    // https://github.com/yeoman/grunt-usemin/issues/44
-                    //collapseWhitespace: true,
-                    collapseBooleanAttributes: true,
-                    removeAttributeQuotes: true,
-                    removeRedundantAttributes: true,
-                    useShortDoctype: true,
-                    removeEmptyAttributes: true,
-                    removeOptionalTags: true*/
+                     // https://github.com/yeoman/grunt-usemin/issues/44
+                     //collapseWhitespace: true,
+                     collapseBooleanAttributes: true,
+                     removeAttributeQuotes: true,
+                     removeRedundantAttributes: true,
+                     useShortDoctype: true,
+                     removeEmptyAttributes: true,
+                     removeOptionalTags: true*/
                 },
                 files: [{
                     expand: true,
@@ -190,15 +184,15 @@ module.exports = function (grunt) {
                         'images/{,*/}*.{webp,gif}'
                     ]
                 },
-                {
-                    expand: true,
-                    dot: true,
-                    cwd: '<%= yeoman.app %>/bower_components/font-awesome',
-                    dest: '<%= yeoman.dist %>',
-                    src: [
-                        'font/**'
-                    ]
-                }]
+                    {
+                        expand: true,
+                        dot: true,
+                        cwd: '<%= yeoman.app %>/bower_components/font-awesome',
+                        dest: '<%= yeoman.dist %>',
+                        src: [
+                            'font/**'
+                        ]
+                    }]
             }
         },
         concurrent: {
@@ -218,11 +212,6 @@ module.exports = function (grunt) {
                 'htmlmin'
             ]
         },
-        karma: {
-            unit: {
-                configFile: 'karma.conf.js'
-            }
-        },
         emberTemplates: {
             options: {
                 templateName: function (sourceFile) {
@@ -232,19 +221,17 @@ module.exports = function (grunt) {
             },
             dist: {
                 files: {
-                    '.tmp/scripts/compiled-templates.js': '<%= yeoman.app %>/templates/**/*.hbs'
+                    '.tmp/<%= yeoman.dir %>/scripts/compiled-templates.js': '<%= yeoman.app %>/templates/**/*.hbs'
                 }
             }
         },
         neuter: {
             app: {
                 options: {
-                    filepathTransform: function (filepath) {
-                        return 'app/' + filepath;
-                    }
+                    filepathTransform: function (filepath) { return yeomanConfig.dir + '/app/scripts/' + filepath; }
                 },
                 src: '<%= yeoman.app %>/scripts/index.js',
-                dest: '.tmp/scripts/combined-scripts.js'
+                dest: '.tmp/<%= yeoman.dir %>/scripts/combined-scripts.js'
             }
         }
     });
