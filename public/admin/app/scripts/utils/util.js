@@ -44,7 +44,7 @@ Util = {
         
         var allArgs = url.split("?")[1];
         if (!allArgs) {
-        	return '';
+            return '';
         }
         var args = allArgs.split("&");
         for(var i=0; i<args.length; i++) {

@@ -6,6 +6,7 @@ Handlebars.registerHelper('vari', function(v) {
 	if (Util.isEmpty(v))
 		return "";
 
+    /*jshint -W061 */
     var value = eval('Vari.' + v);
 	return new Handlebars.SafeString(value);
 });

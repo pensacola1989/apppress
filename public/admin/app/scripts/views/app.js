@@ -4,8 +4,7 @@ Admin.AppsView = Em.View.extend({
 
     },
 
-    handler: function() {    
-    	
+    handler: function() {
     }.observes('controller.content.isLoaded')
 });
 

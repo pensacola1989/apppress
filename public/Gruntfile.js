@@ -10,7 +10,6 @@ module.exports = function (grunt) {
         test: dir + '/test',
         dist: 'dist/' + dir
     };
-    console.log(yeomanConfig);
 
     grunt.initConfig({
         yeoman: yeomanConfig,
@@ -43,9 +42,9 @@ module.exports = function (grunt) {
         },
         jshint: {
             options: {
-                jshintrc: '.jshintrc',
+                jshintrc: '.jshintrc'
                 //force: true,
-                reporterOutput: 'jshint.log'
+                //reporterOutput: 'jshint.log'
             },
             all: [
                 'Gruntfile.js',
@@ -245,7 +244,6 @@ module.exports = function (grunt) {
             'clean:server',
             'concurrent:server',
             'neuter:app',
-            'connect:livereload',
             'open',
             'watch'
         ]);
@@ -254,9 +252,7 @@ module.exports = function (grunt) {
     grunt.registerTask('test', [
         'clean:server',
         'concurrent:test',
-        'connect:test',
-        'neuter:app',
-        'mocha'
+        'neuter:app'
     ]);
 
     grunt.registerTask('build', [
@@ -264,9 +260,9 @@ module.exports = function (grunt) {
         'useminPrepare',
         'concurrent:dist',
         'neuter:app',
-        'concat',
+        //'concat',
         'cssmin',
-        'uglify',
+        //'uglify',
         'copy',
         'rev',
         'usemin'

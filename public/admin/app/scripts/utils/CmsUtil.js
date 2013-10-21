@@ -1,5 +1,6 @@
 CmsUtil = {
     clearContentView: function (){
+        /*jshint -W069 */
         var parentView = Em.View.views['cms_content_view'];
         parentView.get('childViews').forEach(function(item) {
             item.remove();
@@ -66,13 +67,13 @@ CmsUtil = {
                 $('ul.jcarousel-list li.jcarousel-item').each(function() {
                     newIds.push( $(this).attr("id").replace('jcarousel-item-', '') );
                 });
-                var newIds = newIds.join(',');
+                var idStr = newIds.join(',');
                 try {
                     $.ajax({
                         type : 'GET',
                         dataType : 'json',
                         url : Vari.ApiPath + 'sub/changeOrder',
-                        data: {newIds: newIds},
+                        data: {newIds: idStr},
 
                         success : function(json, textStatus) {
                             //console.log('Success to change order!!!');
@@ -87,14 +88,15 @@ CmsUtil = {
         menuItems.disableSelection();
     },
     showCmsNav: function(arr) {
+        /*jshint -W069 */
         var view = Em.View.views['cms_nav_view'];
         view.set("context", arr);
     },
     showCmsContent: function(view, content, context) {
         CmsUtil.clearContentView();
-
+        /*jshint -W069 */
         var parentView = Em.View.views['cms_content_view'];
         parentView.pushObject(view);
     }
 
-}
+};

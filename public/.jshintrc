@@ -18,13 +18,12 @@
     "undef": false,
     "unused": false,
     "globals": {
-        "Admin": true,
+        "Admin": true,  "Client": true,
         "jQuery": true,
         "Ember": true,
         "Handlebars": true,
         "DS": true,
         "Em": true,
         "$": true
-
     }
 }

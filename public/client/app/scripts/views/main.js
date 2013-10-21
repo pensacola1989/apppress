@@ -5,6 +5,6 @@ Client.MainView = Em.View.extend({
     },
 
     handler: function() {    
-    	
+
     }.observes('controller.content.isLoaded')
 });
