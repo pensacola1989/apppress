@@ -14,7 +14,8 @@
         "jquery-ui": "1.10.3",
         "jcarousel": "0.2.9",
         "font-awesome": "3.2.1",
-        "blueimp-file-upload": "8.8.5"
+        "blueimp-file-upload": "8.8.5",
+        "jquery-mmenu": "2.2.3"
     },
     "devDependencies": {
         "ember-mocha-adapter": "0.1.1"
