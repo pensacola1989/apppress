@@ -15,7 +15,7 @@ server.configure(function () {
 
     server.use(express.methodOverride()); //checks req.body for HTTP method overrides
     server.use(server.router); //perform route lookup based on url and HTTP method
-    server.use(express.static(path.join(__dirname, 'public'))); //Where to serve static content
+    server.use(express.static(path.join(__dirname, 'webroot'))); //Where to serve static content
     server.use(express.errorHandler({ dumpExceptions:true, showStack:true })); //Show all errors in development
 
 });
