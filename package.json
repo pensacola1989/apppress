@@ -10,7 +10,8 @@
         "socket.io": "0.9.10",
         "mongoose": "3.6.19",
         "node-uuid": "1.4.1",
-        "gm": "*"
+        "gm": "*",
+        "mkdirp": "0.3.5"
     },
     "engines": {
         "node": "0.10.16",
