@@ -1,1 +1,1 @@
-grunt build --app=client
+grunt build --app=client --force

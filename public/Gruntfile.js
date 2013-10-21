@@ -183,15 +183,15 @@ module.exports = function (grunt) {
                         'images/{,*/}*.{webp,gif}'
                     ]
                 },
-                    {
-                        expand: true,
-                        dot: true,
-                        cwd: '<%= yeoman.app %>/bower_components/font-awesome',
-                        dest: '<%= yeoman.dist %>',
-                        src: [
-                            'font/**'
-                        ]
-                    }]
+                {
+                    expand: true,
+                    dot: true,
+                    cwd: 'bower_components/font-awesome',
+                    dest: '<%= yeoman.dist %>',
+                    src: [
+                        'font/**'
+                    ]
+                }]
             }
         },
         concurrent: {
@@ -237,7 +237,7 @@ module.exports = function (grunt) {
 
     grunt.registerTask('server', function (target) {
         if (target === 'dist') {
-            return grunt.task.run(['build', 'open', 'connect:dist:keepalive']);
+            return grunt.task.run(['build']);
         }
 
         grunt.task.run([
@@ -260,9 +260,9 @@ module.exports = function (grunt) {
         'useminPrepare',
         'concurrent:dist',
         'neuter:app',
-        //'concat',
+        'concat',
         'cssmin',
-        //'uglify',
+        'uglify',
         'copy',
         'rev',
         'usemin'

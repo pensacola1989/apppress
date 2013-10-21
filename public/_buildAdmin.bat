@@ -1,1 +1,1 @@
-grunt build --app=admin
+grunt build --app=admin --force
