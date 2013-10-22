@@ -62,7 +62,7 @@ module.exports = function (grunt) {
             client: {
                 options: {
                     templateName: function (sourceFile) {
-                        var templatePath = yeomanConfig.admin.app + '/templates/';
+                        var templatePath = yeomanConfig.client.app + '/templates/';
                         return sourceFile.replace(templatePath, '');
                     }
                 },

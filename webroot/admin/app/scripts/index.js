@@ -1,5 +1,6 @@
 window.Admin = Ember.Application.create();
 
+require('constant');
 require('utils/*');
 require('controllers/*');
 require('store');
@@ -9,8 +10,8 @@ require('router');
 require('routes/*');
 
 Admin.ApplicationAdapter = DS.RESTAdapter.extend({
-    namespace: 'api/v1',
-    host: 'http://192.168.1.228:9000'
+    namespace: 'api/' + Constant.ApiVer,
+    host: Constant.WebRoot.substr(0, Constant.WebRoot.length - 1)
 });
 
 Admin.Store = DS.Store.extend();

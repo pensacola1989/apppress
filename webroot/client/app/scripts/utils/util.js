@@ -6,11 +6,7 @@ Vari = {
 
     CurrApp: null,
     CurrSub: null,
-    CurrSubId: null,
-
-	CurrAction: null,
-	DragType: null,
-	srcId: null
+    CurrSubId: null
 };
 
 Util = {

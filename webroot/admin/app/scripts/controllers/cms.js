@@ -28,7 +28,7 @@ Admin.CmsController = Em.ArrayController.extend({
                     }
                 });
 
-                $('#previewFrame').attr('src', Custant.ClientRoot);
+                $('#previewFrame').attr('src', Constant.ClientRoot + '?aid=' + appId);
             }
         });
     },
