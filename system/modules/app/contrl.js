@@ -4,6 +4,7 @@ var mongoose = require('../../../framework/mongoose');
 var service = require('./service');
 
 var App = require('./model').App;
+var Subscription = require('../subscription/model').Subscription;
 
 //            // Example of retrieve nested data
 //            CmsStoreCategory.find({mstore: stores[0].id}).sort('order').exec(function (err, categories) {
@@ -23,7 +24,12 @@ exports.findAll = function (req, res) {
     })
 };
 exports.findById = function(req, res){
-    mongoose.findById(App, req.params.id, function(obj) {res.send({app: obj});});
+    mongoose.findById(App, req.params.id, function(obj) {
+        Subscription.find({app: obj.id}).sort('order').exec(function (err, subs) {
+            res.send({app: obj, subscriptions: subs});
+            console.log(subs);
+        });
+    });
 };
 
 exports.save = function (req, res) {

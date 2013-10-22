@@ -8,7 +8,14 @@ Client.App = DS.Model.extend({
     createTime: attr(),
     updateTime: attr(),
 
-    //subscriptions: hasMany('subscription'),
+    userId: attr(),
 
-    userId: attr()
+    subscriptions: hasMany('subscription'),
+    sortedSubscriptions: function () {
+        var items = this.get('subscriptions').toArray();
+        return items.sort(function (lhs, rhs) {
+            return lhs.get('order') - rhs.get('order');
+        });
+    }.property('subscriptions.@each.isLoaded')
+
 });

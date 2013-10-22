@@ -1,0 +1,16 @@
+<div id="header">
+    <a href="#menu"></a>
+    {{content.name}}
+</div>
+<nav id="menu">
+    <ul>
+        {{#each sub in content.sortedSubscriptions}}
+            <li><a href="#">{{sub.title}}</a></li>
+        {{/each}}
+    </ul>
+</nav>
+<div id="content">
+    <div class="container-fluid">
+        {{outlet}}
+    </div>
+</div>
