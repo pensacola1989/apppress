@@ -25,3 +25,4 @@ Client.CmsStoreController = Em.ArrayController.extend({
     }
 });
 
+
