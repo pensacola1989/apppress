@@ -263,16 +263,23 @@ Handlebars.registerHelper("breadcrumb",function(arr, options) {
 (function() {
 
 Custant = {
-    ApiVer: 'v1'
+    ApiVer: 'v1',
+    WebRoot: 'N/A',
+    ClientRoot: 'N/A'
 };
 if (location.href.indexOf("192.168") > -1) {
     Custant.WebRoot = "http://192.168.1.228:9000/";
-} else {
-    Custant.WebRoot = "http://121.199.18.199/";
+    if (location.href.indexOf("dist") > -1) {   // build testing
+        Custant.ClientRoot = Custant.WebRoot + "dist/client/";
+    } else {    // develop
+        Custant.ClientRoot = Custant.WebRoot + "client/app/";
+    }
+} else {    // production
+    Custant.WebRoot = "http://56.io/";
+    Custant.ClientRoot = Custant.WebRoot + "client/";
 }
 
 Vari = {
-
     ApiPath: Custant.WebRoot + "api/" + Custant.ApiVer + "/",
 	
 	TokenName: "apppress.token",
@@ -608,7 +615,7 @@ Admin.CmsController = Em.ArrayController.extend({
     actions: {
 
     },
-    createCmsMenu: function(subId, subCode) {
+    createCmsMenuAndPreview: function(subId, subCode) {
         var me = this;
         var appController = me.get('controllers.app');
 
@@ -632,6 +639,8 @@ Admin.CmsController = Em.ArrayController.extend({
                         me.showCmsContent($(this).attr('data-id'), $(this).attr('data-code'));
                     }
                 });
+
+                $('#previewFrame').attr('src', Custant.ClientRoot);
             }
         });
     },
@@ -963,7 +972,7 @@ Admin.ApplicationView = Em.View.extend({
 Admin.CmsView = Em.View.extend({
     templateName: 'cms/index',
     didInsertElement: function() {
-        this.get("controller").createCmsMenu();
+        this.get("controller").createCmsMenuAndPreview();
     }
 });
 

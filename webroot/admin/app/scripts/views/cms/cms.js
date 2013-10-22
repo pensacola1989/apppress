@@ -1,7 +1,7 @@
 Admin.CmsView = Em.View.extend({
     templateName: 'cms/index',
     didInsertElement: function() {
-        this.get("controller").createCmsMenu();
+        this.get("controller").createCmsMenuAndPreview();
     }
 });
 

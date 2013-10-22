@@ -3,7 +3,7 @@ Admin.CmsController = Em.ArrayController.extend({
     actions: {
 
     },
-    createCmsMenu: function(subId, subCode) {
+    createCmsMenuAndPreview: function(subId, subCode) {
         var me = this;
         var appController = me.get('controllers.app');
 
@@ -27,6 +27,8 @@ Admin.CmsController = Em.ArrayController.extend({
                         me.showCmsContent($(this).attr('data-id'), $(this).attr('data-code'));
                     }
                 });
+
+                $('#previewFrame').attr('src', Custant.ClientRoot);
             }
         });
     },
