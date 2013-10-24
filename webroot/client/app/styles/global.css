@@ -1,0 +1,22 @@
+@media -sass-debug-info{filename{font-family:file\:\/\/D\:\/Dev\/NodeJs\/Project\/apppress\/public\/client\/app\/styles\/global\.scss}line{font-family:\000031}}
+* {
+  margin: 0;
+  padding: 0;
+}
+
+@media -sass-debug-info{filename{font-family:file\:\/\/D\:\/Dev\/NodeJs\/Project\/apppress\/public\/client\/app\/styles\/global\.scss}line{font-family:\000035}}
+.clear-both {
+  clear: both;
+}
+
+@media -sass-debug-info{filename{font-family:file\:\/\/D\:\/Dev\/NodeJs\/Project\/apppress\/public\/client\/app\/styles\/global\.scss}line{font-family:\000038}}
+.center {
+  text-align: center;
+}
+
+@media -sass-debug-info{filename{font-family:file\:\/\/D\:\/Dev\/NodeJs\/Project\/apppress\/public\/client\/app\/styles\/global\.scss}line{font-family:\0000312}}
+html, body {
+  padding: 0;
+  margin: 0;
+  background-color: #EEE;
+}
