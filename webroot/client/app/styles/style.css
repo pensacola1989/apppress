@@ -1,4 +1,4 @@
-@media -sass-debug-info{filename{font-family:file\:\/\/D\:\/Dev\/NodeJs\/Project\/apppress\/public\/client\/app\/styles\/style\.scss}line{font-family:\000035}}
+@media -sass-debug-info{filename{font-family:file\:\/\/D\:\/Dev\/NodeJs\/Project\/apppress\/webroot\/client\/app\/styles\/style\.scss}line{font-family:\000035}}
 #header,
 .header {
   background: #999;
@@ -11,7 +11,7 @@
   padding: 0 50px;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/D\:\/Dev\/NodeJs\/Project\/apppress\/public\/client\/app\/styles\/style\.scss}line{font-family:\0000316}}
+@media -sass-debug-info{filename{font-family:file\:\/\/D\:\/Dev\/NodeJs\/Project\/apppress\/webroot\/client\/app\/styles\/style\.scss}line{font-family:\0000316}}
 #header a, .header a {
   background: center center no-repeat transparent;
   background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABkAAAAZCAYAAADE6YVjAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAE1JREFUeNpi/P//PwOtARMDHQBdLGFBYt+nkR2KjEhxQqvIYaR7cD2glSWMo0mY3DiJo5Edi4ZPEqZ7nMSP5pPRon60qB9NwpQDgAADAMIxHUJvWs/TAAAAAElFTkSuQmCC);
@@ -23,7 +23,53 @@
   left: 10px;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/D\:\/Dev\/NodeJs\/Project\/apppress\/public\/client\/app\/styles\/style\.scss}line{font-family:\0000328}}
+@media -sass-debug-info{filename{font-family:file\:\/\/D\:\/Dev\/NodeJs\/Project\/apppress\/webroot\/client\/app\/styles\/style\.scss}line{font-family:\0000328}}
 #content {
-  margin: 10px;
+  margin: 0px;
+}
+
+@media -sass-debug-info{filename{font-family:file\:\/\/D\:\/Dev\/NodeJs\/Project\/apppress\/webroot\/client\/app\/styles\/style\.scss}line{font-family:\0000332}}
+#waterfallContainer .item {
+  text-align: center;
+  margin: 5px;
+  background-color: white;
+}
+
+@media -sass-debug-info{filename{font-family:file\:\/\/D\:\/Dev\/NodeJs\/Project\/apppress\/webroot\/client\/app\/styles\/style\.scss}line{font-family:\0000337}}
+.item .title {
+  margin: 6px;
+}
+
+@media -sass-debug-info{filename{font-family:file\:\/\/D\:\/Dev\/NodeJs\/Project\/apppress\/webroot\/client\/app\/styles\/style\.scss}line{font-family:\0000341}}
+#preview-container-1 {
+  background: #EEE;
+}
+
+@media -sass-debug-info{filename{font-family:file\:\/\/D\:\/Dev\/NodeJs\/Project\/apppress\/webroot\/client\/app\/styles\/style\.scss}line{font-family:\0000345}}
+#preview-container-2::-webkit-scrollbar {
+  background: white;
+  width: 0px;
+}
+
+@media -sass-debug-info{filename{font-family:file\:\/\/D\:\/Dev\/NodeJs\/Project\/apppress\/webroot\/client\/app\/styles\/style\.scss}line{font-family:\0000349}}
+#preview-container-2 {
+  overflow-y: scroll;
+  height: 460px;
+}
+
+@media -sass-debug-info{filename{font-family:file\:\/\/D\:\/Dev\/NodeJs\/Project\/apppress\/webroot\/client\/app\/styles\/style\.scss}line{font-family:\0000354}}
+#preview-container-2::-webkit-scrollbar:hover {
+  background: lightyellow;
+}
+
+@media -sass-debug-info{filename{font-family:file\:\/\/D\:\/Dev\/NodeJs\/Project\/apppress\/webroot\/client\/app\/styles\/style\.scss}line{font-family:\0000357}}
+#preview-container-2::-webkit-scrollbar-track:hover {
+  background: #CCC;
+  border-radius: 10px;
+}
+
+@media -sass-debug-info{filename{font-family:file\:\/\/D\:\/Dev\/NodeJs\/Project\/apppress\/webroot\/client\/app\/styles\/style\.scss}line{font-family:\0000361}}
+#preview-container-2::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  background: #FFF;
 }

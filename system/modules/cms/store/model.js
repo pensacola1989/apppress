@@ -10,6 +10,7 @@ exports.CmsStore = mongoose.model('cms_store', storeSchema);
 
 var storeCategorySchema = new mongoose.Schema({
     name: String,
+    picture: String,
     mstore: { type: mongoose.Schema.Types.ObjectId, ref: 'cms_store' },
     products : [{ type: mongoose.Schema.Types.ObjectId, ref: 'cms_store_product' }]
 }, config.schemaOptions);

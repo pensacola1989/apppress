@@ -4,6 +4,7 @@
         <tr class="header">
             <th>ID</td>
             <th>Name</td>
+            <th>Picture</td>
             <th>Action</td>
         </tr>
     <thead>
@@ -12,6 +13,7 @@
                 <tr>
                     <td>{{category.id}}</td>
                     <td>{{category.name}}</td>
+                    <td><img {{bind-attr src=category.picture}} class="img-rounded thumb"></td>
                     <td>
                         <a href="#" {{action showProductList category}}>View<a/> &nbsp;&nbsp;
                         <a href="#" {{action editCategory category}}>Edit<a/> &nbsp;&nbsp;

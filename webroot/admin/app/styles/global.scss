@@ -92,9 +92,8 @@ form label.error {
   display: block;
   padding: 6px 0 0 0;
 
-  .picture-container{
+  .picture-container, .picture-container-single{
     position: relative;
-    float: left;
     height: 50px;
     width: 50px;
     margin: 3px;
@@ -110,6 +109,9 @@ form label.error {
       right: 1px;
       top: 1px;
       z-index: 1;
+    }
+    .picture-container {
+      float: left;
     }
   }
 }

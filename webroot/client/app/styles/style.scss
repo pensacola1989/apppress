@@ -26,7 +26,7 @@
 }
 
 #content {
-  margin: 10px;
+  margin: 0px;
 }
 
 #waterfallContainer .item {
@@ -37,4 +37,30 @@
 .item .title	{
   margin: 6px;
 }
+
+#preview-container-1 {
+  background: #EEE;
+}
+
+#preview-container-2::-webkit-scrollbar {
+  background: white;
+  width: 0px;
+}
+#preview-container-2 {
+  overflow-y: scroll;
+  height: 460px;
+}
+
+#preview-container-2::-webkit-scrollbar:hover {
+  background: lightyellow;
+}
+#preview-container-2::-webkit-scrollbar-track:hover {
+  background: #CCC;
+  border-radius: 10px;
+}
+#preview-container-2::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  background: #FFF;
+}
+
 

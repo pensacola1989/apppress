@@ -4,6 +4,7 @@ var attr = DS.attr,
 
 Client.Category = DS.Model.extend({
     name: attr(),
+    picture: attr(),
     mstore: belongsTo('mstore'),
     //products: hasMany('product'),
 

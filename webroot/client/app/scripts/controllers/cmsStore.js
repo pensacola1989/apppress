@@ -7,6 +7,7 @@ Client.CmsStoreController = Em.ArrayController.extend({
 
     // called by the sub menu
     showContent: function() {
+
         var me = this;
         CmsUtil.clearContentView();
 
