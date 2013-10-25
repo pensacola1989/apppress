@@ -18,3 +18,10 @@ Handlebars.registerHelper('reqPath', function(uri) {
 
     return new Handlebars.SafeString(url);
 });
+
+Handlebars.registerHelper('imagePath', function(uri) {
+    alert(uri);
+    if (Util.isEmpty(uri))
+        return '';
+    return new Handlebars.SafeString('/' + uri);
+});
