@@ -6,6 +6,23 @@
                 {{view Ember.TextField name="name" valueBinding="name" classNames="required"}}
             </div>
         </div>
+        <div class="control-group">
+            <label class="control-label" for="flatRate">Images</label>
+            <div class="controls">
+                <span class="btn fileinput-button">
+                    <i class="icon-upload"></i>
+                    <span>Upload...</span>
+                    <input id="fileupload" type="file" name="files[]" accept="image/*">
+                </span>
+                <div class="fileinput-preview">
+                      <div class="picture-container">
+                        <img src="/{{picture}}" class="img-rounded thumb">
+                        <span class="remove"></span>
+                       </div>
+                      <div class="clear-both"></div>
+                </div>
+            </div>
+        </div>
     </div>
     <div id="toolbar">
         <div class="control-group">

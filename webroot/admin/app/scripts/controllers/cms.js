@@ -28,6 +28,9 @@ Admin.CmsController = Em.ArrayController.extend({
                     }
                 });
 
+                var firstItem = items[0];
+                $('[data-id=' + firstItem.id + ']').addClass('active');
+                me.showCmsContent(firstItem.id, firstItem.code);
                 $('#previewFrame').attr('src', Constant.ClientRoot + '#/app/' + appId);
             }
         });
