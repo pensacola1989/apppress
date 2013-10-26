@@ -20,36 +20,29 @@ Client.StoreWaterfallView = Em.View.extend({
         var categories = me.get('context').categories.get('content');
         var data1 = me.genData(categories, contentWidth);
 
-        //$('#more').hide();
         $('#waterfallContainer').append(data1).waterfall({
             itemSelector:'.item',
             columnCount:colNumb,
             columnWidth:columnWidth,
             isResizable:false,
             isAnimated:false,
-            Duration:500,
+            Duration:0,
             Easing:'swing',
             endFn:function(){
-                //$('#more').show();
+                var myScroll;
+                function loaded() {
+                    myScroll = new iScroll('wrapper');
+                }
+                document.addEventListener('touchmove', function (e) { e.preventDefault(); }, false);
+                setTimeout(loaded, 0);
             }
         });
-
-//       $('#more').click(function(){
-//            var h = $("#container").height();
-//            $('#more').hide();
-//            $('#container').append(data2).waterfall({
-//                endFn:function(){
-//                    $('#more').show();
-//                    //$("body").scrollTop(h);
-//                }
-//            });
-//        });
     },
 
     genData: function (categories, contentWidth) {
         var date = [];
         var i = 0;
-         console.log(contentWidth);
+        //console.log(contentWidth);
         categories.forEach(function(item, index) {
             date[i++]  = [
                 '<div class="item" style="width:' + contentWidth +'px;">',

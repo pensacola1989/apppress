@@ -1,18 +1,24 @@
-@media -sass-debug-info{filename{font-family:file\:\/\/D\:\/Dev\/NodeJs\/Project\/apppress\/webroot\/client\/app\/styles\/style\.scss}line{font-family:\000035}}
-#header,
-.header {
-  background: #999;
-  font-size: 16px;
-  font-weight: bold;
-  color: #fff;
+@media -sass-debug-info{filename{font-family:file\:\/\/D\:\/Dev\/NodeJs\/Project\/apppress\/webroot\/client\/app\/styles\/style\.scss}line{font-family:\000033}}
+#header {
+  position: absolute;
+  z-index: 2;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 45px;
+  line-height: 45px;
+  background-color: #737373;
+  background-image: -webkit-gradient(linear, 0 0, 0 100%, color-stop(0, #cccccc), color-stop(0.05, #737373), color-stop(1, #cccccc));
+  background-image: -moz-linear-gradient(top, #cccccc, #737373 5%, #7b0a2e);
+  background-image: -o-linear-gradient(top, #cccccc, #737373 5%, #7b0a2e);
+  padding: 0;
+  color: #eee;
+  font-size: 20px;
   text-align: center;
-  line-height: 40px;
-  height: 40px;
-  padding: 0 50px;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/D\:\/Dev\/NodeJs\/Project\/apppress\/webroot\/client\/app\/styles\/style\.scss}line{font-family:\0000316}}
-#header a, .header a {
+@media -sass-debug-info{filename{font-family:file\:\/\/D\:\/Dev\/NodeJs\/Project\/apppress\/webroot\/client\/app\/styles\/style\.scss}line{font-family:\0000318}}
+#header a {
   background: center center no-repeat transparent;
   background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABkAAAAZCAYAAADE6YVjAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAE1JREFUeNpi/P//PwOtARMDHQBdLGFBYt+nkR2KjEhxQqvIYaR7cD2glSWMo0mY3DiJo5Edi4ZPEqZ7nMSP5pPRon60qB9NwpQDgAADAMIxHUJvWs/TAAAAAElFTkSuQmCC);
   display: block;
@@ -23,53 +29,39 @@
   left: 10px;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/D\:\/Dev\/NodeJs\/Project\/apppress\/webroot\/client\/app\/styles\/style\.scss}line{font-family:\0000328}}
-#content {
+@media -sass-debug-info{filename{font-family:file\:\/\/D\:\/Dev\/NodeJs\/Project\/apppress\/webroot\/client\/app\/styles\/style\.scss}line{font-family:\0000330}}
+#app-content {
   margin: 0px;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/D\:\/Dev\/NodeJs\/Project\/apppress\/webroot\/client\/app\/styles\/style\.scss}line{font-family:\0000332}}
+@media -sass-debug-info{filename{font-family:file\:\/\/D\:\/Dev\/NodeJs\/Project\/apppress\/webroot\/client\/app\/styles\/style\.scss}line{font-family:\0000334}}
+#wrapper {
+  position: absolute;
+  z-index: 1;
+  top: 45px;
+  bottom: 0px;
+  left: 0;
+  width: 100%;
+  background: #EEE;
+}
+
+@media -sass-debug-info{filename{font-family:file\:\/\/D\:\/Dev\/NodeJs\/Project\/apppress\/webroot\/client\/app\/styles\/style\.scss}line{font-family:\0000341}}
+#scroller {
+  position: absolute;
+  z-index: 1;
+  /*	-webkit-touch-callout:none;*/
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  width: 100%;
+  padding: 0;
+}
+
+@media -sass-debug-info{filename{font-family:file\:\/\/D\:\/Dev\/NodeJs\/Project\/apppress\/webroot\/client\/app\/styles\/style\.scss}line{font-family:\0000349}}
 #waterfallContainer .item {
   text-align: center;
   margin: 5px;
   background-color: white;
 }
-
-@media -sass-debug-info{filename{font-family:file\:\/\/D\:\/Dev\/NodeJs\/Project\/apppress\/webroot\/client\/app\/styles\/style\.scss}line{font-family:\0000337}}
-.item .title {
-  margin: 6px;
-}
-
-@media -sass-debug-info{filename{font-family:file\:\/\/D\:\/Dev\/NodeJs\/Project\/apppress\/webroot\/client\/app\/styles\/style\.scss}line{font-family:\0000341}}
-#preview-container-1 {
-  background: #EEE;
-}
-
-@media -sass-debug-info{filename{font-family:file\:\/\/D\:\/Dev\/NodeJs\/Project\/apppress\/webroot\/client\/app\/styles\/style\.scss}line{font-family:\0000345}}
-#preview-container-2::-webkit-scrollbar {
-  background: white;
-  width: 0px;
-}
-
-@media -sass-debug-info{filename{font-family:file\:\/\/D\:\/Dev\/NodeJs\/Project\/apppress\/webroot\/client\/app\/styles\/style\.scss}line{font-family:\0000349}}
-#preview-container-2 {
-  overflow-y: scroll;
-  height: 460px;
-}
-
 @media -sass-debug-info{filename{font-family:file\:\/\/D\:\/Dev\/NodeJs\/Project\/apppress\/webroot\/client\/app\/styles\/style\.scss}line{font-family:\0000354}}
-#preview-container-2::-webkit-scrollbar:hover {
-  background: lightyellow;
-}
-
-@media -sass-debug-info{filename{font-family:file\:\/\/D\:\/Dev\/NodeJs\/Project\/apppress\/webroot\/client\/app\/styles\/style\.scss}line{font-family:\0000357}}
-#preview-container-2::-webkit-scrollbar-track:hover {
-  background: #CCC;
-  border-radius: 10px;
-}
-
-@media -sass-debug-info{filename{font-family:file\:\/\/D\:\/Dev\/NodeJs\/Project\/apppress\/webroot\/client\/app\/styles\/style\.scss}line{font-family:\0000361}}
-#preview-container-2::-webkit-scrollbar-thumb {
-  border-radius: 10px;
-  background: #FFF;
+#waterfallContainer .item .item .title {
+  margin: 6px;
 }

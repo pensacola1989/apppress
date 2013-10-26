@@ -91,5 +91,22 @@ Util = {
 	lowFirstLetter: function (word){
 		var w = word.substring(0,1).toLowerCase() + word.substring(1);
 		return w;
-	}
+	},
+    getScreenSize: function() {
+        var sh = window.screen.height;
+        var sw = window.screen.width;
+        return {h: sh, w: sw};
+    },
+    getBodySize: function() {
+        var sh = window.screen.height;
+        if (document.body.clientHeight < sh) {
+            sh = document.body.clientHeight;
+        }
+
+        var sw = window.screen.width;
+        if (document.body.clientWidth < sw) {
+            sw = document.body.clientWidth;
+        }
+        return {h: sh, w: sw};
+    }
 };

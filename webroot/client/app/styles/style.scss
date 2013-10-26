@@ -1,19 +1,21 @@
 @import "compass/css3/border-radius";
 
-#header,
-.header
-{
-  background: #999;
-  font-size: 16px;
-  font-weight: bold;
-  color: #fff;
-  text-align: center;
-  line-height: 40px;
-  height: 40px;
-  padding: 0 50px;
+#header {
+  position:absolute; z-index:2;
+  top:0; left:0;
+  width:100%;
+  height:45px;
+  line-height:45px;
+  background-color:#737373;
+  background-image:-webkit-gradient(linear, 0 0, 0 100%, color-stop(0, #ccc), color-stop(0.05, #737373), color-stop(1, #ccc));
+  background-image:-moz-linear-gradient(top, #ccc, #737373 5%, #7b0a2e);
+  background-image:-o-linear-gradient(top, #ccc, #737373 5%, #7b0a2e);
+  padding:0;
+  color:#eee;
+  font-size:20px;
+  text-align:center;
 }
-#header a, .header a
-{
+#header a {
   background: center center no-repeat transparent;
   background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABkAAAAZCAYAAADE6YVjAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAE1JREFUeNpi/P//PwOtARMDHQBdLGFBYt+nkR2KjEhxQqvIYaR7cD2glSWMo0mY3DiJo5Edi4ZPEqZ7nMSP5pPRon60qB9NwpQDgAADAMIxHUJvWs/TAAAAAElFTkSuQmCC);
 
@@ -25,42 +27,31 @@
   left: 10px;
 }
 
-#content {
+#app-content {
   margin: 0px;
+}
+
+#wrapper {
+  position:absolute; z-index:1;
+  top:45px; bottom:0px; left:0;
+  width:100%;
+  background:#EEE;
+}
+
+#scroller {
+  position:absolute; z-index:1;
+  /*	-webkit-touch-callout:none;*/
+  -webkit-tap-highlight-color:rgba(0,0,0,0);
+  width:100%;
+  padding:0;
 }
 
 #waterfallContainer .item {
   text-align: center;
   margin: 5px;
   background-color: white;
-}
-.item .title	{
-  margin: 6px;
-}
 
-#preview-container-1 {
-  background: #EEE;
+  .item .title	{
+    margin: 6px;
+  }
 }
-
-#preview-container-2::-webkit-scrollbar {
-  background: white;
-  width: 0px;
-}
-#preview-container-2 {
-  overflow-y: scroll;
-  height: 460px;
-}
-
-#preview-container-2::-webkit-scrollbar:hover {
-  background: lightyellow;
-}
-#preview-container-2::-webkit-scrollbar-track:hover {
-  background: #CCC;
-  border-radius: 10px;
-}
-#preview-container-2::-webkit-scrollbar-thumb {
-  border-radius: 10px;
-  background: #FFF;
-}
-
-
