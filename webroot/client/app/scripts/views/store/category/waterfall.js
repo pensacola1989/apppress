@@ -29,12 +29,8 @@ Client.StoreWaterfallView = Em.View.extend({
             Duration:0,
             Easing:'swing',
             endFn:function(){
-                var myScroll;
-                function loaded() {
-                    myScroll = new iScroll('wrapper');
-                }
+                var myScroll = new iScroll('wrapper');
                 document.addEventListener('touchmove', function (e) { e.preventDefault(); }, false);
-                setTimeout(loaded, 0);
             }
         });
     },
@@ -42,7 +38,6 @@ Client.StoreWaterfallView = Em.View.extend({
     genData: function (categories, contentWidth) {
         var date = [];
         var i = 0;
-        //console.log(contentWidth);
         categories.forEach(function(item, index) {
             date[i++]  = [
                 '<div class="item" style="width:' + contentWidth +'px;">',
@@ -54,5 +49,6 @@ Client.StoreWaterfallView = Em.View.extend({
         return date.join('');
     }
 });
+
 
 

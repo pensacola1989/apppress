@@ -1,4 +1,4 @@
-@media -sass-debug-info{filename{font-family:file\:\/\/D\:\/Dev\/NodeJs\/Project\/apppress\/webroot\/client\/app\/styles\/style\.scss}line{font-family:\000033}}
+/* line 3, style.scss */
 #header {
   position: absolute;
   z-index: 2;
@@ -17,7 +17,7 @@
   text-align: center;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/D\:\/Dev\/NodeJs\/Project\/apppress\/webroot\/client\/app\/styles\/style\.scss}line{font-family:\0000318}}
+/* line 18, style.scss */
 #header a {
   background: center center no-repeat transparent;
   background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABkAAAAZCAYAAADE6YVjAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAE1JREFUeNpi/P//PwOtARMDHQBdLGFBYt+nkR2KjEhxQqvIYaR7cD2glSWMo0mY3DiJo5Edi4ZPEqZ7nMSP5pPRon60qB9NwpQDgAADAMIxHUJvWs/TAAAAAElFTkSuQmCC);
@@ -29,12 +29,12 @@
   left: 10px;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/D\:\/Dev\/NodeJs\/Project\/apppress\/webroot\/client\/app\/styles\/style\.scss}line{font-family:\0000330}}
+/* line 30, style.scss */
 #app-content {
   margin: 0px;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/D\:\/Dev\/NodeJs\/Project\/apppress\/webroot\/client\/app\/styles\/style\.scss}line{font-family:\0000334}}
+/* line 34, style.scss */
 #wrapper {
   position: absolute;
   z-index: 1;
@@ -45,7 +45,7 @@
   background: #EEE;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/D\:\/Dev\/NodeJs\/Project\/apppress\/webroot\/client\/app\/styles\/style\.scss}line{font-family:\0000341}}
+/* line 41, style.scss */
 #scroller {
   position: absolute;
   z-index: 1;
@@ -55,13 +55,13 @@
   padding: 0;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/D\:\/Dev\/NodeJs\/Project\/apppress\/webroot\/client\/app\/styles\/style\.scss}line{font-family:\0000349}}
+/* line 49, style.scss */
 #waterfallContainer .item {
   text-align: center;
   margin: 5px;
   background-color: white;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/D\:\/Dev\/NodeJs\/Project\/apppress\/webroot\/client\/app\/styles\/style\.scss}line{font-family:\0000354}}
+/* line 54, style.scss */
 #waterfallContainer .item .item .title {
   margin: 6px;
 }
