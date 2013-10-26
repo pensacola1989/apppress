@@ -6,14 +6,16 @@
   width:100%;
   height:45px;
   line-height:45px;
-  background-color:#737373;
-  background-image:-webkit-gradient(linear, 0 0, 0 100%, color-stop(0, #ccc), color-stop(0.05, #737373), color-stop(1, #ccc));
-  background-image:-moz-linear-gradient(top, #ccc, #737373 5%, #7b0a2e);
-  background-image:-o-linear-gradient(top, #ccc, #737373 5%, #7b0a2e);
+  -webkit-box-orient: vertical;
+  background: -webkit-gradient(linear, 0 0, 0 50%, from(#7C848D), to(#464D55));
   padding:0;
   color:#eee;
   font-size:20px;
   text-align:center;
+  #title {
+    color: white;
+    font-size: 18px;
+  }
 }
 #header a {
   background: center center no-repeat transparent;

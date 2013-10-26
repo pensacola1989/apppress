@@ -1,4 +1,4 @@
-/* line 3, style.scss */
+@media -sass-debug-info{filename{font-family:file\:\/\/D\:\/Dev\/NodeJs\/Project\/apppress\/webroot\/client\/app\/styles\/style\.scss}line{font-family:\000033}}
 #header {
   position: absolute;
   z-index: 2;
@@ -7,17 +7,20 @@
   width: 100%;
   height: 45px;
   line-height: 45px;
-  background-color: #737373;
-  background-image: -webkit-gradient(linear, 0 0, 0 100%, color-stop(0, #cccccc), color-stop(0.05, #737373), color-stop(1, #cccccc));
-  background-image: -moz-linear-gradient(top, #cccccc, #737373 5%, #7b0a2e);
-  background-image: -o-linear-gradient(top, #cccccc, #737373 5%, #7b0a2e);
+  -webkit-box-orient: vertical;
+  background: -webkit-gradient(linear, 0 0, 0 50%, from(#7c848d), to(#464d55));
   padding: 0;
   color: #eee;
   font-size: 20px;
   text-align: center;
 }
+@media -sass-debug-info{filename{font-family:file\:\/\/D\:\/Dev\/NodeJs\/Project\/apppress\/webroot\/client\/app\/styles\/style\.scss}line{font-family:\0000315}}
+#header #title {
+  color: white;
+  font-size: 18px;
+}
 
-/* line 18, style.scss */
+@media -sass-debug-info{filename{font-family:file\:\/\/D\:\/Dev\/NodeJs\/Project\/apppress\/webroot\/client\/app\/styles\/style\.scss}line{font-family:\0000320}}
 #header a {
   background: center center no-repeat transparent;
   background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABkAAAAZCAYAAADE6YVjAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAE1JREFUeNpi/P//PwOtARMDHQBdLGFBYt+nkR2KjEhxQqvIYaR7cD2glSWMo0mY3DiJo5Edi4ZPEqZ7nMSP5pPRon60qB9NwpQDgAADAMIxHUJvWs/TAAAAAElFTkSuQmCC);
@@ -29,12 +32,12 @@
   left: 10px;
 }
 
-/* line 30, style.scss */
+@media -sass-debug-info{filename{font-family:file\:\/\/D\:\/Dev\/NodeJs\/Project\/apppress\/webroot\/client\/app\/styles\/style\.scss}line{font-family:\0000332}}
 #app-content {
   margin: 0px;
 }
 
-/* line 34, style.scss */
+@media -sass-debug-info{filename{font-family:file\:\/\/D\:\/Dev\/NodeJs\/Project\/apppress\/webroot\/client\/app\/styles\/style\.scss}line{font-family:\0000336}}
 #wrapper {
   position: absolute;
   z-index: 1;
@@ -45,7 +48,7 @@
   background: #EEE;
 }
 
-/* line 41, style.scss */
+@media -sass-debug-info{filename{font-family:file\:\/\/D\:\/Dev\/NodeJs\/Project\/apppress\/webroot\/client\/app\/styles\/style\.scss}line{font-family:\0000343}}
 #scroller {
   position: absolute;
   z-index: 1;
@@ -55,13 +58,13 @@
   padding: 0;
 }
 
-/* line 49, style.scss */
+@media -sass-debug-info{filename{font-family:file\:\/\/D\:\/Dev\/NodeJs\/Project\/apppress\/webroot\/client\/app\/styles\/style\.scss}line{font-family:\0000351}}
 #waterfallContainer .item {
   text-align: center;
   margin: 5px;
   background-color: white;
 }
-/* line 54, style.scss */
+@media -sass-debug-info{filename{font-family:file\:\/\/D\:\/Dev\/NodeJs\/Project\/apppress\/webroot\/client\/app\/styles\/style\.scss}line{font-family:\0000356}}
 #waterfallContainer .item .item .title {
   margin: 6px;
 }
