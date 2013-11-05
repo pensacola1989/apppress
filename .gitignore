@@ -1,7 +1,1 @@
 node_modules
-webroot/.sass-cache
-webroot/.tmp
-webroot/bower_components
-webroot/dist
-webroot/node_modules
-webroot/upload
