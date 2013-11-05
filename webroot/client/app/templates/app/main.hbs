@@ -1,6 +1,6 @@
 <div id="header">
     <a href="#menu"></a>
-    {{content.name}}
+    <div id="title">{{content.name}}</div>
 </div>
 <nav id="menu">
     <ul>
@@ -9,8 +9,10 @@
         {{/each}}
     </ul>
 </nav>
-<div id="content">
-    <div class="container-fluid">
+<div id="wrapper">
+    <div id="scroller">
         {{view Em.ContainerView elementId="cms_content_view"}}
     </div>
 </div>
+
+

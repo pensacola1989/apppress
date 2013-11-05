@@ -41,7 +41,7 @@
                 <div class="fileinput-preview">
                       {{#each pictures}}
                           <div class="picture-container">
-                            <img src="/{{unbound src}}" class="img-rounded thumb">
+                            <img {{bind-attr src=src}} class="img-rounded thumb">
                             <span class="remove"></span>
                            </div>
                       {{/each}}

@@ -82,7 +82,7 @@ module.exports = function (grunt) {
 
             admin: {
                 options: {
-                    importPath: 'admin/app/bower_components',
+                    importPath: 'bower_components',
                     environment: 'development',
                     debugInfo: true,
 
@@ -96,7 +96,7 @@ module.exports = function (grunt) {
             },
             client: {
                 options: {
-                    importPath: 'client/app/bower_components',
+                    importPath: 'bower_components',
                     environment: 'development',
                     debugInfo: true,
 

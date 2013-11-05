@@ -62,6 +62,7 @@ exports.findCategories = function(req, res){
 exports.saveCategory = function (req, res) {
     var storeCategory = new CmsStoreCategory({
         name: req.body.category.name,
+        picture: req.body.category.picture,
         mstore: req.body.category.mstore
     });
 
@@ -74,7 +75,8 @@ exports.updateCategory = function(req, res){
     CmsStoreCategory.findByIdAndUpdate(
         req.params.id,
         {
-            name: req.body.category.name
+            name: req.body.category.name,
+            picture: req.body.category.picture
         }, function(){
             res.send({});
         }
@@ -93,7 +95,6 @@ exports.findProducts = function(req, res){
             productIds[i] = products[i].id;
         }
         CmmPicture.find().where('pid').in(productIds).sort('order').exec(function (err, pictures) {
-            console.log(pictures);
             res.send({product:products, pictures: pictures});
         });
     });

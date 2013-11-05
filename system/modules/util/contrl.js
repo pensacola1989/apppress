@@ -43,6 +43,6 @@ var saveImg = function(req, res) {
         .autoOrient()
         .write(config.web_root + distFilePath, function (err) {
             fs.unlink(scrFullPath);
-            res.send({code: 1, filePath: distFilePath});
+            res.send({code: 1, filePath: '/' + distFilePath});
         });
 }

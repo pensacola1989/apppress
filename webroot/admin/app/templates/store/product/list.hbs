@@ -16,7 +16,7 @@
                 <td>{{product.name}}</td>
                 <td>{{product.price}}</td>
                 <td class="show-one">
-                    <img src="/{{unbound product.thumb}}" class="img-rounded thumb">
+                    <img {{bind-attr src=product.thumb}} class="img-rounded thumb">
                 </td>
                 <td>
                     <a href="#" {{action editProduct product}}>Edit<a/> &nbsp;&nbsp;
