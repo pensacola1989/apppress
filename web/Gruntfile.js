@@ -24,11 +24,11 @@ module.exports = function (grunt) {
       },
       compass: {
         files: ['<%= yeoman.app %>/styles/{,*/}*.{scss,sass}'],
-        tasks: ['compass:server', 'autoprefixer']
+        tasks: ['compass:server']
       },
       styles: {
         files: ['<%= yeoman.app %>/styles/{,*/}*.css'],
-        tasks: ['copy:styles', 'autoprefixer']
+        tasks: ['copy:styles']
       },
       livereload: {
         options: {
@@ -40,17 +40,6 @@ module.exports = function (grunt) {
           '{.tmp,<%= yeoman.app %>}/scripts/{,*/}*.js',
           '<%= yeoman.app %>/img/{,*/}*.{png,jpg,jpeg,gif,webp,svg}'
         ]
-      }
-    },
-    autoprefixer: {
-      options: ['last 1 version'],
-      dist: {
-        files: [{
-          expand: true,
-          cwd: '.tmp/styles/',
-          src: '{,*/}*.css',
-          dest: '.tmp/styles/'
-        }]
       }
     },
     connect: {
@@ -121,17 +110,20 @@ module.exports = function (grunt) {
       },
     compass: {
       options: {
+          importPath: '<%= yeoman.app %>/bower_components',
           sassDir: '<%= yeoman.app %>/styles',
-          cssDir: '<%= yeoman.app %>/styles',
-          generatedImagesDir: '.tmp/img/generated',
+          cssDir: '.tmp/styles',
+
           imagesDir: '<%= yeoman.app %>/img',
+          generatedImagesDir: '.tmp/img/generated',
+
           javascriptsDir: '<%= yeoman.app %>/scripts',
           fontsDir: '<%= yeoman.app %>/styles/fonts',
-          importPath: '<%= yeoman.app %>/bower_components',
           httpImagesPath: '/img',
           httpGeneratedImagesPath: '/img/generated',
           httpFontsPath: '/styles/fonts',
           relativeAssets: false
+
       },
       dist: {},
       server: {
@@ -145,18 +137,6 @@ module.exports = function (grunt) {
     /*concat: {
       dist: {}
     },*/
-    rev: {
-      dist: {
-        files: {
-          src: [
-            '<%= yeoman.dist %>/scripts/{,*/}*.js',
-            '<%= yeoman.dist %>/styles/{,*/}*.css',
-            '<%= yeoman.dist %>/img/{,*/}*.{png,jpg,jpeg,gif,webp,svg}',
-            '<%= yeoman.dist %>/styles/fonts/*'
-          ]
-        }
-      }
-    },
     useminPrepare: {
       html: '<%= yeoman.app %>/index.html',
       options: {
@@ -246,6 +226,15 @@ module.exports = function (grunt) {
           src: [
             'generated/*'
           ]
+        },
+        {
+            expand: true,
+            dot: true,
+            cwd: '<%= yeoman.app %>/bower_components/font-awesome',
+            dest: '<%= yeoman.dist %>',
+            src: [
+                'fonts/**'
+            ]
         }]
       },
       styles: {
@@ -312,7 +301,6 @@ module.exports = function (grunt) {
     grunt.task.run([
       'clean:server',
       'concurrent:server',
-      'autoprefixer',
       'connect:livereload',
       'watch'
     ]);
@@ -321,7 +309,6 @@ module.exports = function (grunt) {
   grunt.registerTask('test', [
     'clean:server',
     'concurrent:test',
-    'autoprefixer',
     'connect:test',
     'karma'
   ]);
@@ -331,14 +318,12 @@ module.exports = function (grunt) {
     'useminPrepare',
     'concurrent:dist',
     'neuter',
-    'autoprefixer',
     'concat',
     'copy:dist',
     'cdnify',
     'ngmin',
     'cssmin',
     'uglify',
-    //'rev',
     'usemin'
   ]);
 

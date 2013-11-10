@@ -1,26 +1,23 @@
 <div id="header" class="navbar navbar-fixed-top" ng-controller="HeaderCtrl">
     <div class="navbar-inner ap-navbar-bg">
-        <div class="container-fluid">
-            <div class="container">
-                <div class="row">
-                    <div class="span2">
-                         <div class="brand">
-                              <div style="float: left;"><img src="img/logo.png"></div>
-                              <div class="beta" style="float: left;">Beta</div>
-                         </div>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-2">
+                     <div class="brand">
+                          <div style="float: left;"><img src="img/logo.png"></div>
+                          <div class="beta" style="float: left;">Beta</div>
+                     </div>
+                </div>
+                <div class="col-md-14 top-bar">
+                    <div class="top-panel pull-right">
+                         <span class="glyphicon glyphicon-home" style="color:white;"></span>
+                         <span class="glyphicon glyphicon-log-out" style="color:white;"></span>
                     </div>
-                    <div class="span14 top-bar">
-                        <div class="top-panel pull-right">
-                                      <span class="fa fa-home" style="color:white;"></span>
-
-                                      <span class="fa fa-sign-out" style="color:white;"></span>
-                        </div>
-                        <div class="top-panel pull-right">
-                                <span id="">&nbsp;</span>
-                                <a href="#">
-                                    <span id="userEmail">{{email}}</span>
-                                </a>
-                        </div>
+                    <div class="top-panel pull-right">
+                            <span id="">&nbsp;</span>
+                            <a href="#">
+                                <span id="userEmail">{{email}}</span>
+                            </a>
                     </div>
                 </div>
             </div>

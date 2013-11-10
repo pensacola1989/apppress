@@ -1,23 +1,31 @@
-<div class="right">
-    <a href="#/main">Back</a>
-</div>
+<div>
+    <div id="left-col">
+        <div ng-include src="'views/preview.html'"></div>
+    </div>
+    <div class="clear_both"></div>
+    <div id="right-col">
+        <div id="main">
+            <ul id="tab-bar" class="nav nav-tabs">
+                <li>
+                    <a href="#">Configuration</a>
+                </li>
+                <li class="active">
+                    <a href="#">Add Contents</a>
+                </li>
+            </ul>
+            <div id="tab-panel">
+                <div id="cms-header">
+                    <div id="cms-menu" class="jcarousel-skin">
+                        <ul></ul>
+                    </div>
+                    <div id="cms-nav" class="">
+                    </div>
+                </div>
 
-<div class="row-fluid">
-	<div class="span12">
-		<div class="row-fluid">
-			<div id="left-col" class="span4 left_col">
-                <div ng-include src="'views/preview.html'"></div>
-				<div class="clear_both"></div>
-			</div>
-			<div id="right-col" class="span8 right_col">
-				<div id="main">
-                     <button type="submit" class="btn btn-primary">Save</button>&nbsp;&nbsp;
-					<div class="clear_both"></div>
-				</div>
-				<div class="clear_both"></div>
-			</div>
-		</div>
-
-	</div>
+                <div id="cms-content">
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
 

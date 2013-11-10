@@ -16,13 +16,15 @@ html,body {
     font-family: Droid Sans,Helvetica, Arial, sans-serif;
 }
 body {
-
 }
-
 thead {
     font-weight: bold;
     background-color: #fcf8e3;
 
+}
+
+.container {
+  width: 100%;
 }
 
 a {
@@ -104,7 +106,7 @@ form label.error {
       cursor: pointer;
       width: 16px;
       height: 16px;
-      background-image: url(../img/delete-picture.png);
+      background-image: url(../images/delete-picture.png);
       background-repeat: no-repeat no-repeat;
 
       right: 1px;
