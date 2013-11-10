@@ -3,8 +3,7 @@
 
 .ap-navbar-bg.navbar-inner {
   background-color: #E86224;
-  background-image: url(/images/1-1.png);
-
+  background-image: url(../img/1-1.png);
   height: 40px;
   margin-bottom: 0;
 
@@ -29,7 +28,7 @@
       min-width: 720px;
       .span2 {
         float: left;
-        margin-left: 20px;
+        margin-left: 50px;
 
         margin: -2px 0 0;
         .brand {
@@ -115,7 +114,7 @@ form.cmxform.w-600 {
         .jcarousel-container {
           width: 410px;
           padding: 0px 13px;
-          background: transparent url(/images/prev-horizontal.png) no-repeat 0 0;
+          background: transparent url(../img/prev-horizontal.png) no-repeat 0 0;
           .jcarousel-clip {
             overflow: hidden;
             height: 58px;
@@ -136,17 +135,17 @@ form.cmxform.w-600 {
                 background-color: #333;
               }
               &.forbidden {
-                background: url(/images/menu_bg_forbidden.png) right top no-repeat;
+                background: url(../img/menu_bg_forbidden.png) right top no-repeat;
                 background-color: #666;
               }
               &:hover, &:focus {
                 border-color: #808080;
               }
               .jcarousel-item-container {
-                -webkit-border-image: url(/images/border_bg.png) 2 stretch stretch;
-                -moz-border-image: url(/images/border_bg.png) 2 stretch stretch;
-                border-image: url(/images/border_bg.png) 2 stretch stretch;
-                -ms-border-image: url(/images/border_bg.png) 2 stretch stretch;
+                -webkit-border-image: url(../img/border_bg.png) 2 stretch stretch;
+                -moz-border-image: url(../img/border_bg.png) 2 stretch stretch;
+                border-image: url(../img/border_bg.png) 2 stretch stretch;
+                -ms-border-image: url(../img/border_bg.png) 2 stretch stretch;
                 border-width: 2px;
 
                 width: 80px;
@@ -164,7 +163,7 @@ form.cmxform.w-600 {
                 margin-left: 5px;
                 top: 3px;
                 z-index: 1;
-                background-image: url(/images/move.png);
+                background-image: url(../img/move.png);
                 background-repeat: no-repeat no-repeat;
               }
             }
@@ -176,7 +175,7 @@ form.cmxform.w-600 {
             width: 14px;
             height: 58px;
             cursor: pointer;
-            background: transparent url(/images/prev-horizontal.png) no-repeat 0 0;
+            background: transparent url(../img/prev-horizontal.png) no-repeat 0 0;
             overflow: hidden;
 
             &:hover, &:focus {
@@ -201,7 +200,7 @@ form.cmxform.w-600 {
             width: 14px;
             height: 58px;
             cursor: pointer;
-            background: transparent url(/images/next-horizontal.png) no-repeat 0 0;
+            background: transparent url(../img/next-horizontal.png) no-repeat 0 0;
 
             &:hover, &:focus {
               background-position: -32px 0;
