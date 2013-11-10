@@ -1,10 +1,9 @@
 'use strict';
 
 angular.module('webApp')
-  .controller('MainCtrl', function ($scope) {
-    $scope.awesomeThings = [
-      'HTML5 Boilerplate',
-      'AngularJS',
-      'Karma'
-    ];
-  });
+    .controller('HeaderCtrl', function ($scope) {
+        $scope.email = 'aaronchen2k@gmail.com'
+    })
+    .controller('MainCtrl', function ($scope) {
+
+    });

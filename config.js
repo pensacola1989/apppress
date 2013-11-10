@@ -1,6 +1,6 @@
 var path = require('path');
 var config = {
-    web_root: path.join(__dirname, 'webroot/'),
+    web_root: path.join(__dirname, 'web/'),
 	name: 'AppPress',
 	description: '',
 	version: '0.1.0',

@@ -1,0 +1,135 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+.clear-both {
+    clear:both;
+}
+.center {
+    text-align: center;
+}
+
+html,body {
+    margin: 30px 0;
+
+    font-size: 12px;
+    font-family: Droid Sans,Helvetica, Arial, sans-serif;
+}
+body {
+
+}
+thead {
+    font-weight: bold;
+    background-color: #fcf8e3;
+
+}
+
+a {
+    cursor: pointer;
+}
+
+span.hide {
+    display: none;
+}
+span.required {
+    color: red !important;
+    font-weight: bold;
+    margin: 0;
+    padding: 0;
+}
+
+form label.error {
+  display: inline !important;
+  margin-left: 6px !important;
+}
+
+.alertify-message .my-error {
+    font-size: 18px;
+    color: #ff0000;
+}
+
+.alertify-message .my-success {
+  font-size: 18px;
+  color: green;
+}
+
+.right {
+    float: right;
+}
+
+.ui-state-highlight {
+    float: left;
+    width: 82px;
+    height:62px;
+    border: 1px solid #f9dd34;
+    background: #ffef8f 50% top repeat-x;
+    color: #363636;
+}
+
+.form-horizontal .control-group::before, .form-horizontal .control-group::after {
+  display: none!important;
+  content: ""!important;
+  line-height: 0!important;
+}
+
+.fileinput-button {
+  position: relative;
+  overflow: hidden;
+
+  input {
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin: 0;
+    opacity: 0;
+    -ms-filter: 'alpha(opacity=0)';
+    font-size: 200px;
+    direction: ltr;
+    cursor: pointer;
+  }
+}
+.fileinput-preview {
+  display: block;
+  padding: 6px 0 0 0;
+
+  .picture-container, .picture-container-single{
+    position: relative;
+    height: 50px;
+    width: 50px;
+    margin: 3px;
+    .remove {
+      position: absolute;
+      display: none;
+      cursor: pointer;
+      width: 16px;
+      height: 16px;
+      background-image: url(../images/delete-picture.png);
+      background-repeat: no-repeat no-repeat;
+
+      right: 1px;
+      top: 1px;
+      z-index: 1;
+    }
+    .picture-container {
+      float: left;
+    }
+  }
+}
+
+.table th, .table td {
+  vertical-align: middle !important;
+}
+
+img.prew {
+  height: 60px;
+  width: 60px;
+  margin: 3px;
+}
+img.thumb{
+    height: 50px;
+    width: 50px;
+}
+
+
+
+
