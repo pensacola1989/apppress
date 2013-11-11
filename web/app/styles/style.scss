@@ -1,8 +1,12 @@
 @import "compass/css3/border-radius";
 
+@import "compass/utilities/sprites";
+@import "icons/*.png";
+@include all-icons-sprites;
+
 .ap-navbar-bg.navbar-inner {
+  @extend .icons-img1x1;
   background-color: #E86224;
-  background-image: url(../img/1-1.png);
   height: 40px;
   margin-bottom: 0;
 

@@ -110,22 +110,21 @@ module.exports = function (grunt) {
       },
     compass: {
       options: {
-          importPath: '<%= yeoman.app %>/bower_components',
           sassDir: '<%= yeoman.app %>/styles',
           cssDir: '.tmp/styles',
-
-          imagesDir: '<%= yeoman.app %>/img',
           generatedImagesDir: '.tmp/img/generated',
-
+          imagesDir: '<%= yeoman.app %>/img',
           javascriptsDir: '<%= yeoman.app %>/scripts',
           fontsDir: '<%= yeoman.app %>/styles/fonts',
-          httpImagesPath: '/img',
-          httpGeneratedImagesPath: '/img/generated',
-          httpFontsPath: '/styles/fonts',
+          importPath: '<%= yeoman.app %>/bower_components',
+          httpImagesPath: '../img',
+          httpGeneratedImagesPath: '../img/generated',
+          httpFontsPath: 'fonts',
           relativeAssets: false
+      },
+      dist: {
 
       },
-      dist: {},
       server: {
         options: {
           debugInfo: true
@@ -230,7 +229,7 @@ module.exports = function (grunt) {
         {
             expand: true,
             dot: true,
-            cwd: '<%= yeoman.app %>/bower_components/font-awesome',
+            cwd: '<%= yeoman.app %>/bower_components/bootstrap/dist',
             dest: '<%= yeoman.dist %>',
             src: [
                 'fonts/**'
