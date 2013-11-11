@@ -1,6 +1,6 @@
 Start a AppPress platform or create a free WebApp in minutes.
 
---AngularJS, Node.js(express, mongoose), MongoDB, Yeoman
+--AngularJS, Node.js, MongoDB, Yeoman
 
 ## Licenses
 
