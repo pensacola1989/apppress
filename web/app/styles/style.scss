@@ -1,12 +1,15 @@
 @import "compass/css3/border-radius";
 
+
 @import "compass/utilities/sprites";
-@import "icons/*.png";
-@include all-icons-sprites;
+@import "icons-plugin-black/*.png";
+@import "icons-plugin-white/*.png";
+@include all-icons-plugin-black-sprites;
+@include all-icons-plugin-white-sprites;
 
 .ap-navbar-bg.navbar-inner {
-  @extend .icons-img1x1;
   background-color: #E86224;
+  background-image: image-url("img-1x1.png");
   height: 40px;
   margin-bottom: 0;
 
@@ -120,7 +123,7 @@ form.cmxform.w-600 {
         .jcarousel-container {
           width: 410px;
           padding: 0px 13px;
-          background: transparent url(../img/prev-horizontal.png) no-repeat 0 0;
+          background: transparent image-url("prev-horizontal.png") no-repeat 0 0;
           .jcarousel-clip {
             overflow: hidden;
             height: 58px;
@@ -141,17 +144,17 @@ form.cmxform.w-600 {
                 background-color: #333;
               }
               &.forbidden {
-                background: url(../img/menu_bg_forbidden.png) right top no-repeat;
+                background: image-url("menu_bg_forbidden.png") right top no-repeat;
                 background-color: #666;
               }
               &:hover, &:focus {
                 border-color: #808080;
               }
               .jcarousel-item-container {
-                -webkit-border-image: url(../img/border_bg.png) 2 stretch stretch;
-                -moz-border-image: url(../img/border_bg.png) 2 stretch stretch;
-                border-image: url(../img/border_bg.png) 2 stretch stretch;
-                -ms-border-image: url(../img/border_bg.png) 2 stretch stretch;
+                -webkit-border-image: image-url("border_bg.png") 2 stretch stretch;
+                -moz-border-image: image-url("border_bg.png") 2 stretch stretch;
+                border-image: image-url("border_bg.png") 2 stretch stretch;
+                -ms-border-image: image-url("border_bg.png") 2 stretch stretch;
                 border-width: 2px;
 
                 width: 80px;
@@ -169,7 +172,7 @@ form.cmxform.w-600 {
                 margin-left: 5px;
                 top: 3px;
                 z-index: 1;
-                background-image: url(../img/move.png);
+                background-image: image-url("move.png");
                 background-repeat: no-repeat no-repeat;
               }
             }
@@ -181,7 +184,7 @@ form.cmxform.w-600 {
             width: 14px;
             height: 58px;
             cursor: pointer;
-            background: transparent url(../img/prev-horizontal.png) no-repeat 0 0;
+            background: transparent image-url("prev-horizontal.png") no-repeat 0 0;
             overflow: hidden;
 
             &:hover, &:focus {
@@ -206,7 +209,7 @@ form.cmxform.w-600 {
             width: 14px;
             height: 58px;
             cursor: pointer;
-            background: transparent url(../img/next-horizontal.png) no-repeat 0 0;
+            background: transparent image-url("next-horizontal.png") no-repeat 0 0;
 
             &:hover, &:focus {
               background-position: -32px 0;
