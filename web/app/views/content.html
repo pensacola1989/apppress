@@ -15,14 +15,19 @@
             </ul>
             <div id="tab-panel">
                 <div id="cms-header">
-                    <div id="cms-menu" class="jcarousel-skin">
-                        <ul></ul>
-                    </div>
-                    <div id="cms-nav" class="">
+                    <div ng-controller="CarouselDemoCtrl">
+                        <carousel>
+                            <slide ng-repeat="page in slides" active="slide.active">
+                                <span ng-repeat="i in [0, 1, 2, 3, 4]">
+                                    <img ng-src="{{page[i].image}}" style="margin:auto; height: 50px; width:50px;">
+                                </span>
+                            </slide>
+                        </carousel>
                     </div>
                 </div>
 
                 <div id="cms-content">
+
                 </div>
             </div>
         </div>
