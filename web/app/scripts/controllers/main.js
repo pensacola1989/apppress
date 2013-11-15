@@ -33,12 +33,16 @@ angular.module('web')
             return  $scope.overId === item.id;
         }
         $scope.mouseOver = function(item) {
-            angular.forEach($scope.slides, function(v, k){
-                angular.forEach(v, function(item, key){
-                    item.showMove = false;
-                });
-            });
+//            angular.forEach($scope.slides, function(v, k){
+//                angular.forEach(v, function(item, key){
+//                    item.showMove = false;
+//                });
+//            });
             item.showMove = true;
+        }
+
+        $scope.mouseOut = function(item) {
+            item.showMove = false;
         }
 
     });

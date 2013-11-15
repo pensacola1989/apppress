@@ -20,7 +20,8 @@
                             <slide ng-repeat="page in slides" active="slide.active">
                                 <div ng-repeat="item in page" class="carousel-item"
                                      ng-class="{disabled: !item.enabled}"
-                                     ng-mouseover="mouseOver(item)" >
+                                     ng-mouseover="mouseOver(item)"
+                                     ng-mouseout="mouseOut(item)" >
                                     <div class="carousel-item-container" >
                                         <div><img ng-src="img/icons-plugin-white/store.png" height=30 width=30></div>
                                         <div>标题</div>
