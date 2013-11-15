@@ -18,13 +18,14 @@
                     <div id="cms-header-menu" ng-controller="CmsMenuCtrl">
                         <carousel>
                             <slide ng-repeat="page in slides" active="slide.active">
-                                <div ng-repeat="i in [0, 1, 2, 3, 4]" class="carousel-item {{showClass(page[i])}}" data-id="22" data-code="33"
-                                     >
-                                    <div class="carousel-item-container">
+                                <div ng-repeat="item in page" class="carousel-item"
+                                     ng-class="{disabled: !item.enabled}"
+                                     ng-mouseover="mouseOver(item)" >
+                                    <div class="carousel-item-container" >
                                         <div><img ng-src="img/icons-plugin-white/store.png" height=30 width=30></div>
                                         <div>标题</div>
                                     </div>
-                                    <div class="carousel-item-move"></div>
+                                    <div class="carousel-item-move" ng-show="item.showMove"></div>
                                 </div>
                             </slide>
                         </carousel>
