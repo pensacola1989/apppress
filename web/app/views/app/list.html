@@ -1,0 +1,36 @@
+<div ng-include src="'views/header.html'"></div>
+
+<div class="content">
+    <div id="app_list" ng-controller="AppListCtrl" class="">
+        <div class="">
+            <a href="#" ng-click="create()">Create<a/>
+        </div>
+        <table class="table table-bordered table-hover">
+            <thead>
+            <tr class="header">
+                <th>ID</td>
+                <th>Name</td>
+                <th>Description</td>
+                <th>Action</td>
+            </tr>
+            <thead>
+            <tbody>
+            <!--
+            {{#each app in content}}
+            <tr>
+                <td>{{app.id}}</td>
+                <td>{{app.name}}</td>
+                <td>{{app.descr}}</td>
+                <td>
+                    <a href="#" {{action modifyApp app}}>Add Contents<a/> &nbsp;&nbsp;
+                    <a href="#" {{action editApp app}}>Edit<a/> &nbsp;&nbsp;
+                    <a href="#" {{action deleteApp app}}>Delete<a/> &nbsp;&nbsp;
+                </td>
+            </tr>
+            {{/each}}    -->
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<div ng-include src="'views/footer.html'"></div>

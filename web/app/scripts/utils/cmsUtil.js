@@ -29,7 +29,7 @@ CmsUtil = {
                             '<li id="jcarousel-item-' + items[i-1].id + '" class="' + cls + '">',
                                 '<div class="jcarousel-item-container">',
                                     '<div><img src="img/icons-plugin-white/album.png" height=30 width=30></div>',
-                                    '<div>' + items[i-1].id + '</div>',
+                                    '<div>Title</div>',
                                 '</div>',
                                 '<div class="jcarousel-item-move"></div>',
                             '</li>'
