@@ -17,33 +17,28 @@ angular.module('web')
                 page.push({
                     id: index,
                     image: 'http://placekitten.com/' + index + '/200',
-                    enabled: index > 5? false: true,
+                    status: index > 5? 0: 1,
                     showMove: false
                 });
             }
             $scope.slides.push(page);
         }
 
-        $scope.showClass = function(item) {
-            if(item.enabled) return "";
-            else return "disabled";
+        $scope.active = function(item) {
+            angular.forEach( $scope.slides, function(page, key){
+                angular.forEach( page, function(item, key){
+                    item.active = false;
+                });
+            });
+            item.active = true;
         }
-        $scope.showMove = function(item) {
-            console.log($scope.overId === item.id);
-            return  $scope.overId === item.id;
-        }
-        $scope.mouseOver = function(item) {
-//            angular.forEach($scope.slides, function(v, k){
-//                angular.forEach(v, function(item, key){
-//                    item.showMove = false;
-//                });
-//            });
+        $scope.onMouseOver = function(item) {
             item.showMove = true;
         }
-
-        $scope.mouseOut = function(item) {
+        $scope.onMouseOut = function(item) {
             item.showMove = false;
         }
 
     });
+
 

@@ -17,11 +17,14 @@
                 <div id="cms-header">
                     <div id="cms-header-menu" ng-controller="CmsMenuCtrl">
                         <carousel>
-                            <slide ng-repeat="page in slides" active="slide.active">
+                            <slide ng-repeat="page in slides">
                                 <div ng-repeat="item in page" class="carousel-item"
-                                     ng-class="{disabled: !item.enabled}"
-                                     ng-mouseover="mouseOver(item)"
-                                     ng-mouseout="mouseOut(item)" >
+                                     ng-class="{active: item.active}"
+                                     ng-class="{disabled: item.status == 0}"
+
+                                     ng-click="active(item)"
+                                     ng-mouseover="onMouseOver(item)"
+                                     ng-mouseout="onMouseOut(item)" >
                                     <div class="carousel-item-container" >
                                         <div><img ng-src="img/icons-plugin-white/store.png" height=30 width=30></div>
                                         <div>标题</div>
