@@ -14,25 +14,12 @@
                 </li>
             </ul>
             <div id="tab-panel">
-                <div id="cms-header">
-                    <div id="cms-header-menu" ng-controller="CmsMenuCtrl">
-                        <carousel>
-                            <slide ng-repeat="page in slides">
-                                <div ng-repeat="item in page" class="carousel-item"
-                                     ng-class="{active: item.active}"
-                                     ng-class="{disabled: item.status == 0}"
+                <div id="cms-header"  ng-controller="CmsMenuCtrl">
+                    <div id="cms-menu" ui-jq="CmsUtil_CreateJCarousel" class="jcarousel-skin" >
+                        <ul></ul>
+                    </div>
+                    <div id="cms-nav" class="">
 
-                                     ng-click="active(item)"
-                                     ng-mouseover="onMouseOver(item)"
-                                     ng-mouseout="onMouseOut(item)" >
-                                    <div class="carousel-item-container" >
-                                        <div><img ng-src="img/icons-plugin-white/store.png" height=30 width=30></div>
-                                        <div>标题</div>
-                                    </div>
-                                    <div class="carousel-item-move" ng-show="item.showMove"></div>
-                                </div>
-                            </slide>
-                        </carousel>
                     </div>
                 </div>
 

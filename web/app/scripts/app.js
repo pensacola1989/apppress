@@ -4,7 +4,8 @@ angular.module('web', [
       'ngCookies',
       'ngResource',
       'ngSanitize',
-      'ui.bootstrap'
+      'ui.bootstrap',
+      'ui.jq', 'ui.event'
   ])
   .config(function ($routeProvider) {
     $routeProvider
@@ -16,5 +17,4 @@ angular.module('web', [
         redirectTo: '/'
       });
   });
-
 
