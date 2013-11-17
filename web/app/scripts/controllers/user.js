@@ -11,11 +11,11 @@ adminControllers.controller('UserSignupCtrl', ['$rootScope', '$scope', '$cookies
 
     $scope.signup = function(user) {
         userService.signup(user).success(function(json, status, headers, config) {
+            console.log(json);
             if (json.code == 1) {
                 $rootScope.userProfile = json.data;
                 $cookies.userToken = json.data.token;
                 $location.path("/apps");
-
             }
         });
     };

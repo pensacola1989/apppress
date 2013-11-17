@@ -1,5 +1,6 @@
 var uuid = require('node-uuid');
 
+var util = require('../../../framework/util');
 var mongoose = require('../../../framework/mongoose');
 var service = require('./service');
 
@@ -48,6 +49,11 @@ exports.signon = function (req, res) {
 exports.signup = function (req, res) {
     var vo = req.body;
     console.log(vo);
+    if (util.isEmpty(vo.email)) {
+        var msg = 'Not a valid email.';
+        var data = {code: 0, msg:msg};
+        res.send(data);
+    }
     User.findOne({email: vo.email}).exec(function(err, obj){
         if(!err && obj == null){   // not exist
             var user = new User({
