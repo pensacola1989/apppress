@@ -1,4 +1,4 @@
-CmsUtil = {
+var CmsUtil = {
     CreateJCarousel: function (){
         var items = [];
         for (var i = 0; i < 12; i++) {
