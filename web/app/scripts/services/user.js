@@ -40,6 +40,8 @@ adminServices.factory('userAuth', ['$rootScope', '$cookies', '$q', '$http', '$lo
                     defered.reject();
                     $location.path("/signon");
                 });
+        } else {
+            $location.path("/signon");
         }
         return defered.promise;
     }
