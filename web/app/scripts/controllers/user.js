@@ -1,7 +1,7 @@
 'use strict';
 var adminControllers = angular.module('adminControllers');
 
-adminControllers.controller('UserCtrl', ['$rootScope', '$scope', '$cookies', '$location', 'userService',
+adminControllers.controller('UserSignupCtrl', ['$rootScope', '$scope', '$cookies', '$location', 'userService',
             function ($rootScope, $scope, $cookies, $location, userService) {
     $scope.user= {};
     $scope.reset = function() {
@@ -9,33 +9,40 @@ adminControllers.controller('UserCtrl', ['$rootScope', '$scope', '$cookies', '$l
     };
     $scope.reset();
 
-    $scope.signonWithToken = function(token) {
-        userService.signonWithToken(token).success(function(json, status, headers, config) {
-            console.log(json);
-        });
-    };
-
-    $scope.signon = function(user) {
-        userService.signon(user).success(function(json, status, headers, config) {
-            console.log(json);
-            $cookies.userToken = json.data.token;
-            $location.path("/apps");
-        });
-    };
-
     $scope.signup = function(user) {
         userService.signup(user).success(function(json, status, headers, config) {
-            console.log(json);
+            if (json.code == 1) {
+                $rootScope.userProfile = json.data;
+                $cookies.userToken = json.data.token;
+                $location.path("/apps");
+
+            }
         });
     };
-
-    $scope.signout = function() {
-        $cookies.userToken = null;
-        $rootScope.userProfile = null;
-        $location.path("/signon");
-
-    };
 }]);
+
+adminControllers.controller('UserCtrl', ['$rootScope', '$scope', '$cookies', '$location', 'userService',
+    function ($rootScope, $scope, $cookies, $location, userService) {
+        $scope.signon = function(user) {
+            userService.signon(user).success(function(json, status, headers, config) {
+                if (json.code == 1) {
+                    $rootScope.userProfile = json.data;
+                    $cookies.userToken = json.data.token;
+                    $location.path("/apps");
+                }
+            });
+        };
+
+        $scope.signout = function() {
+            $cookies.userToken = '';
+
+            $rootScope.userProfile = '';
+            $location.path("/signon");
+
+        };
+    }]);
+
+
 
 
 

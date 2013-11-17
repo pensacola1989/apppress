@@ -27,15 +27,16 @@ adminServices.factory('userAuth', ['$rootScope', '$cookies', '$q', '$http', '$lo
         if (!StringUtil.isEmpty(userToken)) {
             userService.signonWithToken({token: userToken})
                 .success(function (json) {
-                    console.log(json);
                     if (json.code === 1) {
                         $rootScope.userProfile = json.data;
                         defered.resolve(true);
+                        $location.path("/apps");
                     } else {
                         defered.reject();
                         $location.path("/signon");
                     }
                 })
+
                 .error(function () {
                     defered.reject();
                     $location.path("/signon");
