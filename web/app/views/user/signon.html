@@ -1,0 +1,38 @@
+<div class="row">
+	<div class="col-md-12">
+        <form id="signonForm" ng-controller="UserCtrl" class="form-horizontal w-600" role="form">
+          <legend>Sign On</legend>
+          <div class="form-group">
+            <label class="control-label col-sm-3" for="inputEmail">Email</label>
+            <div class="controls col-sm-7">
+              <input type="email" id="inputEmail" class="form-control"  ng-model="user.email" required>
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="control-label col-sm-3" for="inputPassword">Password</label>
+            <div class="controls col-sm-7">
+              <input id="inputPassword" type="password" class="form-control required " ng-model="user.password" required>
+            </div>
+          </div>
+            <div class="form-group">
+                <label class="control-label col-sm-3" for="rememberMe"></label>
+                <div class="controls col-sm-7">
+                    <label style="font-weight:normal;">
+                        <input id="rememberMe" type="checkbox" name="rememberMe" checked="checked" > Check me out
+                    </label>
+                </div>
+            </div>
+            <span class="error" ng-show="signonForm.input.$error.required">Required!</span><br>
+          <div class="form-group">
+              <label class="control-label col-sm-3"></label>
+              <div class="controls col-sm-7">
+                  <button ng-click="signon(user)" class="btn btn-primary">Submit</button>&nbsp;&nbsp;
+                  <button ng-click="reset()" type="reset" class="btn">Reset</button>&nbsp;&nbsp;&nbsp;&nbsp;
+
+                  <a href="#/signup"> Signup</a>&nbsp;&nbsp;
+                  <a href="#">Guest</a>
+              </div>
+          </div>
+        </form>
+    </div>
+</div>

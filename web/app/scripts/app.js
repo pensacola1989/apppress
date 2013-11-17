@@ -8,9 +8,20 @@ var adminApp = angular.module('adminApp', [
 
   .config(function ($routeProvider) {
     $routeProvider
+        .when('/signon', {
+            templateUrl: 'views/user/signon.html',
+            controller: 'UserCtrl'
+        })
+        .when('/signup', {
+            templateUrl: 'views/user/signup.html',
+            controller: 'UserCtrl'
+        })
         .when('/app/list', {
-        templateUrl: 'views/app/list.html',
-        controller: 'AppListCtrl'
+            templateUrl: 'views/app/list.html',
+            controller: 'AppListCtrl',
+            resolve: {
+                factory: 'userAuth'
+            }
         })
         .when('/app/view/:appId', {
             templateUrl: 'views/app/detail.html',
@@ -24,4 +35,3 @@ var adminApp = angular.module('adminApp', [
             redirectTo: '/app/list'
         });
   })
-

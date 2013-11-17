@@ -1,0 +1,35 @@
+<div class="row">
+	<div class="col-md-12">
+        <form id="signupForm" ng-controller="UserCtrl" class="form-horizontal w-600" role="form">
+          <legend>Sign Up</legend>
+          <div class="form-group">
+            <label class="control-label col-sm-3" for="inputEmail">Email</label>
+            <div class="col-sm-7 controls">
+              <input id="inputEmail" type="email" class="form-control"  ng-model="user.email" required>
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="control-label col-sm-3" for="inputPassword">Password</label>
+            <div class="col-sm-7 controls">
+              <input id="inputPassword" type="password" class="form-control" ng-model="user.password" required>
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="control-label col-sm-3" for="confirmPassword">Confirm Password</label>
+            <div class="controls col-sm-7">
+              <input id="confirmPassword" type="password" class="form-control" ng-model="user.confirmPassword" required>
+            </div>
+          </div>
+            <span class="error" ng-show="signonForm.input.$error.required">Required!</span><br>
+            <div class="form-group">
+                <label class="control-label col-sm-3"></label>
+                <div class="controls col-sm-7">
+                    <button ng-click="signup(user)" class="btn btn-primary">Submit</button>&nbsp;&nbsp;
+                    <button ng-click="reset()" type="reset" class="btn">Reset</button>&nbsp;&nbsp;&nbsp;&nbsp;
+
+                    <a href="#">Guest</a>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
