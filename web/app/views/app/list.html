@@ -15,19 +15,16 @@
             </tr>
             <thead>
             <tbody>
-            <!--
-            {{#each app in content}}
-            <tr>
-                <td>{{app.id}}</td>
-                <td>{{app.name}}</td>
-                <td>{{app.descr}}</td>
-                <td>
-                    <a href="#" {{action modifyApp app}}>Add Contents<a/> &nbsp;&nbsp;
-                    <a href="#" {{action editApp app}}>Edit<a/> &nbsp;&nbsp;
-                    <a href="#" {{action deleteApp app}}>Delete<a/> &nbsp;&nbsp;
-                </td>
-            </tr>
-            {{/each}}    -->
+                <tr ng-repeat="app in apps">
+                    <td>{{app.id}}</td>
+                    <td>{{app.name}}</td>
+                    <td>{{app.descr}}</td>
+                    <td>
+                        <a href="#">Add Contents</a> &nbsp;&nbsp;
+                        <a href="#">Edit</a> &nbsp;&nbsp;
+                        <a href="#">Delete</a> &nbsp;&nbsp;
+                    </td>
+                </tr>
             </tbody>
         </table>
     </div>

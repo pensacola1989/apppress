@@ -1,12 +1,11 @@
 'use strict';
 
-var webApp = angular.module('web', [
-      'ngCookies',
-      'ngResource',
-      'ngSanitize',
-      'ui.bootstrap',
-      'ui.jq', 'ui.event'
+var adminApp = angular.module('adminApp', [
+      'ngCookies', 'ngResource', 'ngSanitize',
+      'ui.bootstrap', 'ui.jq', 'ui.event',
+      'adminConstants', 'adminServices', 'adminControllers'
   ])
+
   .config(function ($routeProvider) {
     $routeProvider
         .when('/app/list', {
@@ -24,5 +23,5 @@ var webApp = angular.module('web', [
         .otherwise({
             redirectTo: '/app/list'
         });
-  });
+  })
 

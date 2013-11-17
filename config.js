@@ -16,7 +16,7 @@ var config = {
 	db: 'mongodb://localhost/apppress',
 	session_secret: '1234567890QWERTY',
 	auth_cookie_name: 'apppress',
-	port: 9000,
+	port: 80,
     
       // 话题列表显示的话题数量
     list_topic_count: 10,
