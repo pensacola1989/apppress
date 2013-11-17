@@ -47,6 +47,7 @@ exports.signon = function (req, res) {
 
 exports.signup = function (req, res) {
     var vo = req.body;
+    console.log(vo);
     User.findOne({email: vo.email}).exec(function(err, obj){
         if(!err && obj == null){   // not exist
             var user = new User({

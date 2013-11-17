@@ -22,7 +22,6 @@ exports.findAll = function (req, res) {
     //App.find({user: req.session.user }).exec(function (err, apps) {
     App.find().exec(function (err, apps) {
         res.send({code: 1, data: apps});
-        console.log(apps);
     })
 };
 exports.findById = function(req, res){
