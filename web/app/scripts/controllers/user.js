@@ -15,7 +15,7 @@ adminControllers.controller('UserSignupCtrl', ['$rootScope', '$scope', '$cookies
             if (json.code == 1) {
                 $rootScope.userProfile = json.data;
                 $cookies.userToken = json.data.token;
-                $location.path("/apps");
+                $location.path("/app/list");
             }
         });
     };
@@ -28,7 +28,7 @@ adminControllers.controller('UserCtrl', ['$rootScope', '$scope', '$cookies', '$l
                 if (json.code == 1) {
                     $rootScope.userProfile = json.data;
                     $cookies.userToken = json.data.token;
-                    $location.path("/apps");
+                    $location.path("/app/list");
                 }
             });
         };
@@ -37,8 +37,12 @@ adminControllers.controller('UserCtrl', ['$rootScope', '$scope', '$cookies', '$l
             $cookies.userToken = '';
 
             $rootScope.userProfile = '';
-            $location.path("/signon");
 
+            userService.signout().success(function(json, status, headers, config) {
+                if (json.code == 1) {
+                    $location.path("/signon");
+                }
+            });
         };
     }]);
 

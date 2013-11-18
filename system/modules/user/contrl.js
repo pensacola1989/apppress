@@ -48,7 +48,6 @@ exports.signon = function (req, res) {
 
 exports.signup = function (req, res) {
     var vo = req.body;
-    console.log(vo);
     if (util.isEmpty(vo.email)) {
         var msg = 'Not a valid email.';
         var data = {code: 0, msg:msg};
@@ -77,4 +76,10 @@ exports.signup = function (req, res) {
         }
 
     });
+};
+
+exports.signout = function (req, res) {
+    req.session.user = null;
+    var data = {code: 1};
+    res.send(data);
 };
