@@ -12,9 +12,22 @@ adminControllers.controller('AppDetailCtrl', ['$scope', '$routeParams', function
 
 }]);
 
-adminControllers.controller('AppEditCtrl', ['$scope', '$routeParams', function ($scope, $routeParams) {
+adminControllers.controller('AppEditCtrl', ['$scope', '$routeParams', '$location', 'StringUtil', 'App', function ($scope, $routeParams, $location, StringUtil, App) {
     $scope.appId = $routeParams.appId;
     console.log($scope.appId);
+
+    if (StringUtil.isEmpty($scope.appId)) {
+        $scope.app = new App();
+    } else {
+        $scope.app = App.get({appId:  $scope.appId}, function(app) {
+            console.log(app);
+        });
+    }
+
+    $scope.save = function(app) {
+        app.$save();
+        $location.path("/app/list");
+    };
 }]);
 
 

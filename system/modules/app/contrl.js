@@ -34,7 +34,9 @@ exports.findById = function(req, res){
 };
 
 exports.save = function (req, res) {
-    service.createApp(req.body.app.name, req.body.app.descr, req.session.user, function(app) {
+    console.log(req.body);
+
+    service.createApp(req.body.name, req.body.descr, req.session.user, function(app) {
         var data = {app: app};
         res.send(data);
     });
