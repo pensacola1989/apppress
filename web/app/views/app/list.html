@@ -21,8 +21,8 @@
                     <td>{{app.descr}}</td>
                     <td>
                         <a href="#">Add Contents</a> &nbsp;&nbsp;
-                        <a href="#">Edit</a> &nbsp;&nbsp;
-                        <a href="#">Delete</a> &nbsp;&nbsp;
+                        <a href="#/app/edit/{{app.id}}">Edit</a> &nbsp;&nbsp;
+                        <a href="#" ng-click="delete(app)">Delete</a> &nbsp;&nbsp;
                     </td>
                 </tr>
             </tbody>

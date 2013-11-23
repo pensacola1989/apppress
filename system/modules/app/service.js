@@ -17,7 +17,8 @@ exports.createApp = function (name, descr, userId, callback) {
             var app = new App({
                 name: name,
                 descr: descr,
-                createDate: new Date(),
+                createTime: new Date(),
+                updateTime: new Date(),
                 user: userId
             });
 

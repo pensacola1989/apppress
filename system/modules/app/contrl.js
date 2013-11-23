@@ -20,22 +20,19 @@ var Subscription = require('../subscription/model').Subscription;
 //Rest Interface
 exports.findAll = function (req, res) {
     //App.find({user: req.session.user }).exec(function (err, apps) {
-    App.find().exec(function (err, apps) {
+    App.find().sort({'updateTime': -1}).exec(function (err, apps) {
         res.send({code: 1, data: apps});
     })
 };
 exports.findById = function(req, res){
     mongoose.findById(App, req.params.id, function(obj) {
         Subscription.find({app: obj.id}).sort('order').exec(function (err, subs) {
-            res.send({app: obj, subscriptions: subs});
-            console.log(subs);
+            res.send({code: 1, data: {app: obj, subs: subs}});
         });
     });
 };
 
 exports.save = function (req, res) {
-    console.log(req.body);
-
     service.createApp(req.body.name, req.body.descr, req.session.user, function(app) {
         var data = {app: app};
         res.send(data);
@@ -44,11 +41,11 @@ exports.save = function (req, res) {
 
 exports.update = function(req, res){
     App.findByIdAndUpdate(
-        req.params.id,
+        req.body.id,
         {
-            name: req.body.app.name,
-            descr: req.body.app.descr,
-            updateDate: new Date()
+            name: req.body.name,
+            descr: req.body.descr,
+            updateTime: new Date()
         }, function(){
             res.send({});
         }
