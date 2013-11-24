@@ -6,6 +6,7 @@ adminApp.directive('cmsModuleMenu', ['$rootScope', 'App', function($rootScope, A
         restrict: 'A',
         link: function(scope, element, attrs) {
             function showSub() {
+                //            $('#previewFrame').attr('src', Constant.ClientRoot+ '?preview=true' + '#/app/' + appId);
                 console.log($rootScope.CurrentSubId);
             }
             scope.$watch('CurrentAppId', function (newVal, oldVal) {
@@ -98,15 +99,12 @@ adminApp.directive('cmsModuleMenu', ['$rootScope', 'App', function($rootScope, A
 
                                 $rootScope.CurrentSubId = $(this).attr('id').split('-')[2];
                                 showSub();
-
-//                    CmsUtil.clearContentView();
-//                    me.showCmsContent($(this).attr('data-id'), $(this).attr('data-code'));
                             }
                         });
 
                         $('li.jcarousel-item').first().addClass('active');
-//            me.showCmsContent(firstItem.id, firstItem.code);
-//            $('#previewFrame').attr('src', Constant.ClientRoot+ '?preview=true' + '#/app/' + appId);
+                        $rootScope.CurrentSubId = $('li.jcarousel-item').first().attr('id').split('-')[2];
+                        showSub();
                     });
                 }
             });
