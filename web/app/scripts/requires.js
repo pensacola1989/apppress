@@ -1,15 +1,17 @@
 require('constants');
 require('utils/*');
 
-require('directives');
+require('app');
+
 require('filters');
+
+require('directives');
+require('directives/*');
 
 require('services');
 require('services/*');
 
 require('controllers');
 require('controllers/*');
-
-require('app');
 
 

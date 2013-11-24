@@ -27,3 +27,9 @@ adminConstants.factory('Constant', ['$location', function($location) {
         WebRoot: WebRoot
     };
 }]);
+
+adminConstants.factory('Vari', [function() {
+    return {
+        CurrentAppId: null
+    };
+}]);

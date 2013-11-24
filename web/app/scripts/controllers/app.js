@@ -29,8 +29,8 @@ adminControllers.controller('AppEditCtrl', ['$scope', '$routeParams', '$location
         });
     }
 
-    $scope.save = function(app) {
-        app.$save().then(function() {
+    $scope.save = function() {
+        $scope.app.$save().then(function() {
             $location.path('/app/list');
         });
     };
