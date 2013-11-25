@@ -18,10 +18,10 @@ adminControllers.controller('AppDetailCtrl', ['$scope', '$routeParams', function
 
 }]);
 
-adminControllers.controller('AppEditCtrl', ['$scope', '$routeParams', '$location', 'StringUtil', 'App', function ($scope, $routeParams, $location, StringUtil, App) {
+adminControllers.controller('AppEditCtrl', ['$scope', '$routeParams', '$location', 'stringUtil', 'App', function ($scope, $routeParams, $location, stringUtil, App) {
     $scope.appId = $routeParams.appId;
 
-    if (StringUtil.isEmpty($scope.appId)) {
+    if (stringUtil.isEmpty($scope.appId)) {
         $scope.app = new App();
     } else {
         App.get({appId:  $scope.appId}, function(json) {

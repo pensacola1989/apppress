@@ -53,7 +53,6 @@ exports.delete = function(req, res){
     })
 };
 
-
 exports.findCategories = function(req, res){
     CmsStoreCategory.find({mstore: req.query.mstoreId}).sort('order').exec(function (err, categories) {
         return res.send({category: categories});

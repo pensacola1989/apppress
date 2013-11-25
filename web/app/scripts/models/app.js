@@ -1,15 +1,17 @@
 'use strict';
 
-var adminServices = angular.module('adminServices');
+var adminModels = angular.module('adminModels');
 
-adminServices.factory('App', ['$resource', 'Constant',
+adminModels.factory('App', ['$resource', 'Constant',
     function($resource, Constant){
         return $resource(Constant.ApiPath + 'apps/:appId', {appId:'@id'}, {
             query: {method:'GET', params:{}},
-            detail: {method:'GET', params:{appId:'apps'}, isArray:false}
+            detail: {method:'GET', params:{appId:'appId'}}
         });
     }
 ]);
+
+
 
 
 

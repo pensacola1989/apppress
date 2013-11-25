@@ -19,14 +19,14 @@ adminServices.factory('userService', ['$http', 'Constant', function($http, Const
     }
 }]);
 
-adminServices.factory('tokenAuthService', ['$rootScope', '$cookies', '$q', '$http', '$location', 'Constant', 'StringUtil',
-                                        function($rootScope, $cookies, $q, $http, $location, Constant, StringUtil){
+adminServices.factory('tokenAuthService', ['$rootScope', '$cookies', '$q', '$http', '$location', 'Constant', 'stringUtil',
+                                        function($rootScope, $cookies, $q, $http, $location, Constant, stringUtil){
     if ($rootScope.userProfile) {
         return true;
     } else {
         var defered = $q.defer();
         var userToken = $cookies.userToken;
-        if (!StringUtil.isEmpty(userToken)) {
+        if (!stringUtil.isEmpty(userToken)) {
             $http.post(Constant.ApiPath + 'user/signonWithToken', { token: userToken })
                 .success(function (json) {
                     if (json.code === 1) {

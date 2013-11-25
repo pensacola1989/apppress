@@ -4,7 +4,7 @@
     </div>
     <div class="clear_both"></div>
     <div id="right-col">
-        <div id="main">
+        <div id="cms-main"  ng-controller="CmsCtrl">
             <ul id="tab-bar" class="nav nav-tabs">
                 <li>
                     <a href="#">Configuration</a>
@@ -14,7 +14,7 @@
                 </li>
             </ul>
             <div id="tab-panel">
-                <div id="cms-header"  ng-controller="CmsMenuCtrl">
+                <div id="cms-header">
                     <div id="cms-menu" cms-module-menu class="jcarousel-skin" >
                         <ul></ul>
                     </div>
@@ -23,7 +23,7 @@
                     </div>
                 </div>
 
-                <div id="cms-content">
+                <div id="cms-content" ng-include="content">
 
                 </div>
             </div>

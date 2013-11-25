@@ -3,7 +3,7 @@
 var adminApp = angular.module('adminApp', [
       'ngRoute', 'ngCookies', 'ngResource', 'ngSanitize',
       'ui.bootstrap', 'ui.jq', 'ui.event',
-      'adminConstants', 'adminServices', 'adminControllers'
+      'adminConstants', 'adminModels', 'adminDirectives', 'adminServices', 'adminControllers'
   ])
   .config(function ($routeProvider, $httpProvider) {
     $routeProvider
@@ -32,7 +32,7 @@ var adminApp = angular.module('adminApp', [
         })
         .when('/cms/:appId', {
             templateUrl: 'views/cms/main.html',
-            controller: 'CmsMainCtrl'
+            controller: 'CmsCtrl'
         })
         .otherwise({
             redirectTo: '/tokenAuth'

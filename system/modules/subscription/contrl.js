@@ -12,7 +12,7 @@ exports.findAll = function (req, res) {
 };
 exports.findById = function(req, res){
     mongoose.findById(Subscription, req.params.id, function(obj) {
-        res.send({subscription: obj});
+        res.send({code: 1, data: {subscription: obj}});
     });
 };
 

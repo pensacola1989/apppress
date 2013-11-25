@@ -1,14 +1,10 @@
 'use strict';
 var adminApp = angular.module('adminApp');
 
-adminApp.directive('cmsModuleMenu', ['$rootScope', 'App', function($rootScope, App) {
+adminApp.directive('cmsModuleMenu', ['$rootScope', 'App',  'cmsService', function($rootScope, App, cmsService) {
     return {
         restrict: 'A',
         link: function(scope, element, attrs) {
-            function showSub() {
-                //            $('#previewFrame').attr('src', Constant.ClientRoot+ '?preview=true' + '#/app/' + appId);
-                console.log($rootScope.CurrentSubId);
-            }
             scope.$watch('CurrentAppId', function (newVal, oldVal) {
                 if (newVal) {
                     App.get({appId:  newVal}, function(json) {
@@ -30,7 +26,7 @@ adminApp.directive('cmsModuleMenu', ['$rootScope', 'App', function($rootScope, A
                                     var cls = items[i-1].status===0? 'forbidden':'';
                                     carousel.add(i,
                                         [
-                                            '<li id="jcarousel-item-' + items[i-1].id + '" class="' + cls + '">',
+                                            '<li id="jcarousel-item-' + (i-1) + '" class="' + cls + '">',
                                             '<div class="jcarousel-item-container">',
                                             '<div><img src="img/icons-plugin-white/album.png" height=30 width=30></div>',
                                             '<div>' + items[i-1].name + '</div>',
@@ -97,14 +93,16 @@ adminApp.directive('cmsModuleMenu', ['$rootScope', 'App', function($rootScope, A
                                 $('li.jcarousel-item').removeClass('active');
                                 $(this).addClass('active');
 
-                                $rootScope.CurrentSubId = $(this).attr('id').split('-')[2];
-                                showSub();
+                                var index = $(this).attr('id').split('-')[2];
+                                $rootScope.CurrentSub = items[index];
+                                angular.element('#cms-main').scope().showSub();
                             }
                         });
 
                         $('li.jcarousel-item').first().addClass('active');
-                        $rootScope.CurrentSubId = $('li.jcarousel-item').first().attr('id').split('-')[2];
-                        showSub();
+                        var index = $('li.jcarousel-item').first().attr('id').split('-')[2];
+                        $rootScope.CurrentSub = items[index];
+                        angular.element('#cms-main').scope().showSub();
                     });
                 }
             });

@@ -106,7 +106,7 @@ form.w-600 {
 
 #right-col {
   margin-left: 340px;
-  #main {
+  #cms-main {
     #tab-bar {
       margin-bottom: 0;
       height: 37px;
@@ -231,6 +231,10 @@ form.w-600 {
       background-position: -96px 0;
     }
   }
+}
+
+#cms-content {
+  padding: 15px 0;
 }
 
 
