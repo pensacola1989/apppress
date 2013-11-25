@@ -1,8 +1,9 @@
-<div>
+<div ng-include src="'views/header.html'"></div>
+
+<div class="content">
     <div id="left-col">
         <div ng-include src="'views/preview.html'"></div>
     </div>
-    <div class="clear_both"></div>
     <div id="right-col">
         <div id="cms-main"  ng-controller="CmsCtrl">
             <ul id="tab-bar" class="nav nav-tabs">
@@ -30,4 +31,6 @@
         </div>
     </div>
 </div>
+<div class="clear-both"></div>
+<div ng-include src="'views/footer.html'"></div>
 
