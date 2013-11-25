@@ -1,0 +1,1 @@
+grunt build --app=client --force
