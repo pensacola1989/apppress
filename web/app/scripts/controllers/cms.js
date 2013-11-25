@@ -2,16 +2,16 @@
 var adminControllers = angular.module('adminControllers');
 
 adminControllers
-    .controller('CmsCtrl', ['$rootScope', '$scope', '$routeParams', 'Subscription',
-                    function ($rootScope, $scope, $routeParams, Subscription) {
+    .controller('CmsCtrl', ['$rootScope', '$scope', '$routeParams', '$timeout', 'Subscription',
+                    function ($rootScope, $scope, $routeParams, $timeout, Subscription) {
         $rootScope.CurrentAppId = $routeParams.appId;
 
         $scope.showSub = function () {
             // $('#previewFrame').attr('src', Constant.ClientRoot+ '?preview=true' + '#/app/' + appId);
 
-            Subscription.get({subId:  $rootScope.CurrentSub.id}, function(json) {
+            $timeout(function() {
                 $scope.content = 'views/module/' + $rootScope.CurrentSub.code + '/index.html';
-            });
+            }, 1);
         }
     }]);
 
