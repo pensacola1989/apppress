@@ -14,6 +14,9 @@ var adminApp = angular.module('adminApp', [
                 factory: 'tokenAuthService'
             }
         })
+        .when('/', {
+            redirectTo: '/app/list'
+        })
         .when('/signon', {
             templateUrl: 'views/user/signon.html',
             controller: 'UserCtrl'

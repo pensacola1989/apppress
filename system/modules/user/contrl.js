@@ -39,7 +39,7 @@ exports.signon = function (req, res) {
                 res.send(data);
             });
         } else {
-            var msg = 'Not found.';
+            var msg = 'The email or password is not valid.';
             var data = {code: 0, msg: msg};
             res.send(data);
         }

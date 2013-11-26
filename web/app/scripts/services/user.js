@@ -26,25 +26,32 @@ adminServices.factory('tokenAuthService', ['$rootScope', '$cookies', '$q', '$htt
     } else {
         var defered = $q.defer();
         var userToken = $cookies.userToken;
-        if (!stringUtil.isEmpty(userToken)) {
-            $http.post(Constant.ApiPath + 'user/signonWithToken', { token: userToken })
-                .success(function (json) {
-                    if (json.code === 1) {
-                        $rootScope.userProfile = json.data;
-                        defered.resolve(true);
-                        $location.path("/app/list");
-                    } else {
+
+        if (!stringUtil.isEmpty($rootScope.userProfile)) {
+            defered.resolve(true);
+            $location.path("/app/list");
+        } else {
+            if (!stringUtil.isEmpty(userToken)) {
+                $http.post(Constant.ApiPath + 'user/signonWithToken', { token: userToken })
+                    .success(function (json) {
+                        if (json.code === 1) {
+                            $rootScope.userProfile = json.data;
+                            defered.resolve(true);
+                            $location.path("/app/list");
+                        } else {
+                            defered.reject();
+                            $location.path("/signon");
+                        }
+                    })
+                    .error(function () {
                         defered.reject();
                         $location.path("/signon");
-                    }
-                })
-                .error(function () {
-                    defered.reject();
-                    $location.path("/signon");
-                });
+                    });
+            } else {
+                defered.reject();
+                $location.path("/signon");
+            }
         }
-        defered.reject();
-        $location.path("/signon");
         return defered.promise;
     }
 }]);

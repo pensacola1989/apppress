@@ -13,6 +13,8 @@
     "angular-sanitize": "1.2.1",
     "angular-bootstrap": "0.6.0",
     "angular-ui-utils": "0.0.4",
+    "angular-ui-bootstrap": "0.7.0",
+    "alertify.js": "0.3.11",
     "angular-route": "1.2.1",
     "jcarousel": "0.2.9",
     "jquery-ui": "1.10.3"

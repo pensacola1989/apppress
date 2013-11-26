@@ -1,1 +1,0 @@
-var adminServices = angular.module('adminServices', ['ngResource', 'adminConstants']);
