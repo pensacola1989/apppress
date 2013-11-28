@@ -29,8 +29,24 @@ server.get('/api', function(req, res){
     res.send('Library API is running');
 });
 
+var infrastructures = config.infrastructures || [];
+for (var i = 0, l = infrastructures.length; i < l; i++) {
+    var infrastructure = infrastructures[i];
+    require('./infrastructures/' + infrastructure + '/route')(server);
+}
+
+var components = config.components || [];
+for (var i = 0, l = components.length; i < l; i++) {
+    var components = components[i];
+    require('./components/' + module + '/route')(server);
+}
 var modules = config.modules || [];
 for (var i = 0, l = modules.length; i < l; i++) {
     var module = modules[i];
-    require('./system/modules/' + module + '/route')(server);
+    require('./modules/' + module + '/route')(server);
+}
+var plugins = config.plugins || [];
+for (var i = 0, l = plugins.length; i < l; i++) {
+    var plugins = plugins[i];
+    require('./plugins/' + module + '/route')(server);
 }

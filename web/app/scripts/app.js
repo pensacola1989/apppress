@@ -7,15 +7,9 @@ var adminApp = angular.module('adminApp', [
   ])
   .config(function ($routeProvider, $httpProvider) {
     $routeProvider
-        .when('/tokenAuth', {
-            templateUrl: 'views/index.html',
-            controller: 'IndexCtrl',
-            resolve: {
-                factory: 'tokenAuthService'
-            }
-        })
         .when('/', {
-            redirectTo: '/app/list'
+            templateUrl: 'views/index.html',
+            controller: 'IndexCtrl'
         })
         .when('/signon', {
             templateUrl: 'views/user/signon.html',
@@ -38,7 +32,7 @@ var adminApp = angular.module('adminApp', [
             controller: 'CmsCtrl'
         })
         .otherwise({
-            redirectTo: '/tokenAuth'
+            redirectTo: '/'
         });
 
         $httpProvider.interceptors.push([ '$q', '$location', function($q, $location) {
@@ -55,10 +49,12 @@ var adminApp = angular.module('adminApp', [
                 'responseError': function(rejection) {
                     if (rejection.status == '555') {
                         console.log('server return "555"');
-                        $location.path("/signon");
+                        $location.path("/");
                     }
                     return $q.reject(rejection);
                 }
             }
         }]);
   })
+
+

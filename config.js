@@ -31,7 +31,11 @@ var config = {
 
 	admins: { admin: true },
 
-    modules: ['util', 'app','user', 'module', 'subscription', 'cms/album', 'cms/coupon', 'cms/event', 'cms/store', 'cms/video'],
+    infrastructures: ['util', 'user', 'app', 'subscription', 'component'],
+    components: ['album', 'coupon', 'event', 'store', 'video'],
+    modules: [],
+    plugins: [],
+
     components: [],
 	plugins: [],
     schemaOptions: {
