@@ -1,7 +1,7 @@
 'use strict';
 var adminApp = angular.module('adminApp');
 
-adminApp.directive('cmsModuleMenu', ['$rootScope', 'App',  'cmsService', function($rootScope, App, cmsService) {
+adminApp.directive('cmsModuleMenu', ['$rootScope', 'Constant', 'App',  'cmsService', function($rootScope, Constant, App, cmsService) {
     return {
         restrict: 'A',
         link: function(scope, element, attrs) {
@@ -26,7 +26,7 @@ adminApp.directive('cmsModuleMenu', ['$rootScope', 'App',  'cmsService', functio
                                     var cls = items[i-1].status===0? 'forbidden':'';
                                     carousel.add(i,
                                         [
-                                            '<li id="jcarousel-item-' + (i-1) + '" class="' + cls + '">',
+                                            '<li id="jcarousel-item-' + items[i-1].id + '-' + (i-1) + '" class="' + cls + '">',
                                             '<div class="jcarousel-item-container">',
                                             '<div><img src="img/icons-plugin-white/album.png" height=30 width=30></div>',
                                             '<div>' + items[i-1].name + '</div>',
@@ -66,20 +66,21 @@ adminApp.directive('cmsModuleMenu', ['$rootScope', 'App',  'cmsService', functio
                             stop: function(event, ui){
                                 var newIds = [];
                                 $('ul.jcarousel-list li.jcarousel-item').each(function() {
-                                    newIds.push( $(this).attr("id").replace('jcarousel-item-', '') );
+                                    newIds.push( $(this).attr('id').split('-')[2]);
                                 });
                                 var idStr = newIds.join(',');
+                                console.log(idStr);
                                 try {
-//                        $.ajax({
-//                            type : 'GET',
-//                            dataType : 'json',
-//                            url : Vari.ApiPath + 'sub/changeOrder',
-//                            data: {newIds: idStr},
-//
-//                            success : function(json, textStatus) {
-//                                //console.log('Success to change order!!!');
-//                            }
-//                        });
+                                    $.ajax({
+                                        type : 'GET',
+                                        dataType : 'json',
+                                        url : Constant.ApiPath + 'sub/changeOrder',
+                                        data: {newIds: idStr},
+
+                                        success : function(json, textStatus) {
+                                            console.log('Success to change order!!!');
+                                        }
+                                    });
                                 } catch(err) {
                                     console.log(err.name + ': ' + err.message);
                                     menuItems.sortable( "cancel" );
@@ -93,14 +94,14 @@ adminApp.directive('cmsModuleMenu', ['$rootScope', 'App',  'cmsService', functio
                                 $('li.jcarousel-item').removeClass('active');
                                 $(this).addClass('active');
 
-                                var index = $(this).attr('id').split('-')[2];
+                                var index = $(this).attr('id').split('-')[3];
                                 $rootScope.CurrentSub = items[index];
                                 angular.element('#cms-main').scope().showSub();
                             }
                         });
 
                         $('li.jcarousel-item').first().addClass('active');
-                        var index = $('li.jcarousel-item').first().attr('id').split('-')[2];
+                        var index = $('li.jcarousel-item').first().attr('id').split('-')[3];
                         $rootScope.CurrentSub = items[index];
                         angular.element('#cms-main').scope().showSub();
                     });
