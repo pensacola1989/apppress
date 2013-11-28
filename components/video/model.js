@@ -1,5 +1,5 @@
-var config = require('../../../../config');
-var mongoose = require('../../../../framework/mongoose');
+var config = require('../../config');
+var mongoose = require('../../framework/mongoose');
 
 var videoSchema = new mongoose.Schema({
     title: String,

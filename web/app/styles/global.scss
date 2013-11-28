@@ -130,8 +130,11 @@ img.prew {
   margin: 3px;
 }
 img.thumb{
-    height: 50px;
-    width: 50px;
+    max-height: 50px;
+    max-width: 50px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 form input.ng-invalid.ng-dirty {

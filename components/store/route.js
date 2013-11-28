@@ -3,7 +3,7 @@ var storeController = require('./contrl');
 var filter = require('../../framework/filter');
 
 exports = module.exports = function(server) {
-    server.get(config.api_version  + 'store', filter.authorize, storeController.findAll);
+    server.get(config.api_version  + 'storeBySubId', filter.authorize, storeController.storeBySubId);
     server.get(config.api_version  + 'store/:id', filter.authorize, storeController.findById);
     server.post(config.api_version  + 'store', filter.authorize, storeController.save);
     server.put(config.api_version  + 'store/:id', filter.authorize, storeController.update);

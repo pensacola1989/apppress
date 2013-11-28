@@ -11,7 +11,7 @@ exports.signonWithToken = function (req, res) {
     var code = 0;
 
     return User.findOne({token: req.body.token}).exec(function(err, obj){
-        console.log(obj);
+        //console.log(obj);
         if(!err && obj != null){
             req.session.user = obj._id;
             code = 1;

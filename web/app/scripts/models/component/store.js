@@ -4,8 +4,8 @@ var adminModels = angular.module('adminModels');
 
 adminModels.factory('Store', ['$resource', 'Constant',
     function($resource, Constant){
-        return $resource(Constant.ApiPath + 'store/:storeId', {storeId:'@id'}, {
-            queryBySub: {method:'GET', subId: true}
+        return $resource(Constant.ApiPath + 'storeBySubId', {}, {
+            getStoreBySubId: {method:'GET', subId: true}
         });
     }
 ]);

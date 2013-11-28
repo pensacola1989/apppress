@@ -32,7 +32,7 @@ var config = {
 	admins: { admin: true },
 
     infrastructures: ['util', 'user', 'app', 'subscription', 'component'],
-    components: ['album', 'coupon', 'event', 'store', 'video'],
+    componentss: ['album', 'coupon', 'event', 'store', 'video'],
     modules: [],
     plugins: [],
 
