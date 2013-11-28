@@ -13,8 +13,8 @@ var Subscription = require('../../subscription/model').Subscription;
 
 //Rest Interface
 exports.findAll = function (req, res) {
-    CmsStore.find({subscription: req.query.subscriptionId}).sort('order').exec(function (err, stores) {
-        res.send({mstore:stores});
+    CmsStore.find({subscription: req.query.subId}).sort('order').exec(function (err, stores) {
+        res.send({code: 1, data:stores});
     });
 };
 exports.findById = function(req, res){

@@ -6,9 +6,9 @@ require('app');
 require('filters');
 
 require('modules');
-require('models/*');
-require('directives/*');
-require('services/*');
+require('models/**/*');
+require('directives/**/*');
+require('services/**/*');
 require('controllers/**/*');
 
 
