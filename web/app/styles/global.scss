@@ -164,5 +164,52 @@ iframe.preview {
   &.button {
     height: 34px;
   }
+  &.upload {
+    height: 120px;
+  }
+}
+
+.fileinput-button {
+  position: relative;
+  overflow: hidden;
+
+  input {
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin: 0;
+    opacity: 0;
+    -ms-filter: 'alpha(opacity=0)';
+    font-size: 200px;
+    direction: ltr;
+    cursor: pointer;
+  }
+}
+.fileinput-preview {
+  display: block;
+  padding: 6px 0 0 0;
+
+  .picture-container, .picture-container-single{
+    position: relative;
+    height: 50px;
+    width: 50px;
+    margin: 3px;
+    .remove {
+      position: absolute;
+      display: none;
+      cursor: pointer;
+      width: 16px;
+      height: 16px;
+      background-image: url(../img/delete-picture.png);
+      background-repeat: no-repeat no-repeat;
+
+      right: 1px;
+      top: 1px;
+      z-index: 1;
+    }
+    .picture-container {
+      float: left;
+    }
+  }
 }
 
