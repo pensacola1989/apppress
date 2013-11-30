@@ -10,7 +10,7 @@ var appSchema = new mongoose.Schema({
     updateTime:Date,
 
     user: { type: mongoose.Schema.Types.ObjectId, ref: 'system_user' },
-    subscriptions : [{ type: mongoose.Schema.Types.ObjectId, ref: 'app_subscription' }]
+    //subscriptions : [{ type: mongoose.Schema.Types.ObjectId, ref: 'app_subscription' }]
 }, config.schemaOptions);
 appSchema.virtual('id').get(function() {
     return this._id;

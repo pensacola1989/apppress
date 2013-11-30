@@ -3,15 +3,31 @@ var adminControllers = angular.module('adminControllers');
 
 adminControllers
     .controller('CmsStoreCtrl', ['$rootScope', '$scope', '$routeParams',
-            'Store', function ($rootScope, $scope, $routeParams, Store) {
+            'Store', 'Category', function ($rootScope, $scope, $routeParams, Store, Category) {
 
+         refreshCatagoryList();
 
-        var json = Store.getStoreBySubId({subId: $rootScope.CurrentSub.id},function() {
-            $scope.store = json.data.store;
-            $scope.categories = json.data.categories;
-            console.log(json);
-        });
+        $scope.createCategory = function() {
+            $scope.storeContent = 'views/component/store/category-edit.html';
+            $scope.category = new Category({store: $scope.store.id});
+        };
+
+        $scope.saveCategory = function() {
+            $scope.category.$save().then(function() {
+                refreshCatagoryList();
+            });
+        };
+
+        function refreshCatagoryList() {
+            $scope.storeContent = 'views/component/store/category-list.html';
+            var json = Store.getStoreBySubId({subId: $rootScope.CurrentSub.id},function() {
+                $scope.store = json.data.store;
+                $scope.categories = json.data.categories;
+            });
+        }
     }]);
+
+
 
 
 

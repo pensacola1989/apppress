@@ -18,21 +18,18 @@ exports.storeBySubId = function (req, res) {
     });
 };
 exports.findById = function(req, res){
-    mongoose.findById(CmsStore, req.params.id, function(obj) {
-        res.send({mstore: obj});
+    mongoose.findById(CmsStore, req.params.id, function(store) {
+        res.send({data: store});
     });
 };
 exports.save = function (req, res) {
-
-    var mobiStore = new CmsStore({
-        name: req.body.mobiStore.name,
-        descr: req.body.mobiStore.descr,
+    var store = new CmsStore({
+        name: req.body.name,
+        descr: req.body.descr,
         createDate: new Date()
     });
-    mobiStore.save(function(){
-        mobiStore.set('id', mobiStore.get('_id'));
-        var data = {mobiStore: mobiStore};
-        return res.send(data);
+    store.save(function(){
+        return res.send({code: 1, data: store});
     });
 };
 exports.update = function(req, res){
@@ -43,31 +40,31 @@ exports.update = function(req, res){
             descr: req.body.store.descr,
             updateDate: new Date()
         }, function(){
-            return res.send({});
+            return res.send({code: 1});
         }
     )
 };
 exports.delete = function(req, res){
     CmsStore.findByIdAndRemove(req.params.id, function(){
-        return res.send({});
+        return res.send({code: 1});
     })
 };
 
 exports.findCategories = function(req, res){
-    CmsStoreCategory.find({mstore: req.query.mstoreId}).sort('order').exec(function (err, categories) {
+    CmsStoreCategory.find({store: req.query.storeId}).sort('order').exec(function (err, categories) {
         return res.send({category: categories});
     })
 };
 exports.saveCategory = function (req, res) {
+    console.log(req.body);
     var storeCategory = new CmsStoreCategory({
-        name: req.body.category.name,
-        picture: req.body.category.picture,
-        mstore: req.body.category.mstore
+        name: req.body.name,
+        picture: req.body.picture,
+        store: req.body.store
     });
 
     storeCategory.save(function(){
-        var data = {category: storeCategory};
-        return res.send(data);
+        return res.send({code: 1, data: storeCategory});
     });
 };
 exports.updateCategory = function(req, res){
@@ -77,13 +74,13 @@ exports.updateCategory = function(req, res){
             name: req.body.category.name,
             picture: req.body.category.picture
         }, function(){
-            res.send({});
+            res.send({code: 1});
         }
     )
 };
 exports.deleteCategory = function(req, res){
     CmsStoreCategory.findByIdAndRemove(req.params.id, function(){
-        return res.send({});
+        return res.send({code: 1});
     })
 };
 
@@ -161,7 +158,7 @@ exports.updateProduct = function(req, res){
                     }
                 }
                 storeProduct.save(function(){
-                    res.send({});
+                    res.send({code: 1});
                 });
             });
         });
@@ -169,6 +166,6 @@ exports.updateProduct = function(req, res){
 };
 exports.deleteProduct = function(req, res){
     CmsStoreProduct.findByIdAndRemove(req.params.id, function(){
-        return res.send({});
+        return res.send({code: 1});
     })
 };

@@ -32,6 +32,12 @@ a {
     cursor: pointer;
 }
 
+.action {
+  cursor: pointer;
+  color: #428bca;
+  text-decoration: none;
+}
+
 span.hide {
     display: none;
 }
@@ -146,5 +152,17 @@ form input.ng-valid.ng-dirty {
 
 iframe.preview {
   background: image-url("preview.png");
+}
+
+.form-group {
+  &.input {
+    height: 34px;
+  }
+  &.textarea {
+    height: 74px;
+  }
+  &.button {
+    height: 34px;
+  }
 }
 

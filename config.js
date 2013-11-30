@@ -31,7 +31,7 @@ var config = {
 
 	admins: { admin: true },
 
-    infrastructures: ['util', 'user', 'app', 'subscription', 'component'],
+    infrastructure: ['util', 'user', 'app', 'subscription', 'component'],
     componentss: ['album', 'coupon', 'event', 'store', 'video'],
     modules: [],
     plugins: [],

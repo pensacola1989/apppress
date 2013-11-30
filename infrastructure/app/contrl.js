@@ -40,9 +40,6 @@ exports.save = function (req, res) {
 };
 
 exports.update = function(req, res){
-    console.log(111);
-    console.log(req.body);
-    console.log(222);
     App.findByIdAndUpdate(
         req.body.id,
         {

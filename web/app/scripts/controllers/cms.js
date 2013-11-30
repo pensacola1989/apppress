@@ -10,7 +10,7 @@ adminControllers
             // $('#previewFrame').attr('src', Constant.ClientRoot+ '?preview=true' + '#/app/' + appId);
 
             $timeout(function() {
-                $scope.content = 'views/component/' + $rootScope.CurrentSub.code + '/index.html';
+                $scope.content = 'views/component/' + $rootScope.CurrentSub.code + '/main.html';
             }, 1);
         }
     }]);

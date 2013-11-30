@@ -37,7 +37,7 @@ var loader = function(dir, modules) {
     }
 }
 
-loader('infrastructures', config.infrastructures);
+loader('infrastructure', config.infrastructure);
 loader('components', config.componentss);
 loader('modules', config.modules);
 loader('plugins', config.plugins);
