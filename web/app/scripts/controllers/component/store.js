@@ -2,8 +2,8 @@
 var adminControllers = angular.module('adminControllers');
 
 adminControllers
-    .controller('CmsStoreCtrl', ['$rootScope', '$scope', '$routeParams',
-            'Store', 'Category', function ($rootScope, $scope, $routeParams, Store, Category) {
+    .controller('CmsStoreCtrl', ['$rootScope', '$scope', '$routeParams', 'uploadService',
+            'Store', 'Category', function ($rootScope, $scope, $routeParams, uploadService, Store, Category) {
 
          refreshCatagoryList();
 
@@ -13,9 +13,10 @@ adminControllers
         };
 
         $scope.saveCategory = function() {
-            $scope.category.$save().then(function() {
-                refreshCatagoryList();
-            });
+            console.log(uploadService);
+//            $scope.category.$save().then(function() {
+//                refreshCatagoryList();
+//            });
         };
 
         function refreshCatagoryList() {

@@ -15,14 +15,14 @@
         <label class="control-label col-sm-2" >Images</label>
         <div class="col-sm-5 controls"  ng-controller="FileUploadController">
             <div class="fileinput-preview">
-                <div ng-repeat="file in files" class="picture-container">
-                    <img class="img-rounded prew" ng-src="{{file.url}}">
-                    <span class="remove"></span>
+                <div ng-repeat="file in files"  ng-mouseenter="hover(file)" ng-mouseleave="hover(file)" class="picture-container">
+                    <img class="prew" ng-src="{{file.thumbnailUrl}}">
+                    <span ng-show="file.showRemove" ng-click="remove(file)" class="remove"></span>
                 </div>
             </div>
             <div class="fileinput-controls">
                 <span class="btn fileinput-button" ng-class="{disabled: disabled}">
-                    <div class="icon"></div>
+                    <div class="icon" onclick="$('#fileupload').click()"></div>
                     <input id="fileupload" type="file" name="files[]" multiple ng-disabled="disabled">
                 </span>
             </div>

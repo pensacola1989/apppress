@@ -2,8 +2,8 @@
 var adminControllers = angular.module('adminControllers');
 
 adminControllers
-    .controller('FileUploadController', ['$scope', '$element', '$attrs', '$window', 'Constant',
-        function ($scope, $element, $attrs, $window, Constant) {
+    .controller('FileUploadController', ['$scope', '$element', '$attrs', '$window', '$http', 'uploadService', 'Constant',
+        function ($scope, $element, $attrs, $window, $http, uploadService, Constant) {
             $scope.disabled = false;
             $scope.files = $scope.files || [];
 
@@ -11,11 +11,14 @@ adminControllers
                 url: Constant.UploadUrl,
                 dataType: 'json',
                 done: function (e, data) {
+                    console.log(data.result.files);
+
                     $scope.$apply(function() {
                         for (var i = 0; i < data.result.files.length; i++) {
                             var file = data.result.files[i];
-                            $scope.files.push(file);
+                            uploadService.files.push(file);
                         }
+                        $scope.files = uploadService.files;
                     });
                 },
                 send: function (e, data) {
@@ -26,17 +29,21 @@ adminControllers
                     return true;
                 }
             });
-//            $(".fileinput-preview").delegate('.picture-container', 'mouseover', function(e){
-//                $(this).find('.remove').css("display", "block");
-//            });
-//            $(".fileinput-preview").delegate('.picture-container','mouseout',function(e){
-//                $(this).find('.remove').css("display", "none");
-//            });
-//
-//            $(".fileinput-preview").delegate('.picture-container .remove', 'click', function(e){
-//                me.get('context').set('picture', '');
-//                $(this).parent('.picture-container').remove();
-//            });
+
+            $scope.remove = function(file) {
+                $http.delete(file.url).success(function() {
+                    for (var i = 0; i < uploadService.files.length; i++) {
+                        if (uploadService.files[i].url === file.url)  {
+                            uploadService.files.splice(i,1);
+                        };
+                    }
+                    $scope.files = uploadService.files;
+                });
+            };
+
+            $scope.hover = function(file) {
+                return file.showRemove = ! file.showRemove;
+            };
     }]);
 
 

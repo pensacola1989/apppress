@@ -82,50 +82,6 @@ form label.error {
   line-height: 0!important;
 }
 
-.fileinput-button {
-  position: relative;
-  overflow: hidden;
-
-  input {
-    position: absolute;
-    top: 0;
-    right: 0;
-    margin: 0;
-    opacity: 0;
-    -ms-filter: 'alpha(opacity=0)';
-    font-size: 200px;
-    direction: ltr;
-    cursor: pointer;
-  }
-}
-.fileinput-preview {
-  display: block;
-  padding: 6px 0 0 0;
-
-  .picture-container, .picture-container-single{
-    position: relative;
-    height: 50px;
-    width: 50px;
-    margin: 3px;
-    .remove {
-      position: absolute;
-      display: none;
-      cursor: pointer;
-      width: 16px;
-      height: 16px;
-      background-image: image-url("delete-picture.png");
-      background-repeat: no-repeat no-repeat;
-
-      right: 1px;
-      top: 1px;
-      z-index: 1;
-    }
-    .picture-container {
-      float: left;
-    }
-  }
-}
-
 .table th, .table td {
   vertical-align: middle !important;
 }
@@ -169,29 +125,32 @@ iframe.preview {
   }
 }
 
-.btn.fileinput-button {
-  margin: 3px;
-  padding: 0;
-  overflow: hidden;
+.fileinput-controls {
+  float: left;
+  .btn.fileinput-button {
+    margin: 3px;
+    padding: 0;
+    overflow: hidden;
 
-  .icon {
-    margin-top: 5px;
-    height: 80px;
-    width: 74px;
-    border: 1px solid #EEE;
-    background-image: image-url("upload.png");
-  }
+    .icon {
+      margin-top: 5px;
+      height: 80px;
+      width: 74px;
+      border: 1px solid #EEE;
+      background-image: image-url("upload.png");
+    }
 
-  input {
-    position: absolute;
-    top: 0;
-    right: 0;
-    margin: 0;
-    opacity: 0;
-    -ms-filter: 'alpha(opacity=0)';
-    font-size: 200px;
-    direction: ltr;
-    cursor: pointer;
+    input {
+      position: absolute;
+      top: -10000px;
+      right: 0;
+      margin: 0;
+      opacity: 0;
+      -ms-filter: 'alpha(opacity=0)';
+      font-size: 200px;
+      direction: ltr;
+      cursor: pointer;
+    }
   }
 }
 
@@ -202,28 +161,23 @@ iframe.preview {
   padding: 0;
 
   .picture-container{
+    position: relative;
     float: left;
     height: 80px;
     width: 74px;
     margin: 3px;
     .remove {
       position: absolute;
-      display: none;
       cursor: pointer;
       width: 16px;
       height: 16px;
-      background-image: url(../img/delete-picture.png);
+      background-image: image-url("delete-picture.png");
       background-repeat: no-repeat no-repeat;
 
       right: 1px;
-      top: 1px;
+      top: 5px;
       z-index: 1;
     }
   }
-}
-
-
-.fileinput-controls {
-  float: left;
 }
 
