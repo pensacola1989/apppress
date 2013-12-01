@@ -131,8 +131,8 @@ form label.error {
 }
 
 img.prew {
-  height: 60px;
-  width: 60px;
+  height: 80px;
+  width: 74px;
   margin: 3px;
 }
 img.thumb{
@@ -169,9 +169,18 @@ iframe.preview {
   }
 }
 
-.fileinput-button {
-  position: relative;
+.btn.fileinput-button {
+  margin: 3px;
+  padding: 0;
   overflow: hidden;
+
+  .icon {
+    margin-top: 5px;
+    height: 80px;
+    width: 74px;
+    border: 1px solid #EEE;
+    background-image: image-url("upload.png");
+  }
 
   input {
     position: absolute;
@@ -185,14 +194,17 @@ iframe.preview {
     cursor: pointer;
   }
 }
-.fileinput-preview {
-  display: block;
-  padding: 6px 0 0 0;
 
-  .picture-container, .picture-container-single{
-    position: relative;
-    height: 50px;
-    width: 50px;
+
+.fileinput-preview {
+  float: left;
+  margin: 3px;
+  padding: 0;
+
+  .picture-container{
+    float: left;
+    height: 80px;
+    width: 74px;
     margin: 3px;
     .remove {
       position: absolute;
@@ -207,9 +219,11 @@ iframe.preview {
       top: 1px;
       z-index: 1;
     }
-    .picture-container {
-      float: left;
-    }
   }
+}
+
+
+.fileinput-controls {
+  float: left;
 }
 

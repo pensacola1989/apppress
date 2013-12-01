@@ -4,6 +4,8 @@ adminConstants.factory('Constant', ['$location', function($location) {
     var SERVICE_URL_DEVELOP  = "http://192.168.1.228/";
     var SERVICE_URL_PRODUCTION  = "http://56.io/";
 
+    var UploadUrl = "http://192.168.1.228:8080";
+
     var ApiVer = 'v1';
     var ApiPath = 'N/A';
     var WebRoot = 'N/A';
@@ -24,7 +26,8 @@ adminConstants.factory('Constant', ['$location', function($location) {
     return {
         ApiVer: ApiVer,
         ApiPath: ApiPath,
-        WebRoot: WebRoot
+        WebRoot: WebRoot,
+        UploadUrl: UploadUrl
     };
 }]);
 

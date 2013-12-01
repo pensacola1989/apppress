@@ -12,21 +12,23 @@
         </div>
     </div>
     <div class="form-group upload">
-        <label class="control-label col-sm-2" for="fileupload">Images</label>
-        <div class="col-sm-5 controls">
-                <span class="btn fileinput-button">
-                    <i class="icon-upload"></i>
-                    <span>Upload...</span>
-                    <input id="fileupload" type="file" name="files[]" accept="image/*">
-                </span>
+        <label class="control-label col-sm-2" >Images</label>
+        <div class="col-sm-5 controls"  ng-controller="FileUploadController">
             <div class="fileinput-preview">
-                <div class="picture-container-single">
-                    <img class="img-rounded thumb">
+                <div ng-repeat="file in files" class="picture-container">
+                    <img class="img-rounded prew" ng-src="{{file.url}}">
                     <span class="remove"></span>
                 </div>
             </div>
+            <div class="fileinput-controls">
+                <span class="btn fileinput-button" ng-class="{disabled: disabled}">
+                    <div class="icon"></div>
+                    <input id="fileupload" type="file" name="files[]" multiple ng-disabled="disabled">
+                </span>
+            </div>
         </div>
     </div>
+
     <div class="form-group button">
         <label class="control-label col-sm-2"></label>
         <div class="controls col-sm-5">
