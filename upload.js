@@ -15,13 +15,18 @@
 
 (function (port) {
     'use strict';
+    var util = require('./framework/util');
+    var uuid = require('node-uuid');
+    var mkdirp = require('mkdirp');
+
     var path = require('path'),
         fs = require('fs'),
         // Since Node 0.8, .existsSync() moved from path to fs:
         _existsSync = fs.existsSync || path.existsSync,
         formidable = require('formidable'),
         nodeStatic = require('node-static'),
-        imageMagick = require('imagemagick'),
+        //imageMagick = require('imagemagick'),
+        gm = require('gm'),
         options = {
             tmpDir: '/upload/temp',
             publicDir: '/upload/public',
@@ -172,16 +177,18 @@
         }
     };
     FileInfo.prototype.initUrls = function (req) {
+        console.log(this);
         if (!this.error) {
             var that = this,
                 baseUrl = (options.ssl ? 'https:' : 'http:') +
                     '//' + req.headers.host + options.uploadUrl;
-            this.url = this.deleteUrl = baseUrl + encodeURIComponent(this.name);
+            this.url = this.deleteUrl = baseUrl + this.dir + '/' + encodeURIComponent(this.name);
             Object.keys(options.imageVersions).forEach(function (version) {
+                console.log(options.uploadDir + '/' + that.dir + '/' + version + '/' + that.name);
                 if (_existsSync(
-                        options.uploadDir + '/' + version + '/' + that.name
+                        options.uploadDir + '/' + that.dir + '/' + version + '/' + that.name
                     )) {
-                    that[version + 'Url'] = baseUrl + version + '/' +
+                    that[version + 'Url'] = baseUrl + that.dir + '/' + version + '/' +
                         encodeURIComponent(that.name);
                 }
             });
@@ -241,19 +248,44 @@
                 fs.unlink(file.path);
                 return;
             }
-            fs.renameSync(file.path, options.uploadDir + '/' + fileInfo.name);
-            if (options.imageTypes.test(fileInfo.name)) {
-                Object.keys(options.imageVersions).forEach(function (version) {
-                    counter += 1;
-                    var opts = options.imageVersions[version];
-                    imageMagick.resize({
-                        width: opts.width,
-                        height: opts.height,
-                        srcPath: options.uploadDir + '/' + fileInfo.name,
-                        dstPath: options.uploadDir + '/' + version + '/' +
-                            fileInfo.name
-                    }, finish);
+
+            fileInfo.dir = util.formatDate(new Date(),'yyyy-MM-dd');
+            var distFolder = options.uploadDir + '/' + fileInfo.dir + '/';
+            if(!path.existsSync(distFolder)){
+                mkdirp(distFolder, function (err) {
+                    if (err) console.error(err)
+                    saveFile(distFolder);
                 });
+            } else {
+                saveFile(distFolder);
+            }
+
+            function saveFile(distFolder) {
+                var distPath = distFolder + fileInfo.name;
+
+                fs.renameSync(file.path, distPath);
+                if (options.imageTypes.test(fileInfo.name)) {
+                    Object.keys(options.imageVersions).forEach(function (version) {
+                        counter += 1;
+                        var opts = options.imageVersions[version];
+                        var versionFolder = distFolder + version + '/';
+                        var versionPath = versionFolder + fileInfo.name;
+                        if(!path.existsSync(versionFolder)){
+                            mkdirp(versionFolder, function (err) {
+                                if (err) console.error(err)
+                                genVersionFile(distPath, versionPath, opts);
+                            });
+                        } else {
+                            genVersionFile(distPath, versionPath, opts);
+                        }
+                    });
+                }
+            }
+            function genVersionFile(src, dist, opts) {
+                gm(src)
+                    .resize(opts.width, opts.height)
+                    .autoOrient()
+                    .write(dist, finish);
             }
         }).on('aborted', function () {
             tmpFiles.forEach(function (file) {
