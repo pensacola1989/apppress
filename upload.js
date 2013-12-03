@@ -17,7 +17,6 @@
     'use strict';
     var util = require('./framework/util');
     var uuid = require('node-uuid');
-    var mkdirp = require('mkdirp');
 
     var path = require('path'),
         fs = require('fs'),
@@ -177,14 +176,12 @@
         }
     };
     FileInfo.prototype.initUrls = function (req) {
-        console.log(this);
         if (!this.error) {
             var that = this,
                 baseUrl = (options.ssl ? 'https:' : 'http:') +
                     '//' + req.headers.host + options.uploadUrl;
             this.url = this.deleteUrl = baseUrl + this.dir + '/' + encodeURIComponent(this.name);
             Object.keys(options.imageVersions).forEach(function (version) {
-                console.log(options.uploadDir + '/' + that.dir + '/' + version + '/' + that.name);
                 if (_existsSync(
                         options.uploadDir + '/' + that.dir + '/' + version + '/' + that.name
                     )) {
@@ -251,16 +248,14 @@
 
             fileInfo.dir = util.formatDate(new Date(),'yyyy-MM-dd');
             var distFolder = options.uploadDir + '/' + fileInfo.dir + '/';
-            if(!path.existsSync(distFolder)){
-                mkdirp(distFolder, function (err) {
-                    if (err) console.error(err)
-                    saveFile(distFolder);
-                });
-            } else {
-                saveFile(distFolder);
+
+            if(!fs.existsSync(distFolder)){
+                fs.mkdirSync(distFolder);
             }
+            saveFile(distFolder);
 
             function saveFile(distFolder) {
+                fileInfo.name = uuid.v4() + path.extname(fileInfo.name);
                 var distPath = distFolder + fileInfo.name;
 
                 fs.renameSync(file.path, distPath);
@@ -270,14 +265,10 @@
                         var opts = options.imageVersions[version];
                         var versionFolder = distFolder + version + '/';
                         var versionPath = versionFolder + fileInfo.name;
-                        if(!path.existsSync(versionFolder)){
-                            mkdirp(versionFolder, function (err) {
-                                if (err) console.error(err)
-                                genVersionFile(distPath, versionPath, opts);
-                            });
-                        } else {
-                            genVersionFile(distPath, versionPath, opts);
+                        if(!fs.existsSync(versionFolder)){
+                            fs.mkdirSync(versionFolder);
                         }
+                        genVersionFile(distPath, versionPath, opts);
                     });
                 }
             }
@@ -300,14 +291,20 @@
         }).on('end', finish).parse(handler.req);
     };
     UploadHandler.prototype.destroy = function () {
+
         var handler = this,
-            fileName;
+            dirName, fileName;
         if (handler.req.url.slice(0, options.uploadUrl.length) === options.uploadUrl) {
-            fileName = path.basename(decodeURIComponent(handler.req.url));
+            var url = decodeURIComponent(handler.req.url);
+            dirName =  path.dirname(url) + '/';
+            fileName = path.basename(url);
             if (fileName[0] !== '.') {
-                fs.unlink(options.uploadDir + '/' + fileName, function (ex) {
+                var imagePath = options.publicDir + dirName + fileName;
+                fs.unlink(imagePath, function (ex) {
                     Object.keys(options.imageVersions).forEach(function (version) {
-                        fs.unlink(options.uploadDir + '/' + version + '/' + fileName);
+                        var thumbPath = options.publicDir + dirName + version + '/' + fileName;
+                        //console.log(thumbPath);
+                        fs.unlink(thumbPath);
                     });
                     handler.callback({success: !ex});
                 });

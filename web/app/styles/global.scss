@@ -131,7 +131,9 @@ iframe.preview {
     margin: 3px;
     padding: 0;
     overflow: hidden;
-
+    &.disabled {
+      display: none;
+    }
     .icon {
       margin-top: 5px;
       height: 80px;

@@ -11,17 +11,21 @@ adminControllers
                 url: Constant.UploadUrl,
                 dataType: 'json',
                 done: function (e, data) {
-                    console.log(data.result.files);
-
+                    //console.log(data.result.files);
                     $scope.$apply(function() {
                         for (var i = 0; i < data.result.files.length; i++) {
                             var file = data.result.files[i];
                             uploadService.files.push(file);
                         }
                         $scope.files = uploadService.files;
+
+                        if ($scope.files.length >= uploadService.maxNumb) {
+                            $scope.disabled = true;
+                        }
                     });
                 },
                 send: function (e, data) {
+                    console.log(data.files.length);
                     if (data.total > 10000000) {
                         alertify.alert('<span class="my-error">File size must be less than 10M.</span>');
                         return false;
@@ -38,6 +42,9 @@ adminControllers
                         };
                     }
                     $scope.files = uploadService.files;
+                    if ($scope.files.length < uploadService.maxNumb) {
+                        $scope.disabled = false;
+                    }
                 });
             };
 

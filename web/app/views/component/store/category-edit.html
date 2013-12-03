@@ -13,7 +13,7 @@
     </div>
     <div class="form-group upload">
         <label class="control-label col-sm-2" >Images</label>
-        <div class="col-sm-5 controls"  ng-controller="FileUploadController">
+        <div class="col-sm-8 controls"  ng-controller="FileUploadController">
             <div class="fileinput-preview">
                 <div ng-repeat="file in files"  ng-mouseenter="hover(file)" ng-mouseleave="hover(file)" class="picture-container">
                     <img class="prew" ng-src="{{file.thumbnailUrl}}">

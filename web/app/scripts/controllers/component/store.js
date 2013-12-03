@@ -8,15 +8,16 @@ adminControllers
          refreshCatagoryList();
 
         $scope.createCategory = function() {
+            uploadService.maxNumb = 3;
             $scope.storeContent = 'views/component/store/category-edit.html';
             $scope.category = new Category({store: $scope.store.id});
         };
 
         $scope.saveCategory = function() {
             console.log(uploadService);
-//            $scope.category.$save().then(function() {
-//                refreshCatagoryList();
-//            });
+            $scope.category.$save().then(function() {
+                refreshCatagoryList();
+            });
         };
 
         function refreshCatagoryList() {
