@@ -10,7 +10,6 @@ adminServices.factory('uploadService', ['StringUtil', function(StringUtil){
             if (StringUtil.isEmpty(url)) return undefined;
             var idx = url.lastIndexOf('/');
             var ret = url.substring(0, idx + 1) + version + url.substring(idx);
-            console.log(ret);
             return ret;
         }
     };

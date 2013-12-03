@@ -11,7 +11,6 @@ adminControllers
                 url: Constant.UploadUrl,
                 dataType: 'json',
                 done: function (e, data) {
-                    //console.log(data.result.files);
                     $scope.$apply(function() {
                         for (var i = 0; i < data.result.files.length; i++) {
                             var file = data.result.files[i];
