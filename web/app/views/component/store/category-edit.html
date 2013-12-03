@@ -10,14 +10,14 @@
         <div class="col-sm-8 controls"  ng-controller="FileUploadController">
             <div class="fileinput-preview">
                 <div ng-repeat="file in files"  ng-mouseenter="hover(file)" ng-mouseleave="hover(file)" class="picture-container">
-                    <img class="prew" ng-src="{{file.thumbnailUrl}}">
+                    <img class="prew" ng-src="{{file.thumbnailUrl | imgPath}}">
                     <span ng-show="file.showRemove" ng-click="remove(file)" class="remove"></span>
                 </div>
             </div>
             <div class="fileinput-controls">
                 <span class="btn fileinput-button" ng-class="{disabled: disabled}">
                     <div class="icon" onclick="$('#fileupload').click()"></div>
-                    <input id="fileupload" type="file" name="files[]" multiple ng-disabled="disabled">
+                    <input id="fileupload" type="file" name="files[]" ng-disabled="disabled">
                 </span>
             </div>
         </div>
@@ -26,7 +26,7 @@
     <div class="form-group button">
         <label class="control-label col-sm-2"></label>
         <div class="controls col-sm-5">
-            <button ng-disabled="categoryEditForm.$invalid" ng-click="saveCategory()" class="btn btn-primary">Submit</button>&nbsp;&nbsp;
+            <button ng-disabled="categoryEditForm.$invalid || noImage()" ng-click="saveCategory()" class="btn btn-primary">Submit</button>&nbsp;&nbsp;
             <button ng-click="reset()" type="reset" class="btn">Reset</button>
         </div>
     </div>

@@ -2,20 +2,45 @@
 var adminControllers = angular.module('adminControllers');
 
 adminControllers
-    .controller('CmsStoreCtrl', ['$rootScope', '$scope', '$routeParams', 'uploadService',
-            'Store', 'Category', function ($rootScope, $scope, $routeParams, uploadService, Store, Category) {
+    .controller('CmsStoreCtrl', ['$rootScope', '$scope', '$routeParams', 'StringUtil', 'uploadService',
+            'Store', 'Category', function ($rootScope, $scope, $routeParams, StringUtil, uploadService, Store, Category) {
 
+         uploadService.maxNumb = 1;
          refreshCatagoryList();
 
         $scope.createCategory = function() {
-            uploadService.maxNumb = 3;
+            uploadService.files = [];
             $scope.storeContent = 'views/component/store/category-edit.html';
             $scope.category = new Category({store: $scope.store.id});
         };
 
         $scope.saveCategory = function() {
-            console.log(uploadService);
+            $scope.category.picture = uploadService.files[0].url
             $scope.category.$save().then(function() {
+                refreshCatagoryList();
+            });
+        };
+
+        $scope.noImage = function() {
+            if (uploadService.files.length < 1) {
+                return true;
+            } else {
+                return false;
+            }
+        };
+
+        $scope.editCategory = function(cate) {
+            uploadService.files = [];
+            $scope.storeContent = 'views/component/store/category-edit.html';
+            $scope.category = new Category(cate);
+
+            uploadService.files.push({url: cate.picture, thumbnailUrl: uploadService.pictureUrl(cate.picture, 'thumbnail')});
+            $scope.files = uploadService.files;
+            $scope.disabled = true;
+        };
+
+        $scope.deleteCategory = function(cate) {
+            new Category(cate).$delete().then(function() {
                 refreshCatagoryList();
             });
         };

@@ -13,11 +13,11 @@
             <tr ng-repeat="cate in categories">
                 <td>{{cate.id}}</td>
                 <td>{{cate.name}}</td>
-                <td><img ng-src="{{cate.picture}}" class="img-rounded thumb" ></td>
+                <td><img ng-src="{{cate.picture | imgPath}}" class="img-rounded thumb" ></td>
                 <td>
-                    <a href="#">View</a> &nbsp;&nbsp;
-                    <a href="#">Edit</a> &nbsp;&nbsp;
-                    <a href="#">Delete</a> &nbsp;&nbsp;
+                    <span class="action">View</span> &nbsp;&nbsp;
+                    <span class="action" ng-click="editCategory(cate)">Edit</span> &nbsp;&nbsp;
+                    <span class="action" ng-click="deleteCategory(cate)">Delete</span> &nbsp;&nbsp;
                 </td>
             </tr>
         </tbody>

@@ -5,7 +5,7 @@ var adminApp = angular.module('adminApp', [
       'ui.bootstrap', 'ui.jq', 'ui.event',
       'adminConstants', 'adminModels', 'adminDirectives', 'adminServices', 'adminControllers'
   ])
-  .config(function ($routeProvider, $httpProvider) {
+  .config(['$routeProvider', '$httpProvider', function ($routeProvider, $httpProvider) {
     $routeProvider
         .when('/', {
             templateUrl: 'views/index.html',
@@ -55,6 +55,6 @@ var adminApp = angular.module('adminApp', [
                 }
             }
         }]);
-  })
+  }]);
 
 

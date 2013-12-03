@@ -19,8 +19,8 @@ adminServices.factory('userService', ['$http', 'Constant', function($http, Const
     }
 }]);
 
-adminServices.factory('tokenAuthService', ['$rootScope', '$cookies', '$q', '$http', '$location', 'Constant', 'stringUtil',
-                                        function($rootScope, $cookies, $q, $http, $location, Constant, stringUtil){
+adminServices.factory('tokenAuthService', ['$rootScope', '$cookies', '$q', '$http', '$location', 'Constant', 'StringUtil',
+                                        function($rootScope, $cookies, $q, $http, $location, Constant, StringUtil){
 
      return function () {
         if ($rootScope.userProfile) {
@@ -28,7 +28,7 @@ adminServices.factory('tokenAuthService', ['$rootScope', '$cookies', '$q', '$htt
         } else {
             var userToken = $cookies.userToken;
 
-            if (!stringUtil.isEmpty(userToken)) {
+            if (!StringUtil.isEmpty(userToken)) {
                 $http.post(Constant.ApiPath + 'user/signonWithToken', { token: userToken })
                     .success(function (json) {
                         if (json.code === 1) {

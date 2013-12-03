@@ -178,8 +178,8 @@
     FileInfo.prototype.initUrls = function (req) {
         if (!this.error) {
             var that = this,
-                baseUrl = (options.ssl ? 'https:' : 'http:') +
-                    '//' + req.headers.host + options.uploadUrl;
+                baseUrl = //(options.ssl ? 'https:' : 'http:') + '//' + req.headers.host +
+                    options.uploadUrl;
             this.url = this.deleteUrl = baseUrl + this.dir + '/' + encodeURIComponent(this.name);
             Object.keys(options.imageVersions).forEach(function (version) {
                 if (_existsSync(

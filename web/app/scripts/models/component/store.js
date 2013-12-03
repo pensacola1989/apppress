@@ -12,7 +12,7 @@ adminModels.factory('Store', ['$resource', 'Constant',
 
 adminModels.factory('Category', ['$resource', 'Constant',
     function($resource, Constant){
-        return $resource(Constant.ApiPath + 'category/:categoryId', {subId:'@id'}, {
+        return $resource(Constant.ApiPath + 'category/:categoryId', {categoryId:'@id'}, {
 
         });
     }
@@ -20,7 +20,7 @@ adminModels.factory('Category', ['$resource', 'Constant',
 
 adminModels.factory('Product', ['$resource', 'Constant',
     function($resource, Constant){
-        return $resource(Constant.ApiPath + 'product/:productId', {subId:'@id'}, {
+        return $resource(Constant.ApiPath + 'product/:productId', {productId:'@id'}, {
 
         });
     }

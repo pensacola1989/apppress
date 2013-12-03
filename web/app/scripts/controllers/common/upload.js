@@ -25,7 +25,6 @@ adminControllers
                     });
                 },
                 send: function (e, data) {
-                    console.log(data.files.length);
                     if (data.total > 10000000) {
                         alertify.alert('<span class="my-error">File size must be less than 10M.</span>');
                         return false;
