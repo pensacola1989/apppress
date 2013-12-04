@@ -4,8 +4,8 @@ var adminControllers = angular.module('adminControllers');
 adminControllers
     .controller('FileUploadController', ['$scope', '$element', '$attrs', '$window', '$http', 'uploadService', 'Constant',
         function ($scope, $element, $attrs, $window, $http, uploadService, Constant) {
-            $scope.disabled = false;
-            $scope.files = $scope.files || [];
+            $scope.disabled = uploadService.disabled;
+            $scope.files = uploadService.files;
 
             $('#fileupload').fileupload({
                 url: Constant.UploadUrl,
@@ -33,7 +33,7 @@ adminControllers
             });
 
             $scope.remove = function(file) {
-                $http.delete(file.url).success(function() {
+                $http.delete(Constant.UploadUrl + file.url).success(function() {
                     for (var i = 0; i < uploadService.files.length; i++) {
                         if (uploadService.files[i].url === file.url)  {
                             uploadService.files.splice(i,1);

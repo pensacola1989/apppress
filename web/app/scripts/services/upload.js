@@ -4,6 +4,7 @@ var adminServices = angular.module('adminServices');
 
 adminServices.factory('uploadService', ['StringUtil', function(StringUtil){
     return {
+        disabled: false,
         maxNumb: 0,
         files : [],
         pictureUrl: function(url, version) {

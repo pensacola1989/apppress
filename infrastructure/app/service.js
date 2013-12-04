@@ -31,15 +31,15 @@ exports.createApp = function (name, descr, userId, callback) {
 
                 CmsStore.create({subscription: m1._id}, function (err, store) {
 
-                    CmsStoreCategory.create({name: 'Phone', picture: '/upload/sample/iPhone5.png', store: store._id}, function (err, category) {
-                        //store.categories.push(category);
-                        store.save(function(){});
-
-                        CmsStoreProduct.create({name: 'iPhone 5s', descr: '', thumb: '/upload/sample/iPhone5.png', price: 5000.00, freight: 50, flatRate: false, order: -1, status: 1, createTime: new Date(), category: category._id}, function (err, product) {
-                            //category.products.push(product);
-                            category.save(function(){});
-                        });
-                    });
+//                    CmsStoreCategory.create({name: 'Phone', picture: '/upload/sample/iPhone5.png', store: store._id}, function (err, category) {
+//                        //store.categories.push(category);
+//                        store.save(function(){});
+//
+//                        CmsStoreProduct.create({name: 'iPhone 5s', descr: '', thumb: '/upload/sample/iPhone5.png', price: 5000.00, freight: 50, flatRate: false, order: -1, status: 1, createTime: new Date(), category: category._id}, function (err, product) {
+//                            //category.products.push(product);
+//                            category.save(function(){});
+//                        });
+//                    });
                 });
                 app.save(function(){
                     callback(app);

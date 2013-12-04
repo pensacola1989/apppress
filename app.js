@@ -6,9 +6,9 @@ var server = express();
 server.configure(function () {
     server.use(express.bodyParser({
         keepExtensions:true,
-        limit:10000000,
+        limit:10000000
         //defer:true,
-        uploadDir: "d:/"})
+        })
     );
     server.use(express.cookieParser());
     server.use(express.session({secret: 'apppress'}));

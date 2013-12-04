@@ -56,7 +56,6 @@ exports.findCategories = function(req, res){
     })
 };
 exports.saveCategory = function (req, res) {
-    console.log(req.body);
     var storeCategory = new CmsStoreCategory({
         name: req.body.name,
         picture: req.body.picture,
@@ -71,8 +70,9 @@ exports.updateCategory = function(req, res){
     CmsStoreCategory.findByIdAndUpdate(
         req.params.id,
         {
-            name: req.body.category.name,
-            picture: req.body.category.picture
+            name: req.body.name,
+            picture: req.body.picture,
+            store: req.body.store
         }, function(){
             res.send({code: 1});
         }

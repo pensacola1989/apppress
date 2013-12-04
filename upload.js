@@ -276,7 +276,10 @@
                 gm(src)
                     .resize(opts.width, opts.height)
                     .autoOrient()
-                    .write(dist, finish);
+                    .write(dist, function (err) {
+                        console.log(err);
+                        finish();
+                    });
             }
         }).on('aborted', function () {
             tmpFiles.forEach(function (file) {

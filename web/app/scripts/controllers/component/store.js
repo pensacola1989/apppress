@@ -9,6 +9,7 @@ adminControllers
          refreshCatagoryList();
 
         $scope.createCategory = function() {
+            uploadService.disabled = false;
             uploadService.files = [];
             $scope.storeContent = 'views/component/store/category-edit.html';
             $scope.category = new Category({store: $scope.store.id});
@@ -34,9 +35,10 @@ adminControllers
             $scope.storeContent = 'views/component/store/category-edit.html';
             $scope.category = new Category(cate);
 
+            uploadService.disabled = true;
             uploadService.files.push({url: cate.picture, thumbnailUrl: uploadService.pictureUrl(cate.picture, 'thumbnail')});
             $scope.files = uploadService.files;
-            $scope.disabled = true;
+
         };
 
         $scope.deleteCategory = function(cate) {
